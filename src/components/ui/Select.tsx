@@ -1,10 +1,4 @@
-import {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  FC,
-  forwardRef,
-  HTMLAttributes,
-} from "react";
+import { DetailedHTMLProps, FC, forwardRef, HTMLAttributes } from "react";
 import classNames from "classnames";
 import * as RadixSelect from "@radix-ui/react-select";
 import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
@@ -107,6 +101,7 @@ type SelectItemProps = DetailedHTMLProps<
   value: any;
 };
 
+// eslint-disable-next-line react/display-name
 const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
   ({ children, value, className, ...props }, forwardedRef) => {
     return (
