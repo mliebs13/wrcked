@@ -73,6 +73,7 @@ const Select: FC<SelectProps> = ({
               </RadixSelect.Label>
               {options.map((option, idx) => (
                 <SelectItem
+                  key={`select-option-${idx}`}
                   value={option}
                   className={classNames(
                     "flex items-center text-sm outline-none p-1.5 hover:bg-primary hover:bg-opacity-80 hover:text-white cursor-pointer",

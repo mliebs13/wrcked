@@ -49,22 +49,23 @@ const Product: NextPage = () => {
 
             {/* description */}
             <p className="font-bold text-sm">
-              HELP! MY RIPPED LITHOGRAPH... BUT IT LOOKS SO GOOD. DON'T LIE, THE
-              FIRST TIME YOU EVER SAW SOMEONE VANDALIZING A WALL YOU THOUGHT IT
-              LOOKED INCREDIBLE. INDUSTRIES WITH LITTLE TO NO REGARD FOR
-              AESTHETICS DESIGNING PEICES OF ART FOR UTILITARIAN PURPOSES CHURN
-              OUT BANGERS LIKE NO ONE ELSE. WE'VE COLLECTIVELY AESTHETICIZED
-              GLASSES, BUT THE TREND OF STREET ART MAKING THE LEAP TO THE DIVINE
-              SEEMS SO EASY. NO LONGER. LET'S PUSH THE ENVELOPE ON WHAT ART IS;
-              ART SHOULD BE ANYTHING THAT YOUR EYE GAZES UPON.
-              MATERIALS/DETAILS: FLEXIBLE MOLDED CONSTRUCTION CYANOACRYLATE THIN
-              SHEET MATERIAL THIN SHEET MATERIAL THIN SHEET MATERIAL
+              HELP! MY RIPPED LITHOGRAPH... BUT IT LOOKS SO GOOD. DON&apos;T
+              LIE, THE FIRST TIME YOU EVER SAW SOMEONE VANDALIZING A WALL YOU
+              THOUGHT IT LOOKED INCREDIBLE. INDUSTRIES WITH LITTLE TO NO REGARD
+              FOR AESTHETICS DESIGNING PEICES OF ART FOR UTILITARIAN PURPOSES
+              CHURN OUT BANGERS LIKE NO ONE ELSE. WE&apos;VE COLLECTIVELY
+              AESTHETICIZED GLASSES, BUT THE TREND OF STREET ART MAKING THE LEAP
+              TO THE DIVINE SEEMS SO EASY. NO LONGER. LET&apos;S PUSH THE
+              ENVELOPE ON WHAT ART IS; ART SHOULD BE ANYTHING THAT YOUR EYE
+              GAZES UPON. MATERIALS/DETAILS: FLEXIBLE MOLDED CONSTRUCTION
+              CYANOACRYLATE THIN SHEET MATERIAL THIN SHEET MATERIAL THIN SHEET
+              MATERIAL
             </p>
           </div>
 
           {/* 'buy now' button */}
           <div className="bg-white w-full p-6">
-            <AltButton className="w-full py-6 text-3xl font-bold mb-2">
+            <AltButton className="w-full py-4 text-3xl font-bold mb-2">
               BUY NOW
             </AltButton>
             <p className="text-sm font-bold text-danger text-center">

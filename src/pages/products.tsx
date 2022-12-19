@@ -25,7 +25,7 @@ const Products: NextPage = () => {
         spaceMono.className
       )}
     >
-      {/* horizontal line pattern */}
+      {/* vertical line pattern */}
       <div className="fixed top-0 left-[calc(2.5rem+174px)] 2xl:left-[calc(5rem+174px)] w-0.5 min-h-screen bg-primary" />
 
       <Header />

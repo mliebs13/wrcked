@@ -24,7 +24,7 @@ const ProductDetails: FC = () => {
     >
       <div className="w-full absolute left-[calc(2.5rem+15px)] 2xl:left-[calc(5rem+15px)] -top-16 flex flex-col items-start z-10">
         {/* product details */}
-        <div className="w-full h-5 max-w-[320px] flex items-center justify-start bg-white shadow-block border-2 border-primary overflow-hidden">
+        <div className="w-full h-5 max-w-[320px] flex items-center justify-start bg-white mb-[5px] shadow-block border-2 border-primary overflow-hidden">
           {/* name */}
           <div className="w-full bg-secondary text-sm text-primary uppercase px-2">
             Product 1
@@ -37,7 +37,7 @@ const ProductDetails: FC = () => {
         </div>
 
         {/* spacing */}
-        <div className="w-full bg-white p-0.5" />
+        <div className="w-[320px] bg-white p-0.5 -mt-[1px] z-1" />
 
         {/* 'buy now' button & navigation - 320px - 25% 60% 25% */}
         <div className="flex items-center w-[320px] h-[54px]">
