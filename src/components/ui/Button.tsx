@@ -15,8 +15,8 @@ const Button: FC<
     <button
       {...props}
       className={classNames(
+        "Button relative flex items-center justify-center bg-secondary shadow-block border border-primary cursor-pointer",
         spaceMono.className,
-        "Button relative flex items-center justify-center bg-secondary shadow-button border border-primary cursor-pointer",
         className
       )}
     >

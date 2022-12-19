@@ -15,9 +15,8 @@ const Input: FC<
     <input
       {...props}
       className={classNames(
+        "Input bg-transparent font-normal border border-primary outline-none",
         spaceMono.className,
-        "Input",
-        "bg-secondary font-normal border border-primary outline-none",
         className
       )}
     />

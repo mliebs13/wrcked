@@ -55,7 +55,7 @@ const UITest: NextPage = () => {
       <br />
 
       {/* input field */}
-      <Input className="text-base px-4 py-3" placeholder="Enter your name" />
+      <Input className="text-sm px-4 py-3" placeholder="Enter your name" />
 
       <br />
 

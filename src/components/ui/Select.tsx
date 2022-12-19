@@ -1,4 +1,10 @@
-import { DetailedHTMLProps, FC, forwardRef, HTMLAttributes } from "react";
+import {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  FC,
+  forwardRef,
+  HTMLAttributes,
+} from "react";
 import classNames from "classnames";
 import * as RadixSelect from "@radix-ui/react-select";
 import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
@@ -14,6 +20,7 @@ type SelectProps = {
   placeholder: string;
   label: string;
   options: string[];
+  className?: string;
   selected: string;
   setSelected: (value: string) => void;
 };
@@ -22,6 +29,7 @@ const Select: FC<SelectProps> = ({
   placeholder,
   label,
   options,
+  className = "",
   selected,
   setSelected,
 }) => {
@@ -29,8 +37,9 @@ const Select: FC<SelectProps> = ({
     <RadixSelect.Root value={selected} onValueChange={setSelected}>
       <RadixSelect.Trigger
         className={classNames(
-          "SelectTrigger w-full max-w-md flex items-center justify-between text-base border border-primary outline-none p-2.5",
-          spaceMono.className
+          "SelectTrigger w-full flex items-center justify-between text-sm border border-primary outline-none",
+          spaceMono.className,
+          className
         )}
       >
         <RadixSelect.Value
@@ -66,11 +75,12 @@ const Select: FC<SelectProps> = ({
                 <SelectItem
                   value={option}
                   className={classNames(
-                    "flex items-center text-sm bg-white text-primary outline-none p-1.5 hover:bg-primary hover:bg-opacity-80 hover:text-white cursor-pointer",
+                    "flex items-center text-sm outline-none p-1.5 hover:bg-primary hover:bg-opacity-80 hover:text-white cursor-pointer",
                     {
                       "mb-1": idx !== options.length - 1,
                       "bg-primary bg-opacity-80 text-white":
                         selected === option,
+                      "bg-secondary text-primary": selected !== option,
                     }
                   )}
                 >
