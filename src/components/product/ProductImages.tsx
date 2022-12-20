@@ -22,19 +22,19 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
           src={image}
           alt="product image"
           height={550}
-          className="w-[54%] pb-24"
+          className="w-[50%] pb-24"
         />
       </div>
 
       <p className="min-w-fit text-sm font-bold -mt-24 mr-4">12IN / 30cm</p>
 
-      <div className="-mt-32 z-[8] overflow-hidden">
+      <div className="-mt-[7.75rem] z-[8] overflow-hidden">
         <Image
           src={meterRuleImage}
           alt="metre rule"
           // width={23.75}
           // height={975}
-          className="h-[96vh] max-h-[875px] bg-white"
+          className="h-[96vh] max-h-[840px] bg-white"
         />
       </div>
     </div>
