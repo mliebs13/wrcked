@@ -34,7 +34,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
           alt="metre rule"
           // width={23.75}
           // height={975}
-          className="h-[96vh] bg-white"
+          className="h-[96vh] max-h-[875px] bg-white"
         />
       </div>
     </div>

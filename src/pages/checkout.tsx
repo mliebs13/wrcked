@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
+import Link from "next/link";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import CheckoutHeader from "@components/checkout/CheckoutHeader";
@@ -60,50 +61,66 @@ const Checkout: NextPage = () => {
       {/* content */}
       <div className="w-full max-w-6xl flex justify-between mx-auto">
         {/* left - product summary */}
-        <div className="w-[48%] flex flex-col mr-[4%]">
-          <h2 className="text-base tracking-wide mb-4">PRODUCT SUMMARY</h2>
+        <div className="w-[48%] flex flex-col justify-between mr-[4%]">
+          <div>
+            <h2 className="text-base tracking-wide mb-4">PRODUCT SUMMARY</h2>
 
-          <div className="flex w-full border border-primary mb-4">
-            {/* image */}
-            <div className="w-fit p-4 border-r-primary border-r">
-              <Image src={productImage} alt="product image" width={275} />
+            <div className="flex w-full border border-primary mb-4">
+              {/* image */}
+              <div className="w-fit p-4 border-r-primary border-r">
+                <Image src={productImage} alt="product image" width={275} />
+              </div>
+
+              {/* summary */}
+              <div className="w-full">
+                <div className="px-4 py-2 border-b border-b-primary">
+                  <p className="text-base font-bold mb-1">Product 1</p>
+                  <p className="text-base">QUANTITY: 1</p>
+                </div>
+                <div className="px-4 py-2 border-b border-b-primary">
+                  <p className="flex justify-between text-base mb-1">
+                    <span>SUBTOTAL</span>
+                    <span>$450.00</span>
+                  </p>
+                  <p className="flex justify-between text-base mb-1">
+                    <span>SHIPPING</span>
+                    <span>FREE</span>
+                  </p>
+                  <p className="flex justify-between text-base">
+                    <span>TAXES</span>
+                    <span>FREE</span>
+                  </p>
+                </div>
+                <div className="px-4 py-2">
+                  <p className="flex justify-between text-base font-bold">
+                    <span>TOTAL</span>
+                    <span>$450.00</span>
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* summary */}
-            <div className="w-full">
-              <div className="px-4 py-2 border-b border-b-primary">
-                <p className="text-base font-bold mb-1">Product 1</p>
-                <p className="text-base">QUANTITY: 1</p>
-              </div>
-              <div className="px-4 py-2 border-b border-b-primary">
-                <p className="flex justify-between text-base mb-1">
-                  <span>SUBTOTAL</span>
-                  <span>$450.00</span>
-                </p>
-                <p className="flex justify-between text-base mb-1">
-                  <span>SHIPPING</span>
-                  <span>FREE</span>
-                </p>
-                <p className="flex justify-between text-base">
-                  <span>TAXES</span>
-                  <span>FREE</span>
-                </p>
-              </div>
-              <div className="px-4 py-2">
-                <p className="flex justify-between text-base font-bold">
-                  <span>TOTAL</span>
-                  <span>$450.00</span>
-                </p>
-              </div>
+            <div className="flex items-center">
+              <Checkbox
+                checked={agreeToTerms}
+                handleClick={() => setAgreeToTerms(!agreeToTerms)}
+              />
+              <p className="text-darkGray text-sm ml-2">
+                I AGREE WITH THE TERMS
+              </p>
             </div>
           </div>
 
-          <div className="flex items-center">
-            <Checkbox
-              checked={agreeToTerms}
-              handleClick={() => setAgreeToTerms(!agreeToTerms)}
-            />
-            <p className="text-darkGray text-sm ml-2">I AGREE WITH THE TERMS</p>
+          <div>
+            <Link
+              href="/terms-of-service"
+              className="text-darkGray text-base mr-4"
+            >
+              TERMS
+            </Link>
+            <Link href="/privacy-policy" className="text-darkGray text-base">
+              PRIVACY
+            </Link>
           </div>
         </div>
 
@@ -115,7 +132,10 @@ const Checkout: NextPage = () => {
             </h2>
 
             <div>
-              <Input placeholder="PHONE NUMBER" className="w-full px-4 py-3" />
+              <Input
+                placeholder="PHONE NUMBER"
+                className="w-full text-base px-4 py-3"
+              />
               <Input placeholder="EMAIL" className="w-full px-4 py-3" />
             </div>
           </div>
@@ -124,28 +144,34 @@ const Checkout: NextPage = () => {
             <h2 className="text-base tracking-wide mb-4">SHIPPING ADDRESS</h2>
 
             <div>
-              <Input placeholder="NAME" className="w-full px-4 py-3" />
+              <Input
+                placeholder="NAME"
+                className="w-full text-base px-4 py-3"
+              />
               <Select
                 placeholder="EMAIL"
                 options={countries.map((c) => c.toUpperCase())}
                 label="SELECT COUNTRY"
                 selected={country}
                 setSelected={setCountry}
-                className="px-4 py-3"
+                className="text-base px-4 py-3"
               />
               <Input
                 placeholder="ADDRESS LINE 1"
-                className="w-full px-4 py-3"
+                className="text-base w-full px-4 py-3"
               />
               <Input
                 placeholder="ADDRESS LINE 2"
-                className="w-full px-4 py-3"
+                className="text-base w-full px-4 py-3"
               />
-              <Input placeholder="CITY" className="w-full px-4 py-3" />
+              <Input
+                placeholder="CITY"
+                className="w-full text-base px-4 py-3"
+              />
               <div className="w-full flex mb-4">
                 <Input
                   placeholder="ZIP"
-                  className="w-[calc(50%-2px)] px-4 py-3 mr-1"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
                 />
                 <Select
                   placeholder="STATE"
@@ -153,7 +179,7 @@ const Checkout: NextPage = () => {
                   label="SELECT STATE"
                   selected={state}
                   setSelected={setState}
-                  className="w-[calc(50%-2px)] px-4 py-3"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3"
                 />
               </div>
               <div className="flex items-center">
@@ -207,7 +233,7 @@ const Checkout: NextPage = () => {
                     />
                   </svg>
 
-                  <span className="text-sm ml-2">CARD</span>
+                  <span className="text-base ml-2">CARD</span>
                 </div>
 
                 {/* apply pay */}
@@ -237,21 +263,21 @@ const Checkout: NextPage = () => {
                     />
                   </svg>
 
-                  <span className="text-sm ml-2">APPLE PAY</span>
+                  <span className="text-base ml-2">APPLE PAY</span>
                 </div>
               </div>
               <Input
                 placeholder="1234 1234 1234 1234"
-                className="w-full px-4 py-3 mr-1"
+                className="w-full text-base px-4 py-3 mr-1"
               />
               <div className="w-full flex mb-4">
                 <Input
                   placeholder="MM / YY"
-                  className="w-[calc(50%-2px)] px-4 py-3 mr-1"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
                 />
                 <Input
                   placeholder="MM / YY"
-                  className="w-[calc(50%-2px)] px-4 py-3 mr-1"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
                 />
               </div>
               <div className="w-full flex mb-4">
@@ -261,11 +287,11 @@ const Checkout: NextPage = () => {
                   label="SELECT COUNTRY"
                   selected={cardCountry}
                   setSelected={setCardCountry}
-                  className="w-[calc(50%-2px)] px-4 py-3"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3"
                 />
                 <Input
                   placeholder="90210"
-                  className="w-[calc(50%-2px)] px-4 py-3 mr-1"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
                 />
               </div>
             </div>

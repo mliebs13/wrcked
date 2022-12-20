@@ -29,13 +29,13 @@ const Product: NextPage = () => {
       <div className="w-full h-fit max-w-6xl grid grid-cols-[1fr_1fr] gap-16 mx-auto">
         {/* left */}
         <div className="w-full h-fit max-w-2xl flex flex-col items-start justify-start mr-[8%]">
-          <AltButton className="text-base uppercase px-10 py-4 mb-12">
+          <AltButton className="text-base uppercase px-10 py-4 mb-8">
             Close
           </AltButton>
 
           {/* product details */}
           <div className="w-full min-h-[250px] flex flex-col bg-lightGray border-2 border-primary shadow-block p-6 mb-2">
-            <div className="mb-12">
+            <div className="mb-10">
               <Logo size="lg" color="gray" />
               <p className="text-4xl font-bold uppercase tracking-wide -mt-8 ml-6">
                 PRODUCT 2
@@ -47,7 +47,7 @@ const Product: NextPage = () => {
             </div>
 
             {/* price */}
-            <p className="font-bold text-xl mb-12">$450</p>
+            <p className="font-bold text-xl mb-10">$450</p>
 
             {/* description */}
             <p className="font-bold text-sm">
@@ -90,12 +90,7 @@ const Product: NextPage = () => {
             <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
               36IN / 90CM
             </p>
-            <Image
-              src={meterRuleVertical}
-              alt="metre rule"
-              height={710}
-              // className="h-[40%]"
-            />
+            <Image src={meterRuleVertical} alt="metre rule" height={710} />
           </div>
 
           {/* horizontal */}

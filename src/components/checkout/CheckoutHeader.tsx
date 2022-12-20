@@ -6,10 +6,10 @@ const CheckoutHeader: FC = () => {
   const router = useRouter();
 
   return (
-    <header className="w-full h-fit max-w-7xl flex justify-center items-center mx-auto mb-12">
+    <header className="relative w-full h-fit max-w-6xl flex justify-center items-center mx-auto mb-12">
       {/* back button */}
       <button
-        className="absolute top-12 left-10 2xl:left-20 flex items-center"
+        className="absolute left-0 top-0 2xl:left-20 flex items-center text-primary"
         onClick={() => router.push("/products")}
       >
         <ChevronLeftIcon width={24} height={24} />

@@ -31,7 +31,7 @@ const Select: FC<SelectProps> = ({
     <RadixSelect.Root value={selected} onValueChange={setSelected}>
       <RadixSelect.Trigger
         className={classNames(
-          "SelectTrigger w-full flex items-center justify-between text-sm border border-primary outline-none",
+          "SelectTrigger w-full flex items-center justify-between border border-primary outline-none",
           spaceMono.className,
           className
         )}
