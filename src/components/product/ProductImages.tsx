@@ -32,9 +32,9 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
         <Image
           src={meterRuleImage}
           alt="metre rule"
-          width={23.75}
-          height={975}
-          className="bg-white"
+          // width={23.75}
+          // height={975}
+          className="h-[96vh] bg-white"
         />
       </div>
     </div>

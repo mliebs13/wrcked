@@ -6,6 +6,8 @@ import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
 
 import productImage from "@public/images/productImage.png";
+import meterRuleHorizontal from "@public/images/meterRuleHorizontal.svg";
+import meterRuleVertical from "@public/images/meterRuleVertical.svg";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -20,13 +22,13 @@ const Product: NextPage = () => {
         backgroundSize: "14px 26px",
       }}
       className={classNames(
-        "Product relative w-full min-h-screen flex justify-center bg-skyBlue bg-dots-secondary py-16 px-10",
+        "Product relative w-full min-h-screen flex justify-center bg-skyBlue bg-dots-secondary py-16 px-10 2xl:px-20",
         spaceMono.className
       )}
     >
-      <div className="w-full h-fit max-w-6xl flex justify-between mx-auto">
+      <div className="w-full h-fit max-w-6xl grid grid-cols-[1fr_1fr] gap-16 mx-auto">
         {/* left */}
-        <div className="w-[46%] h-fit max-w-2xl flex flex-col items-start justify-start mr-[8%]">
+        <div className="w-full h-fit max-w-2xl flex flex-col items-start justify-start mr-[8%]">
           <AltButton className="text-base uppercase px-10 py-4 mb-12">
             Close
           </AltButton>
@@ -75,28 +77,38 @@ const Product: NextPage = () => {
         </div>
 
         {/* right */}
-        <div className="w-[46%] h-full relative flex items-center self-center justify-end">
+        <div className="relative w-full h-full flex flex-col justify-center self-center items-end pr-14 2xl:pr-16">
           <Image
             src={productImage}
             alt="product image"
             height={550}
             className="w-[85%]"
           />
-          {/* <div className="w-full flex">
-            <div className="absolute top-0 right-0 flex items-start">
-              <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
-                36IN / 90CM
-              </p>
-              <Image src={meterRuleVertical} alt="metre rule" />
-            </div>
-          </div> */}
 
-          {/* <div className="flex justify-end self-end">
+          {/* vertical */}
+          <div className="absolute top-0 right-0 flex items-start">
+            <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
+              36IN / 90CM
+            </p>
+            <Image
+              src={meterRuleVertical}
+              alt="metre rule"
+              height={710}
+              // className="h-[40%]"
+            />
+          </div>
+
+          {/* horizontal */}
+          <div className="w-full absolute bottom-0 left-0">
             <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
               24IN / 60CM
             </p>
-            <Image src={meterRuleHorizontal} alt="metre rule" />
-          </div> */}
+            <Image
+              src={meterRuleHorizontal}
+              alt="metre rule"
+              className="w-[90%]"
+            />
+          </div>
         </div>
       </div>
     </main>
