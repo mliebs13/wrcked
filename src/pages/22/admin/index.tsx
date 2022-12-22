@@ -5,25 +5,19 @@ import AdminLayout from "@src/layouts/AdminLayout";
 import { shortenString } from "../../../utils";
 import Spinner from "@src/components/shared/Spinner";
 import { Product } from "@src/types";
-import Tooltip from "@src/components/ui/Tooltip";
+import sanityClient from "@src/config/sanity";
 
 const Admin: NextPageWithLayout = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[] | null>(null);
   const [productsError, setProductsError] = useState<string | null>(null);
-  const client = createClient({
-    projectId: "t4jr7tcz",
-    dataset: "production",
-    apiVersion: "2022-03-25",
-    useCdn: false,
-    token:
-      "skhXf6Ov7ZoDiG1uLDjvcSI5zZJ1azeV783F8rEbXrZuRdGqEuksZIcaQR3DPAMPLkRuJPkRB4Gdv4DkD25DAGSOCEhaHddizpnjInc8NWN3bRpC1a5POKr9rLa4pNhUIRLEYPqTqdebEohywUHIDwWjOuRlpBgBkhKQI62ijybQG7Li5ZoA",
-  });
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const fetchedProducts = await client.fetch(`*[_type == "product"]`);
+        const fetchedProducts = await sanityClient.fetch(
+          `*[_type == "product"]`
+        );
         setProducts(fetchedProducts);
       } catch (err: any) {
         console.log("error occurred: ", err.message);
@@ -37,8 +31,8 @@ const Admin: NextPageWithLayout = () => {
   }, []);
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray flex items-start">
-      <div className="w-full max-w-8xl flex flex-col items-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
+    <main className="w-full h-[calc(100vh-95px)] max-h-full bg-lightGray flex items-start overflow-y-hidden">
+      <div className="w-full h-full max-w-8xl flex flex-col items-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
         {products ? (
           <table className="w-fit min-w-full bg-white rounded-t-md shadow overflow-hidden">
             {/* head */}

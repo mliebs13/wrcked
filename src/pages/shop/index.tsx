@@ -1,9 +1,12 @@
-import { NextPage } from "next";
+import { useEffect, useState } from "react";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import Header from "@components/product/Header";
 import ProductDetails from "@components/product/ProductDetails";
 import ProductImages from "@components/product/ProductImages";
+import { Product } from "@src/types";
+import sanityClient from "@src/config/sanity";
 
 import productImage from "@public/images/product-image.png";
 import productGIF from "@public/images/product-gif.gif";
@@ -14,7 +17,23 @@ const spaceMono = Space_Mono({
   fallback: ["system-ui", "arial"],
 });
 
-const Products: NextPage = () => {
+const Shop = ({
+  products: sanityProducts,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log("products fetched from sanity:", sanityProducts);
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const fetchedProducts = await sanityClient.fetch(`*[_type == "product"]`);
+      console.log("products: ", fetchedProducts);
+      setProducts(fetchedProducts);
+    };
+
+    fetch();
+  }, []);
+
   return (
     <main
       style={{
@@ -243,4 +262,28 @@ const Products: NextPage = () => {
   );
 };
 
-export default Products;
+export const getStaticProps: GetStaticProps<{
+  products: Product[];
+}> = async () => {
+  try {
+    console.log("fetching products from sanity");
+    const products = await sanityClient.fetch(`*[_type == "product"]`);
+    console.log("products from static: ", products);
+
+    return {
+      props: {
+        products,
+      },
+    };
+  } catch (err: any) {
+    console.log("error occurred fetching products: ", err);
+    return {
+      props: {
+        products: [],
+      },
+      // revalidate: 10,
+    };
+  }
+};
+
+export default Shop;

@@ -156,7 +156,9 @@ const AdminLayout: FC<AdminLayoutProps> = ({
             </div>
           </div>
 
-          <div className="w-full grid overflow-x-auto">{children}</div>
+          <div className="w-full grid min-h-[calc(100vh-95px)] overflow-x-auto">
+            {children}
+          </div>
         </div>
       </div>
     </Auth>

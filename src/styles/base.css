@@ -217,7 +217,7 @@ button {
 
 @media screen and (max-width: 640px) {
   .text-xs {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .text-sm {

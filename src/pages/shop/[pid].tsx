@@ -1,16 +1,18 @@
 import { useLayoutEffect, useRef } from "react";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
 import useWindowSize from "@src/hooks/useWindowSize";
+import sanityClient from "@src/config/sanity";
 
 import productImage from "@public/images/product-image.png";
 import meterRuleHorizontal from "@public/images/meter-rule-horizontal.svg";
 import meterRuleVertical from "@public/images/meter-rule-vertical.svg";
-import { useRouter } from "next/router";
+import { Product } from "@src/types";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -121,5 +123,35 @@ const Product: NextPage = () => {
     </main>
   );
 };
+
+/*export const getStaticPaths = async () => {
+  const paths: any[] = await sanityClient.fetch(
+    `*[_type == "product" && defined(slug.current)][].slug.current`
+  );
+
+  return {
+    paths: paths.map((slug) => ({ params: { slug } })),
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps<{ product: Product[] }> = async (
+  context
+) => {
+  // It's important to default the slug so that it doesn't return "undefined"
+  const { pid } = context.params as any;
+  console.log("slug: ", 1);
+  const product = await sanityClient.fetch(
+    `
+    *[_type == "product" && slug.current == $slug][0]
+  `,
+    { pid }
+  );
+  return {
+    props: {
+      product,
+    },
+  };
+};*/
 
 export default Product;

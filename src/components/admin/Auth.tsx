@@ -16,16 +16,20 @@ const Auth: FC<
   const result = useAdmin(true);
 
   return result ? (
-    <div
-      className={classNames(
-        spaceMono.className,
-        "w-full text-center text-base py-3 sm:py-10 2xl:py-20"
-      )}
-    >
+    <div>
       {result?.admin ? (
         <Fragment>{children}</Fragment>
       ) : (
-        result?.message ?? "Unauthorized access"
+        result?.message ?? (
+          <div
+            className={classNames(
+              spaceMono.className,
+              "w-full text-center text-base py-3 sm:py-10 2xl:py-20"
+            )}
+          >
+            Unauthorized access
+          </div>
+        )
       )}
     </div>
   ) : (
