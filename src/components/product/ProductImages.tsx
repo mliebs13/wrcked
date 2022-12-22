@@ -16,20 +16,20 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
 
   return (
     <div className="relative flex justify-between py-5 lg:py-16 px-10 lg:px-20 mx-auto">
-      <div className="w-fit flex items-end self-center 3xl:self-start justify-center pt-5 sm:py-0 pr-4 lg:pr-0 lg:px-8 mx-auto -mr-16 lg:mr-0">
+      <div className="w-fit flex items-end self-center lg:self-start justify-center pt-6 lg:pt-0 mx-auto -mr-16 lg:ml-4 lg:mr-12">
         <Image
           src={gif}
           alt="product gif"
           width={350}
           height={350}
-          className="hidden lg:block w-[52%] xl:w-[36%] mr-14"
+          className="hidden lg:block h-[45vh] max-h-[350px] lg:min-h-[250px] mr-14"
         />
         <Image
           src={image}
           alt="product image"
           width={519}
           height={550}
-          className="w-auto lg:w-[56%] h-[250px] lg:h-auto xl:w-[38%] lg:pb-24"
+          className="w-auto h-[250px] lg:h-[70vh] max-h-[550px] lg:min-h-[400px] lg:pb-24"
         />
       </div>
 
@@ -41,7 +41,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
         <Image
           src={width < breakpoints.lg ? meterRuleMobileImage : meterRuleImage}
           alt="metre rule"
-          className="h-[54vh] lg:h-[80vh] max-h-[760px]"
+          className="h-[54vh] lg:h-[82vh] max-h-[760px] lg:min-h-[420px]"
         />
       </div>
     </div>

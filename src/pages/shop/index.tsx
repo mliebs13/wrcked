@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import groq from "groq";
 import { Space_Mono } from "@next/font/google";
