@@ -2,7 +2,6 @@ import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Space_Mono } from "@next/font/google";
-import { Head } from "next/document";
 import Cookies from "js-cookie";
 import classNames from "classnames";
 import {
@@ -12,7 +11,6 @@ import {
   PersonIcon,
   BellIcon,
   ExitIcon,
-  HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
 import { useMemo } from "react";
 import Button from "@components/ui/Button";
