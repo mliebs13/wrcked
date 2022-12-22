@@ -14,13 +14,17 @@ const IconButton: FC<IconButtonProps> = ({
   children,
   className,
   alt = false,
+  ...props
 }) => {
   return alt ? (
-    <AltButton className={classNames("IconButton", "p-4", className)}>
+    <AltButton
+      className={classNames("IconButton", "p-4", className)}
+      {...props}
+    >
       {children}
     </AltButton>
   ) : (
-    <Button className={classNames("IconButton", "p-4", className)}>
+    <Button className={classNames("IconButton", "p-4", className)} {...props}>
       {children}
     </Button>
   );

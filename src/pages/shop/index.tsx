@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import groq from "groq";
 import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import Header from "@components/product/Header";
@@ -7,9 +8,7 @@ import ProductDetails from "@components/product/ProductDetails";
 import ProductImages from "@components/product/ProductImages";
 import { Product } from "@src/types";
 import sanityClient from "@src/config/sanity";
-
-import productImage from "@public/images/product-image.png";
-import productGIF from "@public/images/product-gif.gif";
+import { getSanityImageUrl } from "@src/utils";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -17,22 +16,8 @@ const spaceMono = Space_Mono({
   fallback: ["system-ui", "arial"],
 });
 
-const Shop = ({
-  products: sanityProducts,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log("products fetched from sanity:", sanityProducts);
-
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetch = async () => {
-      const fetchedProducts = await sanityClient.fetch(`*[_type == "product"]`);
-      console.log("products: ", fetchedProducts);
-      setProducts(fetchedProducts);
-    };
-
-    fetch();
-  }, []);
+const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [index, setIndex] = useState(0);
 
   return (
     <main
@@ -49,8 +34,15 @@ const Shop = ({
 
       <Header />
 
-      <div className="relative flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[460px] lg:h-[calc(100vh-132px)] pt-[22.5px] lg:pt-[27px]">
-        <ProductDetails />
+      <div className="relative flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[520px] lg:h-[calc(100vh-132px)] pt-[22.5px] lg:pt-[27px]">
+        <ProductDetails
+          price={products[index].price}
+          name={products[index].name}
+          quantity={products[index].quantity}
+          index={index}
+          setIndex={setIndex}
+          totalProducts={products.length}
+        />
 
         {/* more details */}
         <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 pt-4 pb-6">
@@ -256,19 +248,22 @@ const Shop = ({
         </div>
 
         {/* product images */}
-        <ProductImages image={productImage} gif={productGIF} />
+        <ProductImages
+          image={getSanityImageUrl(products[index].image)}
+          gif={getSanityImageUrl(products[index].gif)}
+        />
       </div>
     </main>
   );
 };
 
-export const getStaticProps: GetStaticProps<{
-  products: Product[];
-}> = async () => {
+export const getStaticProps: GetStaticProps<{ products: Product[] }> = async (
+  context
+) => {
   try {
-    console.log("fetching products from sanity");
-    const products = await sanityClient.fetch(`*[_type == "product"]`);
-    console.log("products from static: ", products);
+    const products: any[] = await sanityClient.fetch(
+      groq`*[_type == "product"]`
+    );
 
     return {
       props: {

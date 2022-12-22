@@ -1,3 +1,5 @@
+import { SanityImage } from "@src/types";
+
 export const shortenString = (string: string, length: number = 8): string => {
   return string.length <= length ? string : `${string.slice(0, length + 1)}...`;
 };
@@ -11,6 +13,11 @@ export const getBaseUrl = (): string => {
     return `http://${process.env.RENDER_INTERNAL_HOSTNAME}:${process.env.PORT}`;
 
   return `http://localhost:${process.env.PORT ?? 3000}`;
+};
+
+export const getSanityImageUrl = (image: SanityImage): string => {
+  const [type, ref, resolution, extension] = image.asset._ref.split("-");
+  return `https://cdn.sanity.io/images/t4jr7tcz/production/${ref}-${resolution}.${extension}`;
 };
 
 export const breakpoints = {

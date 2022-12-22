@@ -37,7 +37,7 @@ const Product: NextPage = () => {
         <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto">
           <AltButton
             className="text-base uppercase px-10 py-4 mb-4"
-            onClick={() => router.push("/products")}
+            onClick={() => router.push("/shops")}
           >
             Close
           </AltButton>

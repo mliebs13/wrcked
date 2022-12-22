@@ -15,19 +15,21 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
   const { width } = useWindowSize();
 
   return (
-    <div className="relative flex justify-between py-4 lg:py-16 px-10 lg:px-20 mx-auto">
-      <div className="w-fit flex items-end self-center 3xl:self-start justify-center pr-4 lg:pr-0 lg:px-8 mx-auto -mr-16 lg:mr-0">
+    <div className="relative flex justify-between py-5 lg:py-16 px-10 lg:px-20 mx-auto">
+      <div className="w-fit flex items-end self-center 3xl:self-start justify-center pt-5 sm:py-0 pr-4 lg:pr-0 lg:px-8 mx-auto -mr-16 lg:mr-0">
         <Image
           src={gif}
           alt="product gif"
+          width={350}
           height={350}
           className="hidden lg:block w-[52%] xl:w-[36%] mr-14"
         />
         <Image
           src={image}
           alt="product image"
+          width={519}
           height={550}
-          className="w-[250px] lg:w-[56%] xl:w-[38%] lg:pb-24"
+          className="w-auto lg:w-[56%] h-[250px] lg:h-auto xl:w-[38%] lg:pb-24"
         />
       </div>
 
@@ -39,7 +41,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
         <Image
           src={width < breakpoints.lg ? meterRuleMobileImage : meterRuleImage}
           alt="metre rule"
-          className="h-[52vh] lg:h-[80vh] max-h-[760px]"
+          className="h-[54vh] lg:h-[80vh] max-h-[760px]"
         />
       </div>
     </div>

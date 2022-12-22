@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
@@ -7,6 +7,7 @@ import IconButton from "@components/ui/IconButton";
 
 import timesImage from "@public/images/times.png";
 import arrowRightImage from "@public/images/arrow-right.png";
+import arrowLeftImage from "@public/images/arrow-left.png";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -14,7 +15,25 @@ const spaceMono = Space_Mono({
   fallback: ["system-ui", "arial"],
 });
 
-const ProductDetails: FC = () => {
+type ProductDetailsProps = {
+  name: string;
+  price: number;
+  quantity: number;
+  index: number;
+  setIndex: Dispatch<SetStateAction<number>>;
+  totalProducts: number;
+};
+
+const ProductDetails: FC<ProductDetailsProps> = ({
+  name,
+  price,
+  quantity,
+  index,
+  setIndex,
+  totalProducts,
+}) => {
+  const isAvailable = quantity >= 1;
+
   return (
     <div
       className={classNames(
@@ -26,12 +45,12 @@ const ProductDetails: FC = () => {
         <div className="w-full h-5 max-w-[300px] lg:max-w-[320px] flex items-center justify-start bg-white mb-[5px] shadow-block border-2 border-primary overflow-hidden">
           {/* name */}
           <div className="w-full bg-secondary text-sm text-primary uppercase px-2">
-            Product 1
+            {name}
           </div>
 
           {/* price */}
           <div className="w-fit bg-primary text-sm text-white text-center px-6">
-            $450
+            ${price}
           </div>
         </div>
 
@@ -40,11 +59,30 @@ const ProductDetails: FC = () => {
 
         {/* 'buy now' button & navigation - 25% 60% 25% */}
         <div className="flex items-center w-[300px] lg:w-[320px] h-[45px] lg:h-[54px]">
-          <IconButton className="h-full w-1/4 p-3">
-            <Image src={timesImage} alt="end" width={20} height={20} />
+          <IconButton
+            className="h-full w-1/4 p-3 disabled:cursor-not-allowed"
+            disabled={index === 0}
+            onClick={() => {
+              index > 0 && setIndex((prev) => prev - 1);
+            }}
+          >
+            <Image
+              src={index > 0 ? arrowLeftImage : timesImage}
+              alt="end"
+              width={20}
+              height={20}
+            />
           </IconButton>
-          <AltButton className="h-full w-1/2 text-lg font-bold mx-1">
-            Buy Now
+          <AltButton
+            className="relative h-full w-1/2 text-lg font-bold mx-1 disabled:cursor-not-allowed"
+            disabled={!isAvailable}
+          >
+            {/* line through */}
+            {!isAvailable && (
+              <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
+            )}
+
+            {isAvailable ? "Buy Now" : "Sold Out"}
             {/* angle brackets pattern */}
             <span className="absolute -bottom-7 left-[38%] hidden lg:block -translate-x-1/4">
               <svg
@@ -81,8 +119,19 @@ const ProductDetails: FC = () => {
               </svg>
             </span>
           </AltButton>
-          <IconButton className="h-full w-1/4 p-3">
-            <Image src={arrowRightImage} alt="next" width={20} height={20} />
+          <IconButton
+            className="h-full w-1/4 p-3 disabled:cursor-not-allowed"
+            disabled={index === totalProducts - 1}
+            onClick={() => {
+              index < totalProducts - 1 && setIndex((prev) => prev + 1);
+            }}
+          >
+            <Image
+              src={index < totalProducts - 1 ? arrowRightImage : timesImage}
+              alt="end"
+              width={20}
+              height={20}
+            />
           </IconButton>
         </div>
       </div>

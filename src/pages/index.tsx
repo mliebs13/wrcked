@@ -14,7 +14,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/products");
+    router.push("/shop");
   }, []);
 
   return (
