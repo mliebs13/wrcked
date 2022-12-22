@@ -6,13 +6,12 @@ import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
-import useWindowSize from "@src/hooks/useWindowSize";
-import sanityClient from "@src/config/sanity";
+// import sanityClient from "@src/config/sanity";
 
 import productImage from "@public/images/product-image.png";
 import meterRuleHorizontal from "@public/images/meter-rule-horizontal.svg";
 import meterRuleVertical from "@public/images/meter-rule-vertical.svg";
-import { Product } from "@src/types";
+// import { Product } from "@src/types";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
