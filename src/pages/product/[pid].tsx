@@ -1,13 +1,16 @@
+import { useLayoutEffect, useRef } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
+import useWindowSize from "@src/hooks/useWindowSize";
 
 import productImage from "@public/images/productImage.png";
 import meterRuleHorizontal from "@public/images/meterRuleHorizontal.svg";
 import meterRuleVertical from "@public/images/meterRuleVertical.svg";
+import { breakpoints } from "@src/utils";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -16,38 +19,45 @@ const spaceMono = Space_Mono({
 });
 
 const Product: NextPage = () => {
+  const widthRef = useRef(0);
+  const { width } = useWindowSize();
+
+  useLayoutEffect(() => {
+    widthRef.current = window.innerWidth;
+  }, []);
+
   return (
     <main
       style={{
         backgroundSize: "14px 26px",
       }}
       className={classNames(
-        "Product relative w-full min-h-screen flex justify-center bg-skyBlue bg-dots-secondary py-16 px-10 2xl:px-20",
+        "Product relative w-full min-h-screen flex justify-center bg-skyBlue bg-dots-secondary py-8 px-3 sm:px-10 2xl:px-20",
         spaceMono.className
       )}
     >
-      <div className="w-full h-fit max-w-6xl grid grid-cols-[1fr_1fr] gap-16 mx-auto">
+      <div className="w-full h-fit max-w-7xl grid grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
         {/* left */}
-        <div className="w-full h-fit max-w-2xl flex flex-col items-start justify-start mr-[8%]">
-          <AltButton className="text-base uppercase px-10 py-4 mb-8">
+        <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto">
+          <AltButton className="text-base uppercase px-10 py-4 mb-4">
             Close
           </AltButton>
 
           {/* product details */}
           <div className="w-full min-h-[250px] flex flex-col bg-lightGray border-2 border-primary shadow-block p-6 mb-2">
-            <div className="mb-10">
+            <div className="mb-7">
               <Logo size="lg" color="gray" />
-              <p className="text-4xl font-bold uppercase tracking-wide -mt-8 ml-6">
+              <p className="text-4xl font-bold uppercase tracking-wide -mt-6 lg:-mt-7 ml-6">
                 PRODUCT 2
               </p>
-              <p className="text-sm font-bold uppercase ml-6">LITHOGRAPH</p>
-              <p className="text-xs text-darkGray font-bold uppercase ml-6 -mb-1">
+              <p className="text-sm font-bold uppercase ml-8">LITHOGRAPH</p>
+              <p className="text-xs text-darkGray font-bold uppercase ml-8 -mb-1">
                 CAPSULE A. COLLECTION A.
               </p>
             </div>
 
             {/* price */}
-            <p className="font-bold text-xl mb-10">$450</p>
+            <p className="font-bold text-xl mb-7">$450</p>
 
             {/* description */}
             <p className="font-bold text-sm">
@@ -66,8 +76,8 @@ const Product: NextPage = () => {
           </div>
 
           {/* 'buy now' button */}
-          <div className="bg-white w-full p-6">
-            <AltButton className="w-full py-4 text-3xl font-bold mb-2">
+          <div className="bg-white w-full p-4">
+            <AltButton className="w-full py-2.5 text-3xl font-bold mb-2">
               BUY NOW
             </AltButton>
             <p className="text-sm font-bold text-danger text-center">
@@ -77,12 +87,12 @@ const Product: NextPage = () => {
         </div>
 
         {/* right */}
-        <div className="relative w-full h-full flex flex-col justify-center self-center items-end pr-14 2xl:pr-16">
+        <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-end pr-14 2xl:pr-16">
           <Image
             src={productImage}
             alt="product image"
             height={550}
-            className="w-[85%]"
+            className="w-[70%]"
           />
 
           {/* vertical */}
@@ -90,7 +100,15 @@ const Product: NextPage = () => {
             <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
               36IN / 90CM
             </p>
-            <Image src={meterRuleVertical} alt="metre rule" height={710} />
+            <Image
+              src={meterRuleVertical}
+              alt="metre rule"
+              height={
+                (width < 1 ? widthRef.current : width) >= breakpoints.xl
+                  ? 600
+                  : 635
+              }
+            />
           </div>
 
           {/* horizontal */}

@@ -25,17 +25,17 @@ const Products: NextPage = () => {
         spaceMono.className
       )}
     >
-      {/* vertical line pattern */}
-      <div className="fixed top-0 left-[calc(2.5rem+174px)] 2xl:left-[calc(5rem+174px)] w-0.5 min-h-screen bg-primary" />
+      {/* vertical line */}
+      <div className="fixed top-0 left-[calc(2.5rem+174px)] 2xl:left-[calc(5rem+174px)] w-0.5 min-h-screen hidden lg:block bg-primary" />
 
       <Header />
 
-      <div className="flex">
+      <div className="relative flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[460px] lg:h-[calc(100vh-132px)] pt-[22.5px] lg:pt-[27px]">
         <ProductDetails />
 
         {/* more details */}
-        <div className="min-h-[75vh] max-h-[840px] flex flex-col justify-end items-center justify-end min-w-[218px] 2xl:min-w-[258px] w-[218px] 2xl:w-[258px] px-4 py-12">
-          <div className="mb-12">
+        <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 pt-4 pb-6">
+          <div className="hidden lg:block mb-12">
             <div className="flex items-center text-xs font-bold mb-2">
               <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                 IT
@@ -68,7 +68,7 @@ const Products: NextPage = () => {
             </div>
           </div>
 
-          <div className="flex items-center mb-6">
+          <div className="w-full lg:w-fit flex justify-start items-center lg:justify-center text-left lg:text-center mb-2 lg:mb-6">
             {/* 1 */}
             <div className="mr-2">
               <svg
@@ -211,13 +211,17 @@ const Products: NextPage = () => {
             </div>
           </div>
 
-          <div className="mb-6">
+          <div className="w-full lg:w-fit flex justify-start lg:justify-center text-left lg:text-center mb-4 lg:mb-6">
             <p
               className={classNames(
-                "font-bold text-sm text-center text-primary"
+                "font-bold text-sm text-left lg:text-center text-primary"
               )}
             >
-              CONTENTS: 1(one) ORIGINAL LITHOGRAPH
+              CONTENTS:
+              <br />
+              1(one) ORIGINAL
+              <br />
+              LITHOGRAPH
             </p>
           </div>
 

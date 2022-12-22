@@ -3,16 +3,18 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        lg: "960px",
         "3xl": "2160px",
       },
       fontSize: {
-        xs: "11px",
-        sm: "13px",
+        xs: "10px",
+        sm: "12px",
         base: "15px",
+        lg: "17px",
         xl: "20px",
-        "2xl": "25px",
-        "3xl": "32px",
-        "4xl": "40px",
+        "2xl": "24px",
+        "3xl": "28px",
+        "4xl": "36px",
         "5xl": "48px",
         "6xl": "56px",
       },

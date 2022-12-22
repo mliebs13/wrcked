@@ -52,22 +52,22 @@ const Checkout: NextPage = () => {
         backgroundSize: "14px 26px",
       }}
       className={classNames(
-        "Product relative w-full min-h-screen flex flex-col items-center bg-gray py-12 px-10 2xl:px-20",
+        "Product relative w-full min-h-screen flex flex-col items-center bg-gray py-12 px-3 sm:px-10 2xl:px-20",
         spaceMono.className
       )}
     >
       <CheckoutHeader />
 
       {/* content */}
-      <div className="w-full max-w-6xl flex justify-between mx-auto">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-start md:justify-between mx-auto">
         {/* left - product summary */}
-        <div className="w-[48%] flex flex-col justify-between mr-[4%]">
+        <div className="w-full md:w-[48%] flex flex-col justify-between md:mr-[4%] mb-8 md:mb-0">
           <div>
             <h2 className="text-base tracking-wide mb-4">PRODUCT SUMMARY</h2>
 
             <div className="flex w-full border border-primary mb-4">
               {/* image */}
-              <div className="w-fit p-4 border-r-primary border-r">
+              <div className="w-fit flex items-center p-4 border-r-primary border-r">
                 <Image src={productImage} alt="product image" width={275} />
               </div>
 
@@ -111,7 +111,7 @@ const Checkout: NextPage = () => {
             </div>
           </div>
 
-          <div>
+          <div className="hidden md:block mt-4">
             <Link
               href="/terms-of-service"
               className="text-darkGray text-base mr-4"
@@ -125,7 +125,7 @@ const Checkout: NextPage = () => {
         </div>
 
         {/* right - shipping & payment details */}
-        <div className="w-[48%] flex flex-col">
+        <div className="w-full md:w-[48%] flex flex-col">
           <div className="mb-6">
             <h2 className="text-base tracking-wide mb-4">
               CONTACT INFORMATION
@@ -134,7 +134,7 @@ const Checkout: NextPage = () => {
             <div>
               <Input
                 placeholder="PHONE NUMBER"
-                className="w-full text-base px-4 py-3"
+                className="w-full text-base px-4 py-3 mb-1"
               />
               <Input placeholder="EMAIL" className="w-full px-4 py-3" />
             </div>
@@ -146,7 +146,7 @@ const Checkout: NextPage = () => {
             <div>
               <Input
                 placeholder="NAME"
-                className="w-full text-base px-4 py-3"
+                className="w-full text-base px-4 py-3 mb-1"
               />
               <Select
                 placeholder="EMAIL"
@@ -154,19 +154,19 @@ const Checkout: NextPage = () => {
                 label="SELECT COUNTRY"
                 selected={country}
                 setSelected={setCountry}
-                className="text-base px-4 py-3"
+                className="text-base px-4 py-3 mb-1"
               />
               <Input
                 placeholder="ADDRESS LINE 1"
-                className="text-base w-full px-4 py-3"
+                className="text-base w-full px-4 py-3 mb-1"
               />
               <Input
                 placeholder="ADDRESS LINE 2"
-                className="text-base w-full px-4 py-3"
+                className="text-base w-full px-4 py-3 mb-1"
               />
               <Input
                 placeholder="CITY"
-                className="w-full text-base px-4 py-3"
+                className="w-full text-base px-4 py-3 mb-1"
               />
               <div className="w-full flex mb-4">
                 <Input
@@ -196,11 +196,11 @@ const Checkout: NextPage = () => {
             <h2 className="text-base tracking-wide mb-4">PAYMENT DETAILS</h2>
 
             <div className="w-full">
-              <div className="border border-primary flex justify-between">
+              <div className="border border-primary flex justify-between mb-1">
                 {/* card */}
                 <div
                   className={classNames(
-                    "group w-1/2 flex items-center py-3 px-4 cursor-pointer",
+                    "group w-1/2 flex items-center text-center p-3 cursor-pointer",
                     {
                       "bg-primary text-lightGray": paymentMethod === "card",
                       "bg-transparent text-primary": paymentMethod !== "card",
@@ -236,10 +236,10 @@ const Checkout: NextPage = () => {
                   <span className="text-base ml-2">CARD</span>
                 </div>
 
-                {/* apply pay */}
+                {/* apple pay */}
                 <div
                   className={classNames(
-                    "w-1/2 flex items-center py-3 px-4 transition-colors cursor-pointer",
+                    "w-1/2 flex items-center text-center p-3 transition-colors cursor-pointer",
                     {
                       "bg-primary text-white": paymentMethod === "other",
                       "bg-transparent text-primary": paymentMethod !== "other",
@@ -268,36 +268,43 @@ const Checkout: NextPage = () => {
               </div>
               <Input
                 placeholder="1234 1234 1234 1234"
-                className="w-full text-base px-4 py-3 mr-1"
+                className="w-full text-base px-4 py-3 mr-1 mb-1"
               />
-              <div className="w-full flex mb-4">
+              <div className="w-full flex mb-1">
                 <Input
                   placeholder="MM / YY"
                   className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
                 />
                 <Input
                   placeholder="MM / YY"
-                  className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3"
                 />
               </div>
-              <div className="w-full flex mb-4">
+              <div className="w-full flex">
                 <Select
                   placeholder="COUNTRY"
                   options={countries.map((c) => c.toUpperCase())}
                   label="SELECT COUNTRY"
                   selected={cardCountry}
                   setSelected={setCardCountry}
-                  className="w-[calc(50%-2px)] text-base px-4 py-3"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
                 />
                 <Input
                   placeholder="90210"
-                  className="w-[calc(50%-2px)] text-base px-4 py-3 mr-1"
+                  className="w-[calc(50%-2px)] text-base px-4 py-3"
                 />
               </div>
             </div>
           </div>
 
-          <AltButton className="w-full py-2 text-2xl font-bold">PAY</AltButton>
+          <div className="w-full">
+            <AltButton className="w-full py-2 text-2xl font-bold mb-2">
+              PAY
+            </AltButton>
+            <p className="text-sm font-bold text-danger text-center">
+              FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
+            </p>
+          </div>
         </div>
       </div>
     </main>

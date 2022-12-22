@@ -26,8 +26,229 @@ body {
   @apply w-full h-full;
 }
 
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+/* Toast */
+
+.ToastViewport {
+  --viewport-padding: 0.25rem;
+  position: fixed;
+  /* bottom: 0;
+  right: 0; *;
+  display: flex;
+  flex-direction: column; */
+  padding: var(--viewport-padding);
+  gap: 0.75rem;
+  width: 400px;
+  max-width: 90vw;
+  margin: 0;
+  list-style: none;
+  z-index: 50;
+  outline: none;
+}
+
+.ToastRoot {
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: #0e121659 0px 10px 38px -10px, #0e121633 0px 10px 20px -15px;
+  padding: 1rem;
+  display: grid;
+  grid-template-areas: "title action";
+  grid-template-columns: auto max-content;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.ToastRoot[data-state="open"] {
+  animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ToastRoot[data-state="closed"] {
+  animation: hide 100ms ease-in;
+}
+
+.ToastRoot[data-swipe="move"] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+
+.ToastRoot[data-swipe="cancel"] {
+  transform: translateX(0);
+  transition: transform 200ms ease-out;
+}
+
+.ToastRoot[data-swipe="end"] {
+  animation: swipeOut 100ms ease-out;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(calc(100% + var(--viewport-padding)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipeOut {
+  from {
+    transform: translateX(var(--radix-toast-swipe-end-x));
+  }
+  to {
+    transform: translateX(calc(100% + var(--viewport-padding)));
+  }
+}
+
+.ToastTitle {
+  grid-area: title;
+}
+
+.ToastAction {
+  grid-area: action;
+}
+
+/* Tooltip */
+
+.TooltipContent {
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--violet11);
+  background-color: white;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  user-select: none;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  z-index: 50;
+}
+
+.TooltipContent[data-state="delayed-open"][data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+
+.TooltipContent[data-state="delayed-open"][data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+
+.TooltipContent[data-state="delayed-open"][data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+
+.TooltipContent[data-state="delayed-open"][data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.TooltipArrow {
+  fill: #ffffff;
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .text-xs {
+    font-size: 9px;
+  }
+
+  .text-sm {
+    font-size: 11px;
+  }
+
+  .text-base {
+    font-size: 13px;
+  }
+
+  .text-lg {
+    font-size: 15px;
+  }
+
+  .text-xl {
+    font-size: 16px;
+  }
+
+  .text-2xl {
+    font-size: 20px;
+  }
+
+  .text-3xl {
+    font-size: 25px;
+  }
+
+  .text-4xl {
+    font-size: 30px;
+  }
+
+  .text-5xl {
+    font-size: 42px;
+  }
+
+  .text-6xl {
+    font-size: 48px;
   }
 }
