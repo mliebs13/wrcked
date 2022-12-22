@@ -7,10 +7,10 @@ import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
 import useWindowSize from "@src/hooks/useWindowSize";
 
-import productImage from "@public/images/productImage.png";
-import meterRuleHorizontal from "@public/images/meterRuleHorizontal.svg";
-import meterRuleVertical from "@public/images/meterRuleVertical.svg";
-import { breakpoints } from "@src/utils";
+import productImage from "@public/images/product-image.png";
+import meterRuleHorizontal from "@public/images/meter-rule-horizontal.svg";
+import meterRuleVertical from "@public/images/meter-rule-vertical.svg";
+import { useRouter } from "next/router";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -19,12 +19,7 @@ const spaceMono = Space_Mono({
 });
 
 const Product: NextPage = () => {
-  const widthRef = useRef(0);
-  const { width } = useWindowSize();
-
-  useLayoutEffect(() => {
-    widthRef.current = window.innerWidth;
-  }, []);
+  const router = useRouter();
 
   return (
     <main
@@ -39,7 +34,10 @@ const Product: NextPage = () => {
       <div className="w-full h-fit max-w-7xl grid grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
         {/* left */}
         <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto">
-          <AltButton className="text-base uppercase px-10 py-4 mb-4">
+          <AltButton
+            className="text-base uppercase px-10 py-4 mb-4"
+            onClick={() => router.push("/products")}
+          >
             Close
           </AltButton>
 
@@ -87,7 +85,7 @@ const Product: NextPage = () => {
         </div>
 
         {/* right */}
-        <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-end pr-14 2xl:pr-16">
+        <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-center pr-14 2xl:pr-16">
           <Image
             src={productImage}
             alt="product image"
@@ -96,18 +94,14 @@ const Product: NextPage = () => {
           />
 
           {/* vertical */}
-          <div className="absolute top-0 right-0 flex items-start">
+          <div className="absolute top-0 right-0 h-full flex items-start">
             <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
               36IN / 90CM
             </p>
             <Image
               src={meterRuleVertical}
               alt="metre rule"
-              height={
-                (width < 1 ? widthRef.current : width) >= breakpoints.xl
-                  ? 600
-                  : 635
-              }
+              className="h-[92%]"
             />
           </div>
 

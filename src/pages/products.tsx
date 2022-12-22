@@ -5,8 +5,8 @@ import Header from "@components/product/Header";
 import ProductDetails from "@components/product/ProductDetails";
 import ProductImages from "@components/product/ProductImages";
 
-import productImage from "@public/images/productImage.png";
-import productGIF from "@public/images/productGIF.gif";
+import productImage from "@public/images/product-image.png";
+import productGIF from "@public/images/product-gif.gif";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],

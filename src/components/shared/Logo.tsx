@@ -1,11 +1,4 @@
-import {
-  DetailedHTMLProps,
-  FC,
-  HTMLAttributes,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import Image from "next/image";
 import useWindowSize from "@src/hooks/useWindowSize";
 
@@ -19,12 +12,7 @@ type LogoProps = {
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Logo: FC<LogoProps> = ({ size = "sm", color = "white", ...props }) => {
-  const widthRef = useRef(0);
   const { width } = useWindowSize();
-
-  useLayoutEffect(() => {
-    widthRef.current = window.innerWidth;
-  }, []);
 
   return (
     <div className="Logo" {...props}>
@@ -33,10 +21,10 @@ const Logo: FC<LogoProps> = ({ size = "sm", color = "white", ...props }) => {
         alt="Wrcked logo"
         width={
           size === "sm"
-            ? (width < 1 ? widthRef.current : width) >= breakpoints.sm
+            ? width >= breakpoints.sm
               ? 100
               : 85
-            : (width < 1 ? widthRef.current : width) >= breakpoints.lg
+            : width >= breakpoints.lg
             ? 350
             : 300
         }

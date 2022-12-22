@@ -94,7 +94,7 @@ const Settings: NextPageWithLayout = () => {
         type={toastType}
       />
 
-      <div className="w-full flex flex-col items-center px-10 py-12 2xl:px-20">
+      <div className="w-full flex flex-col items-center px-3 sm:px-10 py-8 sm:py-12 2xl:px-20">
         <h2 className="font-bold text-lg text-center mb-8">
           Edit Login Details
         </h2>

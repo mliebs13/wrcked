@@ -1,4 +1,4 @@
-import { Dispatch, FC, useEffect, useRef, useState } from "react";
+import { Dispatch, FC, useEffect, useRef } from "react";
 import * as RadixToast from "@radix-ui/react-toast";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import classNames from "classnames";
@@ -32,8 +32,6 @@ const Toast: FC<ToastProps> = ({
       }, duration);
     }
   }, [open]);
-
-  useEffect(() => console.log("content: ", content), [content]);
 
   return (
     <>

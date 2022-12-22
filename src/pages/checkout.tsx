@@ -10,7 +10,7 @@ import Checkbox from "@components/ui/Checkbox";
 import Input from "@components/ui/Input";
 import Select from "@components/ui/Select";
 
-import productImage from "@public/images/productImage.png";
+import productImage from "@public/images/product-image.png";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
