@@ -2,18 +2,17 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
+import groq from "groq";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
-import sanityClient from "@src/config/sanity";
 import Nav from "@src/components/shared/Nav";
 import { Product as ProductType } from "@src/types";
+import { getSanityImageUrl } from "@src/utils";
+import sanityClient from "@src/config/sanity";
 
-import productImage from "@public/images/product-image.png";
 import meterRuleHorizontal from "@public/images/meter-rule-horizontal.svg";
 import meterRuleVertical from "@public/images/meter-rule-vertical.svg";
-import groq from "groq";
-import { getSanityImageUrl } from "@src/utils";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -53,7 +52,7 @@ const Product = ({
             <div className="mb-7">
               <Logo size="lg" color="gray" />
               <p className="text-4xl font-bold uppercase tracking-wide -mt-6 lg:-mt-7 ml-6">
-                PRODUCT 2
+                {product.name}
               </p>
               <p className="text-sm font-bold uppercase ml-8">LITHOGRAPH</p>
               <p className="text-xs text-darkGray font-bold uppercase ml-8 -mb-1">
@@ -62,7 +61,7 @@ const Product = ({
             </div>
 
             {/* price */}
-            <p className="font-bold text-xl mb-7">$450</p>
+            <p className="font-bold text-xl mb-7">${product.price}</p>
 
             {/* description */}
             <p className="font-bold text-sm">
@@ -153,6 +152,10 @@ export const getStaticProps: GetStaticProps<{
     const { pid = "" } = context.params as any;
     const product = pid ? await sanityClient.fetch(query, { pid }) : null;
 
+    if (!product) {
+      throw new Error("Failed to fetch products");
+    }
+
     return {
       props: {
         product,
@@ -160,11 +163,8 @@ export const getStaticProps: GetStaticProps<{
     };
   } catch (err: any) {
     console.log("error occurred: ", err.message);
-    return {
-      props: {
-        product: null,
-      },
-    };
+
+    throw new Error("Failed to fetch posts");
   }
 };
 

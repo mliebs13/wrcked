@@ -268,13 +268,17 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<{ products: Product[] }> = async (
-  context
-) => {
+export const getStaticProps: GetStaticProps<{
+  products: Product[];
+}> = async () => {
   try {
     const products: any[] = await sanityClient.fetch(
       groq`*[_type == "product"] | order(_createdAt asc)`
     );
+
+    if (!products) {
+      throw new Error("Failed to fetch products");
+    }
 
     return {
       props: {
@@ -283,12 +287,8 @@ export const getStaticProps: GetStaticProps<{ products: Product[] }> = async (
     };
   } catch (err: any) {
     console.log("error occurred fetching products: ", err);
-    return {
-      props: {
-        products: [],
-      },
-      // revalidate: 10,
-    };
+
+    throw new Error("Failed to fetch products");
   }
 };
 
