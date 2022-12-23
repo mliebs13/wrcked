@@ -28,7 +28,7 @@ const FAQ: NextPage = () => {
           <p className="font-bold text-sm">
             WRCKED IS AN AMERICAN ART COLLECTIVE DROPPING LITHOGRAPHS. WE LIKE
             WORKING WITH PIECES AS A MEDIUM BUT MARC JACOBS SUED US LAST TIME WE
-            USED THEIRS, SO WE'RE MAKING OUR OWN FROM SCRATCH.
+            USED THEIRS, SO WE&apos;RE MAKING OUR OWN FROM SCRATCH.
           </p>
         </div>
 
@@ -58,8 +58,8 @@ const FAQ: NextPage = () => {
           <h2 className="mb-5 font-bold text-sm">WHY ARE THERE NO REFUNDS?</h2>
           <p className="font-bold text-sm">
             WE MAKE EXTREMELY LIMITED RUNS OF EACH COLLECTION THAT SELL OUT
-            QUICKLY. AS SUCH, WE DON'T OFFER REFUNDS OR ALLOW RETURNS OR
-            EXCHANGES. ONCE THEY'RE GONE, THEY'RE GONE.
+            QUICKLY. AS SUCH, WE DON&apos;T OFFER REFUNDS OR ALLOW RETURNS OR
+            EXCHANGES. ONCE THEY&apos;RE GONE, THEY&apos;RE GONE.
           </p>
         </div>
 
