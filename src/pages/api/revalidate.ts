@@ -3,17 +3,18 @@ import { isValidRequest } from "@sanity/webhook";
 
 const secret = process.env.SECRET_TOKEN ?? "SECRET_TOKEN";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
     console.log("Must be a POST request");
     return res.status(401).json({ message: "Invalid request type" });
   }
 
   if (!isValidRequest(req, secret)) {
-    res.status(401).json({ message: "Invalid signature" });
+    res.status(401).json({
+      message: `Invalid signature ${String(
+        req.headers?.["sanity-webhook-signature"]
+      )}`,
+    });
     return;
   }
 
@@ -30,4 +31,6 @@ export default async function handler(
   } catch (err) {
     return res.status(500).send("Error revalidating");
   }
-}
+};
+
+export default handler;
