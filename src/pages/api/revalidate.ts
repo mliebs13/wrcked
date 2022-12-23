@@ -11,11 +11,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const signature = String(req.headers?.["sanity-webhook-signature"]);
 
-  if (!isValidSignature(JSON.stringify(req.body), signature, secret)) {
-    res.status(401).json({
+  if (signature !== secret) {
+    return res.status(401).json({
       message: "Invalid signature",
     });
-    return;
+  }
+
+  if (!req.body?._id) {
+    return res.status(400).json("Invalid payload");
   }
 
   try {
