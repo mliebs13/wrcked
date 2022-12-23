@@ -34,7 +34,7 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <Header />
 
-      <div className="relative flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[520px] lg:h-[calc(100vh-132px)] pt-[22.5px] lg:pt-[27px]">
+      <div className="relative flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[540px] lg:h-[calc(100vh-132px)] pt-[22.5px] lg:pt-[27px]">
         <ProductDetails
           price={products[index].price}
           name={products[index].name}
@@ -45,7 +45,7 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
         />
 
         {/* more details */}
-        <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 pt-4 pb-6">
+        <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 pt-4 pb-6 lg:pb-10">
           <div className="hidden lg:block mb-12">
             <div className="flex items-center text-xs font-bold mb-2">
               <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
