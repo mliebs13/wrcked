@@ -1,4 +1,5 @@
 import { Dispatch, FC, SetStateAction } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
@@ -16,6 +17,7 @@ const spaceMono = Space_Mono({
 });
 
 type ProductDetailsProps = {
+  id: string;
   name: string;
   price: number;
   quantity: number;
@@ -25,6 +27,7 @@ type ProductDetailsProps = {
 };
 
 const ProductDetails: FC<ProductDetailsProps> = ({
+  id,
   name,
   price,
   quantity,
@@ -32,6 +35,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({
   setIndex,
   totalProducts,
 }) => {
+  const router = useRouter();
+
   const isAvailable = quantity >= 1;
 
   return (
@@ -75,6 +80,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
           </IconButton>
           <AltButton
             className="relative h-full w-1/2 text-lg font-bold mx-1 disabled:cursor-not-allowed"
+            onClick={() => isAvailable && router.push(`/shop/${id}`)}
             disabled={!isAvailable}
           >
             {/* line through */}

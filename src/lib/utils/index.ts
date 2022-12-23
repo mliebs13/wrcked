@@ -82,7 +82,7 @@ export const verifyAccess = async (
     }
 
     return {
-      message: "Unauthorized access",
+      message: "Unauthorized request",
       status: 401,
     };
   } catch (err: any) {

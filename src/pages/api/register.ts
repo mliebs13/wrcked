@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 
 const register = async (req: NextApiRequest, res: NextApiResponse) => {
   return res.status(401).json({
-    message: "Unauthorized access",
+    message: "Unauthorized request",
   });
 
   const { username, password } = req.body;

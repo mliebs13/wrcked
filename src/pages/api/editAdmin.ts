@@ -9,7 +9,7 @@ const editAdmin = async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (!authResult.admin) {
       return res.status(401).json({
-        message: "Unauthorized access",
+        message: "Unauthorized request",
       });
     }
 
