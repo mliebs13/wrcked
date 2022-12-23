@@ -13,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (signature !== secret) {
     return res.status(401).json({
-      message: "Invalid signature",
+      message: `Invalid signature ${signature} ${secret}`,
     });
   }
 
