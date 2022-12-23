@@ -81,7 +81,7 @@ const FAQ: NextPage = () => {
       </AltButton>
 
       {/* line */}
-      <div className="w-full bg-primary h-[2px] my-8" />
+      <div className="w-screen bg-primary h-[2px] my-8" />
 
       <Nav />
     </div>

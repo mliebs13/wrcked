@@ -1,4 +1,4 @@
-import { AddSolid } from "@components/shared/svgs";
+import AddSolid from "@components/shared/svgs/AddSolid";
 import classNames from "classnames";
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from "react";
 import Button from "./Button";

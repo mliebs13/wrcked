@@ -39,7 +39,7 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
           colorClass
         )}
       >
-        <Link href="/">SUPPORT</Link>
+        <Link href="mailto:art@wrcked.com">SUPPORT</Link>
       </li>
       <li
         className={classNames(

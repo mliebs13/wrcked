@@ -2,6 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import useWindowSize from "@src/hooks/useWindowSize";
 import { breakpoints } from "@src/utils";
+import Rule from "@src/components/shared/svgs/Rule";
 
 import meterRuleImage from "@public/images/meter-rule.svg";
 import meterRuleMobileImage from "@public/images/meter-rule-mobile.svg";
@@ -40,13 +41,12 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
 
       {/* 67px -> (padding) 27px + (padding) 2.5rem; (full header height) 82px - (half button height) 27px */}
       <div className="lg:-mt-[(calc(27px+2.5rem+82px-27px))] z-[8] h-[54vh] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto">
-        <Image
+        {/* <Image
           src={width < breakpoints.lg ? meterRuleMobileImage : meterRuleImage}
           alt="metre rule"
-          // height={462}
-          // width={33.99}
           className="h-full"
-        />
+        /> */}
+        <Rule className="h-full" />
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { isValidSignature } from "@sanity/webhook";
 
 const secret = process.env.SECRET_TOKEN ?? "SECRET_TOKEN";
 

@@ -10,9 +10,11 @@ import Nav from "@src/components/shared/Nav";
 import { Product as ProductType } from "@src/types";
 import { getSanityImageUrl } from "@src/utils";
 import sanityClient from "@src/config/sanity";
+import RuleVertical from "@src/components/shared/svgs/RuleVertical";
+import RuleHorizontal from "@src/components/shared/svgs/RuleHorizontal";
 
-import meterRuleHorizontal from "@public/images/meter-rule-horizontal.svg";
-import meterRuleVertical from "@public/images/meter-rule-vertical.svg";
+// import meterRuleHorizontal from "@public/images/meter-rule-horizontal.svg";
+// import meterRuleVertical from "@public/images/meter-rule-vertical.svg";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -80,7 +82,7 @@ const Product = ({
           </div>
 
           {/* 'buy now' button */}
-          <div className="bg-white w-full p-4">
+          <div className="bg-secondary w-full p-4">
             <AltButton className="w-full py-2.5 text-3xl font-bold mb-2">
               BUY NOW
             </AltButton>
@@ -107,11 +109,14 @@ const Product = ({
             <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
               36IN / 90CM
             </p>
-            <Image
+            {/* <Image
               src={meterRuleVertical}
               alt="metre rule"
               className="h-[90%]"
-            />
+            /> */}
+            <div className="h-[90%]">
+              <RuleVertical className="h-full" />
+            </div>
           </div>
 
           {/* horizontal */}
@@ -119,11 +124,14 @@ const Product = ({
             <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
               24IN / 60CM
             </p>
-            <Image
+            {/* <Image
               src={meterRuleHorizontal}
               alt="metre rule"
               className="w-[90%]"
-            />
+            /> */}
+            <div className="w-[90%]">
+              <RuleHorizontal className="w-full" />
+            </div>
           </div>
         </div>
       </div>
