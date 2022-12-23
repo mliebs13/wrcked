@@ -37,8 +37,8 @@ const FAQ: NextPage = () => {
           <p className="font-bold text-sm">
             ALL LITHOGRAPHS WILL BE AVAILABLE THROUGH DIRECT SALE. OTHER TIMES
             THEY WILL BE AVAILABLE VIA DRAW. AFTER A SUCCESSFUL TRANSACTION, THE
-            CHARGES ON YOUR CREDIT CARD WILL APPEAR AS "WRCKEDINC," WRCKED’S
-            BUSINESS ENTITY.
+            CHARGES ON YOUR CREDIT CARD WILL APPEAR AS &quot;WRCKEDINC,&quot;
+            WRCKED’S BUSINESS ENTITY.
           </p>
         </div>
 
