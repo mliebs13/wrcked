@@ -13,1693 +13,1693 @@ const Rule: FC<SVGProps<SVGSVGElement>> = (props) => {
       <path
         d="M1 935V1"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <g filter="url(#filter0_d_4_2367)">
         <path
           d="M7.48999 130H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter1_d_4_2367)">
         <path
           d="M7.48999 156H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter2_d_4_2367)">
         <path
           d="M7.48999 134H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter3_d_4_2367)">
         <path
           d="M7.48999 138H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter4_d_4_2367)">
         <path
           d="M7.48999 142H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter5_d_4_2367)">
         <path
           d="M7.48999 146H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter6_d_4_2367)">
         <path
           d="M7.48999 151H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter7_d_4_2367)">
         <path
           d="M7.48999 182H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter8_d_4_2367)">
         <path
           d="M7.48999 160H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter9_d_4_2367)">
         <path
           d="M7.48999 164H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter10_d_4_2367)">
         <path
           d="M7.48999 168H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter11_d_4_2367)">
         <path
           d="M7.48999 172H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter12_d_4_2367)">
         <path
           d="M7.48999 177H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter13_d_4_2367)">
         <path
           d="M7.48999 208H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter14_d_4_2367)">
         <path
           d="M7.48999 186H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter15_d_4_2367)">
         <path
           d="M7.48999 190H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter16_d_4_2367)">
         <path
           d="M7.48999 194H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter17_d_4_2367)">
         <path
           d="M7.48999 198H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter18_d_4_2367)">
         <path
           d="M7.48999 203H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter19_d_4_2367)">
         <path
           d="M7.48999 234H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter20_d_4_2367)">
         <path
           d="M7.48999 212H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter21_d_4_2367)">
         <path
           d="M7.48999 216H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter22_d_4_2367)">
         <path
           d="M7.48999 220H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter23_d_4_2367)">
         <path
           d="M7.48999 224H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter24_d_4_2367)">
         <path
           d="M7.48999 229H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <path
         d="M7.48999 104H28.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <g filter="url(#filter25_d_4_2367)">
         <path
           d="M7.48999 108H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter26_d_4_2367)">
         <path
           d="M7.48999 112H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter27_d_4_2367)">
         <path
           d="M7.48999 116H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter28_d_4_2367)">
         <path
           d="M7.48999 120H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter29_d_4_2367)">
         <path
           d="M7.48999 125H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <path
         d="M7.48999 27H28.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 53H28.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 31H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 35H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 39H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 43H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 48H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 79H28.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 57H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 61H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 65H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 69H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 83H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 75H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 87H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 91H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 95H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 100H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <g filter="url(#filter30_d_4_2367)">
         <path
           d="M7.48999 935H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter31_d_4_2367)">
         <path
           d="M7.48999 909H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter32_d_4_2367)">
         <path
           d="M7.48999 913H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter33_d_4_2367)">
         <path
           d="M7.48999 917H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter34_d_4_2367)">
         <path
           d="M7.48999 921H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter35_d_4_2367)">
         <path
           d="M7.48999 925H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter36_d_4_2367)">
         <path
           d="M7.48999 930H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter37_d_4_2367)">
         <path
           d="M7.48999 884H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter38_d_4_2367)">
         <path
           d="M7.48999 862H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter39_d_4_2367)">
         <path
           d="M7.48999 866H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter40_d_4_2367)">
         <path
           d="M7.48999 870H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter41_d_4_2367)">
         <path
           d="M7.48999 874H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter42_d_4_2367)">
         <path
           d="M7.48999 888H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter43_d_4_2367)">
         <path
           d="M7.48999 880H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter44_d_4_2367)">
         <path
           d="M7.48999 892H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter45_d_4_2367)">
         <path
           d="M7.48999 896H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter46_d_4_2367)">
         <path
           d="M7.48999 900H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter47_d_4_2367)">
         <path
           d="M7.48999 905H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <path
         d="M7.48999 1H28.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 5H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 9H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 13H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 17H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M7.48999 22H17.49"
         className="stroke-primary"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <g filter="url(#filter48_d_4_2367)">
         <path
           d="M7.48999 260H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter49_d_4_2367)">
         <path
           d="M7.48999 238H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter50_d_4_2367)">
         <path
           d="M7.48999 242H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter51_d_4_2367)">
         <path
           d="M7.48999 246H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter52_d_4_2367)">
         <path
           d="M7.48999 250H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter53_d_4_2367)">
         <path
           d="M7.48999 255H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter54_d_4_2367)">
         <path
           d="M7.48999 286H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter55_d_4_2367)">
         <path
           d="M7.48999 264H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter56_d_4_2367)">
         <path
           d="M7.48999 268H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter57_d_4_2367)">
         <path
           d="M7.48999 272H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter58_d_4_2367)">
         <path
           d="M7.48999 276H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter59_d_4_2367)">
         <path
           d="M7.48999 281H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter60_d_4_2367)">
         <path
           d="M7.48999 312H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter61_d_4_2367)">
         <path
           d="M7.48999 290H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter62_d_4_2367)">
         <path
           d="M7.48999 294H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter63_d_4_2367)">
         <path
           d="M7.48999 298H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter64_d_4_2367)">
         <path
           d="M7.48999 302H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter65_d_4_2367)">
         <path
           d="M7.48999 307H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter66_d_4_2367)">
         <path
           d="M7.48999 338H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter67_d_4_2367)">
         <path
           d="M7.48999 316H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter68_d_4_2367)">
         <path
           d="M7.48999 320H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter69_d_4_2367)">
         <path
           d="M7.48999 324H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter70_d_4_2367)">
         <path
           d="M7.48999 328H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter71_d_4_2367)">
         <path
           d="M7.48999 333H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter72_d_4_2367)">
         <path
           d="M7.48999 364H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter73_d_4_2367)">
         <path
           d="M7.48999 342H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter74_d_4_2367)">
         <path
           d="M7.48999 346H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter75_d_4_2367)">
         <path
           d="M7.48999 350H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter76_d_4_2367)">
         <path
           d="M7.48999 354H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter77_d_4_2367)">
         <path
           d="M7.48999 359H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter78_d_4_2367)">
         <path
           d="M7.48999 390H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter79_d_4_2367)">
         <path
           d="M7.48999 368H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter80_d_4_2367)">
         <path
           d="M7.48999 372H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter81_d_4_2367)">
         <path
           d="M7.48999 376H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter82_d_4_2367)">
         <path
           d="M7.48999 380H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter83_d_4_2367)">
         <path
           d="M7.48999 385H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter84_d_4_2367)">
         <path
           d="M7.48999 416H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter85_d_4_2367)">
         <path
           d="M7.48999 394H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter86_d_4_2367)">
         <path
           d="M7.48999 398H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter87_d_4_2367)">
         <path
           d="M7.48999 402H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter88_d_4_2367)">
         <path
           d="M7.48999 406H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter89_d_4_2367)">
         <path
           d="M7.48999 411H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter90_d_4_2367)">
         <path
           d="M7.48999 442H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter91_d_4_2367)">
         <path
           d="M7.48999 420H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter92_d_4_2367)">
         <path
           d="M7.48999 424H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter93_d_4_2367)">
         <path
           d="M7.48999 428H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter94_d_4_2367)">
         <path
           d="M7.48999 432H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter95_d_4_2367)">
         <path
           d="M7.48999 437H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter96_d_4_2367)">
         <path
           d="M7.48999 468H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter97_d_4_2367)">
         <path
           d="M7.48999 446H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter98_d_4_2367)">
         <path
           d="M7.48999 450H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter99_d_4_2367)">
         <path
           d="M7.48999 454H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter100_d_4_2367)">
         <path
           d="M7.48999 458H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter101_d_4_2367)">
         <path
           d="M7.48999 463H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter102_d_4_2367)">
         <path
           d="M7.48999 494H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter103_d_4_2367)">
         <path
           d="M7.48999 472H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter104_d_4_2367)">
         <path
           d="M7.48999 476H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter105_d_4_2367)">
         <path
           d="M7.48999 480H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter106_d_4_2367)">
         <path
           d="M7.48999 484H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter107_d_4_2367)">
         <path
           d="M7.48999 489H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter108_d_4_2367)">
         <path
           d="M7.48999 520H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter109_d_4_2367)">
         <path
           d="M7.48999 498H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter110_d_4_2367)">
         <path
           d="M7.48999 502H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter111_d_4_2367)">
         <path
           d="M7.48999 506H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter112_d_4_2367)">
         <path
           d="M7.48999 510H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter113_d_4_2367)">
         <path
           d="M7.48999 515H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter114_d_4_2367)">
         <path
           d="M7.48999 546H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter115_d_4_2367)">
         <path
           d="M7.48999 524H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter116_d_4_2367)">
         <path
           d="M7.48999 528H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter117_d_4_2367)">
         <path
           d="M7.48999 532H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter118_d_4_2367)">
         <path
           d="M7.48999 536H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter119_d_4_2367)">
         <path
           d="M7.48999 541H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter120_d_4_2367)">
         <path
           d="M7.48999 572H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter121_d_4_2367)">
         <path
           d="M7.48999 550H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter122_d_4_2367)">
         <path
           d="M7.48999 554H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter123_d_4_2367)">
         <path
           d="M7.48999 558H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter124_d_4_2367)">
         <path
           d="M7.48999 562H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter125_d_4_2367)">
         <path
           d="M7.48999 567H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter126_d_4_2367)">
         <path
           d="M7.48999 598H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter127_d_4_2367)">
         <path
           d="M7.48999 576H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter128_d_4_2367)">
         <path
           d="M7.48999 580H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter129_d_4_2367)">
         <path
           d="M7.48999 584H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter130_d_4_2367)">
         <path
           d="M7.48999 588H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter131_d_4_2367)">
         <path
           d="M7.48999 593H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter132_d_4_2367)">
         <path
           d="M7.48999 624H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter133_d_4_2367)">
         <path
           d="M7.48999 602H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter134_d_4_2367)">
         <path
           d="M7.48999 606H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter135_d_4_2367)">
         <path
           d="M7.48999 610H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter136_d_4_2367)">
         <path
           d="M7.48999 614H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter137_d_4_2367)">
         <path
           d="M7.48999 619H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter138_d_4_2367)">
         <path
           d="M7.48999 650H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter139_d_4_2367)">
         <path
           d="M7.48999 628H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter140_d_4_2367)">
         <path
           d="M7.48999 632H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter141_d_4_2367)">
         <path
           d="M7.48999 636H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter142_d_4_2367)">
         <path
           d="M7.48999 640H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter143_d_4_2367)">
         <path
           d="M7.48999 645H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter144_d_4_2367)">
         <path
           d="M7.48999 676H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter145_d_4_2367)">
         <path
           d="M7.48999 654H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter146_d_4_2367)">
         <path
           d="M7.48999 658H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter147_d_4_2367)">
         <path
           d="M7.48999 662H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter148_d_4_2367)">
         <path
           d="M7.48999 666H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter149_d_4_2367)">
         <path
           d="M7.48999 671H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter150_d_4_2367)">
         <path
           d="M7.48999 702H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter151_d_4_2367)">
         <path
           d="M7.48999 680H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter152_d_4_2367)">
         <path
           d="M7.48999 684H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter153_d_4_2367)">
         <path
           d="M7.48999 688H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter154_d_4_2367)">
         <path
           d="M7.48999 692H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter155_d_4_2367)">
         <path
           d="M7.48999 697H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter156_d_4_2367)">
         <path
           d="M7.48999 728H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter157_d_4_2367)">
         <path
           d="M7.48999 706H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter158_d_4_2367)">
         <path
           d="M7.48999 710H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter159_d_4_2367)">
         <path
           d="M7.48999 714H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter160_d_4_2367)">
         <path
           d="M7.48999 718H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter161_d_4_2367)">
         <path
           d="M7.48999 723H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter162_d_4_2367)">
         <path
           d="M7.48999 754H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter163_d_4_2367)">
         <path
           d="M7.48999 732H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter164_d_4_2367)">
         <path
           d="M7.48999 736H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter165_d_4_2367)">
         <path
           d="M7.48999 740H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter166_d_4_2367)">
         <path
           d="M7.48999 744H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter167_d_4_2367)">
         <path
           d="M7.48999 749H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter168_d_4_2367)">
         <path
           d="M7.48999 780H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter169_d_4_2367)">
         <path
           d="M7.48999 758H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter170_d_4_2367)">
         <path
           d="M7.48999 762H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter171_d_4_2367)">
         <path
           d="M7.48999 766H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter172_d_4_2367)">
         <path
           d="M7.48999 770H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter173_d_4_2367)">
         <path
           d="M7.48999 775H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter174_d_4_2367)">
         <path
           d="M7.48999 806H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter175_d_4_2367)">
         <path
           d="M7.48999 784H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter176_d_4_2367)">
         <path
           d="M7.48999 788H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter177_d_4_2367)">
         <path
           d="M7.48999 792H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter178_d_4_2367)">
         <path
           d="M7.48999 796H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter179_d_4_2367)">
         <path
           d="M7.48999 801H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter180_d_4_2367)">
         <path
           d="M7.48999 832H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter181_d_4_2367)">
         <path
           d="M7.48999 810H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter182_d_4_2367)">
         <path
           d="M7.48999 814H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter183_d_4_2367)">
         <path
           d="M7.48999 818H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter184_d_4_2367)">
         <path
           d="M7.48999 822H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter185_d_4_2367)">
         <path
           d="M7.48999 827H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter186_d_4_2367)">
         <path
           d="M7.48999 858H28.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter187_d_4_2367)">
         <path
           d="M7.48999 836H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter188_d_4_2367)">
         <path
           d="M7.48999 840H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter189_d_4_2367)">
         <path
           d="M7.48999 844H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter190_d_4_2367)">
         <path
           d="M7.48999 848H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter191_d_4_2367)">
         <path
           d="M7.48999 853H17.49"
           className="stroke-primary"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <defs>

@@ -21,9 +21,10 @@ type ProductDetailsProps = {
   name: string;
   price: number;
   quantity: number;
+  totalProducts: number;
   index: number;
   setIndex: Dispatch<SetStateAction<number>>;
-  totalProducts: number;
+  handleBuy: string | Dispatch<SetStateAction<boolean>>;
 };
 
 const ProductDetails: FC<ProductDetailsProps> = ({
@@ -31,9 +32,10 @@ const ProductDetails: FC<ProductDetailsProps> = ({
   name,
   price,
   quantity,
+  totalProducts,
   index,
   setIndex,
-  totalProducts,
+  handleBuy,
 }) => {
   const router = useRouter();
 
@@ -80,7 +82,12 @@ const ProductDetails: FC<ProductDetailsProps> = ({
           </IconButton>
           <AltButton
             className="relative h-full w-1/2 text-lg font-bold mx-1 disabled:cursor-not-allowed"
-            onClick={() => isAvailable && router.push(`/shop/${id}`)}
+            onClick={() =>
+              isAvailable &&
+              (typeof handleBuy === "string"
+                ? router.push(handleBuy, undefined, { shallow: true })
+                : handleBuy(true))
+            }
             disabled={!isAvailable}
           >
             {/* line through */}
@@ -88,7 +95,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
               <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
             )}
 
-            {isAvailable ? "Buy Now" : "Sold Out"}
+            {isAvailable ? "Buy Now" : "Sold"}
             {/* angle brackets pattern */}
             <span className="absolute -bottom-7 left-[38%] hidden lg:block -translate-x-1/4">
               <svg
