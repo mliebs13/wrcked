@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import useWindowSize from "@src/hooks/useWindowSize";
 // import { breakpoints } from "@src/utils";
 import Rule from "@src/components/shared/svgs/Rule";
+import RuleMobile from "@src/components/shared/svgs/RuleMobile";
+import { breakpoints } from "@src/utils";
 
 type ProductImagesProps = {
   gif: any;
@@ -14,8 +16,8 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
   const { width } = useWindowSize();
 
   return (
-    <div className="relative flex justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-20 mx-auto">
-      <div className="w-fit flex items-end self-center lg:self-start justify-center pt-6 lg:pt-0 mx-auto -mr-16 lg:ml-4 lg:mr-12">
+    <div className="relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[2000px] flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-20 mx-auto">
+      <div className="flex flex-[0.75] sm:flex-[0.45] lg:flex-[0.8] items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-4 lg:mr-12">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -45,18 +47,24 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
       </div>
 
       {/* 67px -> (padding) 27px + (padding) 2.5rem; 1rem -> variable */}
-      <p className="min-w-fit text-sm font-bold lg:-mt-[(calc(27px+2.5rem-1rem))] mr-4">
-        12IN / 30cm
-      </p>
 
       {/* 67px -> (padding) 27px + (padding) 2.5rem; (full header height) 82px - (half button height) 27px */}
-      <div className="lg:-mt-[(calc(27px+2.5rem+82px-27px))] z-[8] h-[54vh] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto">
+      <div className="flex flex-[0.25] lg:flex-[0.2] justify-self-end lg:-mt-[(calc(27px+2.5rem+82px-27px))] h-[54vh] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto z-[8]">
+        <p className="min-w-fit w-max text-sm font-bold lg:mt-[calc(82px-27px+1rem)] mr-4">
+          12IN / 30cm
+        </p>
         {/* <Image
           src={width < breakpoints.lg ? meterRuleMobileImage : meterRuleImage}
           alt="metre rule"
           className="h-full"
         /> */}
-        <Rule className="h-full" />
+        <div className="h-full">
+          {width < breakpoints.lg ? (
+            <RuleMobile className="h-full" />
+          ) : (
+            <Rule className="h-full" />
+          )}
+        </div>
       </div>
     </div>
   );

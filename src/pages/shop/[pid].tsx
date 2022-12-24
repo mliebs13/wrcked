@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useTime } from "framer-motion";
 import groq from "groq";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
@@ -24,18 +24,24 @@ const Product = ({
   products,
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const time = useTime();
   const [index, setIndex] = useState(
     products.findIndex((p) => p._id === product._id)
   );
-  console.log("index: ", index);
-  console.log("products: ", products);
   const [detailsOpen, setDetailsOpen] = useState(true);
+  const [preventScroll, setPreventScroll] = useState(false);
 
   const currentProduct = products[index];
 
+  useEffect(() => {
+    console.log("time: ", time);
+  }, [time]);
+
   return (
     <main
-      className="relative w-full"
+      className={classNames("relative w-full overflow-x-hidden", {
+        // "max-h-screen overflow-y-hidden": preventScroll,
+      })}
       onClick={() => detailsOpen && setDetailsOpen(false)}
     >
       <AnimatePresence initial={true}>
@@ -55,7 +61,6 @@ const Product = ({
       </AnimatePresence>
 
       <ProductDetails
-        id={currentProduct._id}
         name={currentProduct.name}
         price={currentProduct.price}
         quantity={currentProduct.quantity}
@@ -64,12 +69,17 @@ const Product = ({
         total={products.length}
         index={index}
         setIndex={setIndex}
-        handleBuy={setDetailsOpen}
+        handleBuy={
+          currentProduct._id === product._id
+            ? setDetailsOpen
+            : `/shop/${currentProduct._id}`
+        }
       />
       {/* details */}
       <AnimatePresence initial={true}>
         {detailsOpen && (
           <motion.div
+            onAnimationStart={() => setPreventScroll(!preventScroll)}
             transition={{
               type: "spring",
               damping: 20,
@@ -79,7 +89,7 @@ const Product = ({
             animate={{ y: "0" }}
             exit={{ y: "100vh" }}
             className={classNames(
-              "absolute top-[20vh] left-0 w-full max-h-[80vh] bg-skyBlue bg-dots-secondary py-6 px-3 sm:px-10 2xl:px-20 overflow-y-auto z-30",
+              "fixed bottom-0 left-0 w-full h-[80vh] max-h-[80vh] bg-skyBlue bg-dots-secondary py-8 px-3 sm:px-10 2xl:px-20 overflow-y-auto z-30",
               spaceMono.className
             )}
             style={{
@@ -87,9 +97,9 @@ const Product = ({
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="w-full h-full min-h-[400px] max-w-8xl grid grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
+            <div className="w-full h-full min-h-[400px] max-w-8xl grid place-content-start grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
               {/* left */}
-              <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto">
+              <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto pb-8">
                 <AltButton
                   className="text-base uppercase px-10 py-4 mb-4"
                   onClick={() => setDetailsOpen(false)}
@@ -131,8 +141,8 @@ const Product = ({
               </div>
 
               {/* right */}
-              <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-center pr-14 2xl:pr-16">
-                <div className=" h-[50%] max-h-[540px]">
+              <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-center pr-14 2xl:pr-16 pb-8">
+                <div className="w-auto h-[50%] max-h-[540px]">
                   <Image
                     src={getSanityImageUrl(product.image)}
                     alt="product image"

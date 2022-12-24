@@ -17,7 +17,6 @@ const spaceMono = Space_Mono({
 });
 
 type ProductDetailsProps = {
-  id: string;
   name: string;
   price: number;
   quantity: number;
@@ -28,7 +27,6 @@ type ProductDetailsProps = {
 };
 
 const ProductDetails: FC<ProductDetailsProps> = ({
-  id,
   name,
   price,
   quantity,

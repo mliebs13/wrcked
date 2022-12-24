@@ -15,7 +15,6 @@ const spaceMono = Space_Mono({
 });
 
 type ProductProps = {
-  id: string;
   name: string;
   price: number;
   quantity: number;
@@ -28,7 +27,6 @@ type ProductProps = {
 };
 
 const Product: FC<ProductProps> = ({
-  id,
   name,
   price,
   quantity,
@@ -58,7 +56,6 @@ const Product: FC<ProductProps> = ({
         {total >= 1 ? (
           <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[520px] lg:h-[calc(90vh-132px)] pt-[22.5px] lg:pt-[27px]">
             <ProductDetails
-              id={id}
               price={price}
               name={name}
               quantity={quantity}
