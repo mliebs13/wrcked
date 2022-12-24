@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
-import { motion, AnimatePresence, useTime } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import groq from "groq";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
@@ -24,24 +24,20 @@ const Product = ({
   products,
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const time = useTime();
   const [index, setIndex] = useState(
     products.findIndex((p) => p._id === product._id)
   );
-  const [detailsOpen, setDetailsOpen] = useState(true);
-  const [preventScroll, setPreventScroll] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   const currentProduct = products[index];
 
   useEffect(() => {
-    console.log("time: ", time);
-  }, [time]);
+    !detailsOpen && setDetailsOpen(true);
+  }, [product]);
 
   return (
     <main
-      className={classNames("relative w-full overflow-x-hidden", {
-        // "max-h-screen overflow-y-hidden": preventScroll,
-      })}
+      className="relative w-full overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
     >
       <AnimatePresence initial={true}>
@@ -79,7 +75,6 @@ const Product = ({
       <AnimatePresence initial={true}>
         {detailsOpen && (
           <motion.div
-            onAnimationStart={() => setPreventScroll(!preventScroll)}
             transition={{
               type: "spring",
               damping: 20,

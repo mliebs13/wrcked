@@ -83,7 +83,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
             onClick={() =>
               isAvailable &&
               (typeof handleBuy === "string"
-                ? router.push(handleBuy, undefined, { shallow: true })
+                ? router.push(handleBuy)
                 : handleBuy(true))
             }
             disabled={!isAvailable}
