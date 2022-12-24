@@ -74,15 +74,15 @@ const Checkout = ({
           <div>
             <h2 className="text-base tracking-wide mb-4">PRODUCT SUMMARY</h2>
 
-            <div className="flex w-full border border-primary mb-4">
+            <div className="grid grid-cols-2 w-full border border-primary mb-4">
               {/* image */}
-              <div className="h-full w-fit flex items-center p-4 border-r-primary border-r">
+              <div className="min-w-[150px] h-full w-full grid place-content-center p-4 border-r-primary border-r">
                 <Image
                   src={getSanityImageUrl(product.image)}
                   alt="product image"
                   width={275}
                   height={200}
-                  className="max-h-[300px] h-full w-auto"
+                  className="max-h-[200px] h-full w-auto"
                 />
               </div>
 
