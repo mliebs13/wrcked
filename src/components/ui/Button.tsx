@@ -17,6 +17,7 @@ const Button: FC<
       className={classNames(
         "Button relative flex items-center justify-center bg-secondary shadow-block border border-primary cursor-pointer",
         spaceMono.className,
+        "disabled:cursor-not-allowed",
         className
       )}
     >

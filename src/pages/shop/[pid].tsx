@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { Space_Mono } from "@next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import groq from "groq";
@@ -24,12 +25,14 @@ const Product = ({
   products,
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter();
   const [index, setIndex] = useState(
     products.findIndex((p) => p._id === product._id)
   );
   const [detailsOpen, setDetailsOpen] = useState(false);
 
   const currentProduct = products[index];
+  const isAvailable = currentProduct.quantity >= 1;
 
   useEffect(() => {
     !detailsOpen && setDetailsOpen(true);
@@ -126,8 +129,18 @@ const Product = ({
 
                 {/* 'buy now' button */}
                 <div className="bg-secondary w-full p-4">
-                  <AltButton className="w-full py-2.5 text-3xl font-bold mb-2">
-                    BUY NOW
+                  <AltButton
+                    className="w-full py-2.5 text-3xl font-bold mb-2"
+                    onClick={() =>
+                      router.push(`/checkout/${currentProduct._id}`)
+                    }
+                    disabled={!isAvailable}
+                  >
+                    {!isAvailable && (
+                      <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
+                    )}
+
+                    {isAvailable ? "BUY NOW" : "SOLD"}
                   </AltButton>
                   <p className="text-sm font-bold text-danger text-center">
                     FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
@@ -152,26 +165,16 @@ const Product = ({
                   <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
                     36IN / 90CM
                   </p>
-                  {/* <Image
-              src={meterRuleVertical}
-              alt="metre rule"
-              className="h-[90%]"
-            /> */}
                   <div className="h-[90%]">
                     <RuleVertical className="h-full" />
                   </div>
                 </div>
 
                 {/* horizontal */}
-                <div className="w-full absolute bottom-0 left-0">
+                <div className="w-full absolute bottom-5 left-0">
                   <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
                     24IN / 60CM
                   </p>
-                  {/* <Image
-              src={meterRuleHorizontal}
-              alt="metre rule"
-              className="w-[90%]"
-            /> */}
                   <div className="w-[90%]">
                     <RuleHorizontal className="w-full" />
                   </div>

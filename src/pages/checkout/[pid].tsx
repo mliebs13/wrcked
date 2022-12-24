@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { NextPage } from "next";
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
 import Image from "next/image";
 import { Space_Mono } from "@next/font/google";
 import Link from "next/link";
@@ -9,8 +14,10 @@ import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import Checkbox from "@components/ui/Checkbox";
 import Input from "@components/ui/Input";
 import Select from "@components/ui/Select";
-
-import productImage from "@public/images/product-image.png";
+import { Product } from "@src/types";
+import sanityClient from "@src/config/sanity";
+import groq from "groq";
+import { getSanityImageUrl } from "@src/utils";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -38,7 +45,9 @@ const states = [
   "Washington",
 ];
 
-const Checkout: NextPage = () => {
+const Checkout = ({
+  product,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [rememberData, setRememberData] = useState(false);
   const [country, setCountry] = useState(countries[0].toUpperCase());
@@ -67,20 +76,26 @@ const Checkout: NextPage = () => {
 
             <div className="flex w-full border border-primary mb-4">
               {/* image */}
-              <div className="w-fit flex items-center p-4 border-r-primary border-r">
-                <Image src={productImage} alt="product image" width={275} />
+              <div className="h-full w-fit flex items-center p-4 border-r-primary border-r">
+                <Image
+                  src={getSanityImageUrl(product.image)}
+                  alt="product image"
+                  width={275}
+                  height={200}
+                  className="max-h-[300px] h-full w-auto"
+                />
               </div>
 
               {/* summary */}
               <div className="w-full">
                 <div className="px-4 py-2 border-b border-b-primary">
-                  <p className="text-base font-bold mb-1">Product 1</p>
+                  <p className="text-base font-bold mb-1">{product.name}</p>
                   <p className="text-base">QUANTITY: 1</p>
                 </div>
                 <div className="px-4 py-2 border-b border-b-primary">
                   <p className="flex justify-between text-base mb-1">
                     <span>SUBTOTAL</span>
-                    <span>$450.00</span>
+                    <span>${product.price}.00</span>
                   </p>
                   <p className="flex justify-between text-base mb-1">
                     <span>SHIPPING</span>
@@ -94,7 +109,7 @@ const Checkout: NextPage = () => {
                 <div className="px-4 py-2">
                   <p className="flex justify-between text-base font-bold">
                     <span>TOTAL</span>
-                    <span>$450.00</span>
+                    <span>${product.price}.00</span>
                   </p>
                 </div>
               </div>
@@ -309,6 +324,51 @@ const Checkout: NextPage = () => {
       </div>
     </main>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths: string[] = await sanityClient.fetch(
+    groq`*[_type == "product"][]._id | order(_createdAt asc)`
+  );
+
+  return {
+    paths: paths.map((pid: string) => ({ params: { pid } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<{
+  product: Product;
+}> = async (context) => {
+  try {
+    const { pid = "" } = context.params as any;
+
+    const product = pid
+      ? await sanityClient.fetch(
+          groq`*[_type == "product" && _id == $pid][0]`,
+          { pid }
+        )
+      : null;
+
+    const products: any[] = await sanityClient.fetch(
+      groq`*[_type == "product"] | order(_createdAt asc)`
+    );
+
+    if (!product || !products) {
+      throw new Error("Failed to fetch products");
+    }
+
+    return {
+      props: {
+        products,
+        product,
+      },
+    };
+  } catch (err: any) {
+    console.log("error occurred: ", err.message);
+
+    throw new Error("Failed to fetch posts");
+  }
 };
 
 export default Checkout;
