@@ -21,7 +21,6 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <main className={classNames(spaceMono.className, "w-full")}>
       <Product
-        id={product._id}
         name={product.name}
         price={product.price}
         quantity={product.quantity}
