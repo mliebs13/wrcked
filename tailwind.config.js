@@ -40,6 +40,9 @@ module.exports = {
         "dots-secondary": "var(--bg-dots-secondary)",
         cross: "var(--bg-cross)",
       },
+      fontFamily: {
+        spaceMono: [`"Space Mono"`],
+      },
     },
   },
   plugins: [],
