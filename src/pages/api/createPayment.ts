@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import groq from "groq";
 import sanityClient from "@src/config/sanity";
-import Stripe from "stripe";
 import stripe from "@src/config/stripe";
 
 const createPaymentHandler = async (
