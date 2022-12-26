@@ -15,20 +15,21 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
   const { width } = useWindowSize();
 
   return (
-    <div className="relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[2000px] flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-20 mx-auto">
-      <div className="flex flex-[0.75] sm:flex-[0.45] lg:flex-[0.8] items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-4 lg:mr-12">
+    <div className="relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[2000px] flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 mx-auto">
+      <div className="flex flex-[0.75] sm:flex-[0.45] lg:flex-[0.825] items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-4 lg:mr-12">
         <motion.div
           key={gif}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          className="mr-12"
         >
           <Image
             src={gif}
             alt="product gif"
             width={350}
             height={350}
-            className="hidden lg:block w-auto h-[48vh] max-h-[375px] lg:min-h-[200px] mr-14"
+            className="hidden lg:block w-auto h-[48vh] max-h-[375px] lg:min-h-[200px]"
           />
         </motion.div>
         <motion.div
@@ -50,7 +51,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
       {/* 67px -> (padding) 27px + (padding) 2.5rem; 1rem -> variable */}
 
       {/* 67px -> (padding) 27px + (padding) 2.5rem; (full header height) 82px - (half button height) 27px */}
-      <div className="flex flex-[0.25] lg:flex-[0.2] justify-self-end lg:-mt-[(calc(27px+2.5rem+82px-27px))] h-[54vh] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto z-[8]">
+      <div className="flex flex-[0.25] lg:flex-[0.175] justify-self-end lg:-mt-[(calc(27px+2.5rem+82px-27px))] h-[54vh] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto z-[8]">
         <p className="min-w-fit w-max text-sm font-bold lg:mt-[calc(82px-27px+1rem)] mr-4">
           12IN / 30cm
         </p>
