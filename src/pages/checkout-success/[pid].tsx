@@ -1,23 +1,27 @@
-import { useState } from "react";
-import { NextPage } from "next";
+import { useEffect, useState } from "react";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { Space_Mono } from "@next/font/google";
+import { useRouter } from "next/router";
 import classNames from "classnames";
-import AltButton from "@components/ui/AltButton";
+import groq from "groq";
 import CheckoutHeader from "@components/checkout/CheckoutHeader";
+import sanityClient from "@src/config/sanity";
+import { Product } from "@src/types";
+import { getSanityImageUrl } from "@src/utils";
+import { spaceMono } from "@src/config/fonts";
 
-import productImage from "@public/images/product-image.png";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
-
-const Checkout: NextPage = () => {
+const Checkout = ({
+  product,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
+  const [total, setTotal] = useState("-");
+  const [quantity, setQuantity] = useState("-");
+
+  useEffect(() => {
+    setTotal(router.query?.t?.toString() ?? "-");
+    setQuantity(router.query?.q?.toString() ?? "-");
+  }, [router.query]);
 
   return (
     <main
@@ -31,7 +35,6 @@ const Checkout: NextPage = () => {
     >
       <CheckoutHeader />
 
-      {/* content */}
       <div className="w-full max-w-6xl flex flex-col md:flex-row justify-start md:justify-between mx-auto">
         {/* left - product summary */}
         <div className="max-w-xl w-full flex flex-col items-center justify-center mx-auto">
@@ -51,34 +54,40 @@ const Checkout: NextPage = () => {
             <div className="absolute right-0 bottom-0 w-5 h-5 border-r border-r-primary border-b border-b-primary" />
 
             <Image
-              src={productImage}
+              src={getSanityImageUrl(product.image)}
               alt="product image"
               width={519}
               height={550}
-              className="max-w-[250px] lg:max-w-auto w-[70%] w-[50%]"
+              className="max-h-[250px] lg:max-h-[300px] w-auto h-full"
             />
           </div>
 
           <div className="w-full mb-6">
             <h2 className="text-base text-primary tracking-wide mb-2">
-              SUMMARY <span className="text-darkGray">#PRODUCT00001</span>
+              SUMMARY <span className="text-darkGray">{product.name}</span>
             </h2>
             <div className="flex w-full border border-primary">
               {/* image */}
-              <div className="w-fit flex items-center p-4 border-r-primary border-r">
-                <Image src={productImage} alt="product image" width={275} />
+              <div className="w-full flex items-center justify-center p-4 border-r-primary border-r">
+                <Image
+                  src={getSanityImageUrl(product.image)}
+                  alt="product image"
+                  width={250}
+                  height={250}
+                  className="w-auto h-full max-h-[200px]"
+                />
               </div>
 
               {/* summary */}
               <div className="w-full">
                 <div className="px-4 py-2 border-b border-b-primary">
-                  <p className="text-base font-bold mb-1">Product 1</p>
-                  <p className="text-base">QUANTITY: 1</p>
+                  <p className="text-base font-bold mb-1">{product.name}</p>
+                  <p className="text-base">QUANTITY: {quantity}</p>
                 </div>
                 <div className="px-4 py-2 border-b border-b-primary">
                   <p className="flex justify-between text-base mb-1">
                     <span>SUBTOTAL</span>
-                    <span>$450.00</span>
+                    <span>${total}.00</span>
                   </p>
                   <p className="flex justify-between text-base mb-1">
                     <span>SHIPPING</span>
@@ -92,7 +101,7 @@ const Checkout: NextPage = () => {
                 <div className="px-4 py-2">
                   <p className="flex justify-between text-base font-bold">
                     <span>TOTAL</span>
-                    <span>$450.00</span>
+                    <span>${total}.00</span>
                   </p>
                 </div>
               </div>
@@ -117,6 +126,51 @@ const Checkout: NextPage = () => {
       </div>
     </main>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths: string[] = await sanityClient.fetch(
+    groq`*[_type == "product"][]._id | order(_createdAt asc)`
+  );
+
+  return {
+    paths: paths.map((pid: string) => ({ params: { pid } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<{
+  product: Product;
+}> = async (context) => {
+  try {
+    const { pid = "" } = context.params as any;
+
+    const product = pid
+      ? await sanityClient.fetch(
+          groq`*[_type == "product" && _id == $pid][0]`,
+          { pid }
+        )
+      : null;
+
+    const products: any[] = await sanityClient.fetch(
+      groq`*[_type == "product"] | order(_createdAt asc)`
+    );
+
+    if (!product || !products) {
+      throw new Error("Failed to fetch products");
+    }
+
+    return {
+      props: {
+        products,
+        product,
+      },
+    };
+  } catch (err: any) {
+    console.log("error occurred: ", err.message);
+
+    throw new Error("Failed to fetch posts");
+  }
 };
 
 export default Checkout;

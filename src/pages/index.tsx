@@ -1,14 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 export default function Home() {
   const router = useRouter();

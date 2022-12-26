@@ -2,13 +2,7 @@ import { DetailedHTMLProps, FC, forwardRef, HTMLAttributes } from "react";
 import classNames from "classnames";
 import * as RadixSelect from "@radix-ui/react-select";
 import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
-import { Space_Mono } from "@next/font/google";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 type SelectProps = {
   placeholder: string;

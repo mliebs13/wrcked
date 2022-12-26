@@ -41,7 +41,7 @@ const Toast: FC<ToastProps> = ({
         onOpenChange={setOpen}
       >
         <RadixToast.Title
-          className={classNames("ToastTitle text-sm", {
+          className={classNames("ToastTitle font-bold text-sm", {
             "text-primary": type === "neutral",
             "text-danger": type === "error",
             "text-green-600": type === "success",

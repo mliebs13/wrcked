@@ -1,14 +1,8 @@
-import { Space_Mono } from "@next/font/google";
-import classNames from "classnames";
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react";
+import classNames from "classnames";
 import useAdmin from "../../hooks/useAdmin";
 import Spinner from "../shared/Spinner";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 const Auth: FC<
   DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>

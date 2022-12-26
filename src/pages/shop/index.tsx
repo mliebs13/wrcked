@@ -1,17 +1,11 @@
 import { useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { Space_Mono } from "@next/font/google";
 import groq from "groq";
 import Product from "@src/components/product/Product";
 import { Product as ProductType } from "@src/types";
 import sanityClient from "@src/config/sanity";
 import classNames from "classnames";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [index, setIndex] = useState(0);

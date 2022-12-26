@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { Space_Mono } from "@next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import groq from "groq";
 import classNames from "classnames";
@@ -14,12 +13,7 @@ import sanityClient from "@src/config/sanity";
 import RuleVertical from "@src/components/shared/svgs/RuleVertical";
 import RuleHorizontal from "@src/components/shared/svgs/RuleHorizontal";
 import ProductDetails from "@src/components/product/Product";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 const Product = ({
   products,

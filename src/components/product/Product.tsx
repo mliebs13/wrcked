@@ -1,5 +1,4 @@
 import { Dispatch, FC, SetStateAction } from "react";
-import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import Header from "@src/components/product/Header";
 import ProductDetails from "@src/components/product/ProductDetails";
@@ -7,12 +6,7 @@ import ProductImages from "@src/components/product/ProductImages";
 import { SanityImage } from "@src/types";
 import { getSanityImageUrl } from "@src/utils";
 import Nav from "@src/components/shared/Nav";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 type ProductProps = {
   name: string;

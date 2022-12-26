@@ -1,7 +1,6 @@
 import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Space_Mono } from "@next/font/google";
 import Cookies from "js-cookie";
 import classNames from "classnames";
 import {
@@ -16,12 +15,7 @@ import { useMemo } from "react";
 import Button from "@components/ui/Button";
 import Auth from "@src/components/admin/Auth";
 import Hamburger from "@src/components/shared/Hamburger";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 type AdminLayoutProps = {
   description?: string;

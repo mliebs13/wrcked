@@ -50,6 +50,7 @@ export default register;
     ** access mysql db from cmd **
     - >cd program files/mysql/mysql server 8.0/bin
     - >mysql -u "wrcked" -p
+    - >connect "wrcked"
     - >use "wrcked"
     - >show tables
     - >select * from `table name`

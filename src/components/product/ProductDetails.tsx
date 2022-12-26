@@ -1,20 +1,14 @@
 import { Dispatch, FC, SetStateAction } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import IconButton from "@components/ui/IconButton";
+import { spaceMono } from "@src/config/fonts";
 
 import timesImage from "@public/images/times.png";
 import arrowRightImage from "@public/images/arrow-right.png";
 import arrowLeftImage from "@public/images/arrow-left.png";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
 
 type ProductDetailsProps = {
   name: string;

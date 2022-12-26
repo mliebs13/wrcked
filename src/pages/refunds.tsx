@@ -1,15 +1,9 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Space_Mono } from "@next/font/google";
 import classNames from "classnames";
 import Nav from "@src/components/shared/Nav";
 import AltButton from "@src/components/ui/AltButton";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 const Refunds: NextPage = () => {
   const router = useRouter();

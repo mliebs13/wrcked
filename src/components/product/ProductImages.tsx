@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import useWindowSize from "@src/hooks/useWindowSize";
+import useWindowSize from "@src/hooks/useWindowDimensions";
 // import { breakpoints } from "@src/utils";
 import Rule from "@src/components/shared/svgs/Rule";
 import RuleMobile from "@src/components/shared/svgs/RuleMobile";
@@ -28,7 +28,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
             alt="product gif"
             width={350}
             height={350}
-            className="hidden lg:block w-auto h-[45vh] max-h-[375px] lg:min-h-[250px] mr-14"
+            className="hidden lg:block w-auto h-[45vh] max-h-[375px] lg:min-h-[200px] mr-14"
           />
         </motion.div>
         <motion.div
@@ -41,7 +41,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image }) => {
             alt="product image"
             width={519}
             height={550}
-            className="w-auto h-[250px] lg:h-[60vh] max-h-[42vh] lg:max-h-[560px] min-h-[135px] lg:min-h-[400px] lg:pb-24"
+            className="w-auto h-[250px] lg:h-[60vh] max-h-[42vh] lg:max-h-[560px] min-h-[135px] lg:min-h-[300px] lg:pb-24"
           />
         </motion.div>
       </div>

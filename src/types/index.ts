@@ -16,3 +16,16 @@ export type Product = {
   image: SanityImage;
   gif: SanityImage;
 };
+
+export type Shipping = {
+  name: string;
+  phone: string;
+  address: {
+    city: string;
+    line1: string;
+    line2: string;
+    postal_code: string;
+    state: string;
+    country: string;
+  };
+};

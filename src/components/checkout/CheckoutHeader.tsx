@@ -9,8 +9,8 @@ const CheckoutHeader: FC = () => {
     <header className="relative w-full h-fit max-w-6xl flex justify-center items-center mx-auto mb-12">
       {/* back button */}
       <button
-        className="absolute left-0 top-0 2xl:left-20 flex items-center text-primary"
-        onClick={() => router.push("/shop")}
+        className="absolute left-0 top-0 flex items-center text-primary"
+        onClick={() => router.back()}
       >
         <ChevronLeftIcon width={24} height={24} />
         <span className="text-base font-bold ml-1">BACK</span>

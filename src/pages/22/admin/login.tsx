@@ -1,6 +1,5 @@
-import { FormEvent, ReactElement, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/router";
-import { Space_Mono } from "@next/font/google";
 import axios from "axios";
 import Cookies from "js-cookie";
 import classNames from "classnames";
@@ -13,12 +12,7 @@ import Button from "@src/components/ui/Button";
 import Spinner from "@src/components/shared/Spinner";
 import Toast from "@src/components/ui/Toast";
 import { ToastType } from "@src/types";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  fallback: ["system-ui", "arial"],
-});
+import { spaceMono } from "@src/config/fonts";
 
 const schema = yup.object().shape({
   name: yup
