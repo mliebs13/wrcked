@@ -283,7 +283,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
               business: {
                 name: "Wrcked Art",
               },
-              paymentMethodOrder: ["card", "applePay", "googlePay"],
+              // paymentMethodOrder: ["card", "applePay", "googlePay"],
               wallets: {
                 applePay: "auto",
                 googlePay: "auto",
@@ -298,19 +298,20 @@ const CheckoutForm: FC<CheckoutFormType> = ({
             </div>
           )}
           {!paymentLoading && (
-            <AltButton
-              className="w-full min-h-[56px] py-2 text-2xl font-bold mb-3"
-              onClick={handleCardPayment}
-              disabled={isProcessing}
-            >
-              {isProcessing ? <Spinner size="md" /> : "PAY"}
-            </AltButton>
+            <>
+              <AltButton
+                className="w-full min-h-[56px] py-2 text-2xl font-bold mb-3"
+                onClick={handleCardPayment}
+                disabled={isProcessing}
+              >
+                {isProcessing ? <Spinner size="md" /> : "PAY"}
+              </AltButton>
+              <p className="text-sm font-bold text-danger text-center">
+                FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
+              </p>
+            </>
           )}
         </div>
-
-        <p className="text-sm font-bold text-danger text-center">
-          FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
-        </p>
       </div>
     </>
   );
