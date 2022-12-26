@@ -10,6 +10,7 @@ import Spinner from "../shared/Spinner";
 import Toast from "../ui/Toast";
 import { ToastType, Shipping } from "@src/types";
 import { getBaseUrl } from "@src/utils";
+import classNames from "classnames";
 
 type CheckoutFormType = {
   id: string;
@@ -32,6 +33,9 @@ const CheckoutForm: FC<CheckoutFormType> = ({
   const [isProcessing, setIsProcessing] = useState(false);
   const [addressLoading, setAddressLoading] = useState(true);
   const [paymentLoading, setPaymentLoading] = useState(true);
+  const [addressLoadError, setAddressLoadError] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
   const stripe = useStripe();
   const elements = useElements();
 
@@ -76,6 +80,23 @@ const CheckoutForm: FC<CheckoutFormType> = ({
 
   const handleCardPayment = async () => {
     if (stripe && elements && agreedToTerms) {
+      if (email.trim() === "") {
+        setEmailError("This field is incomplete.");
+        return openToast("This field is incomplete.", "error");
+      }
+      if (
+        !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+          email.trim()
+        )
+      ) {
+        setEmailError("Your email is invalid.");
+        return openToast("Your email is invalid.", "error");
+      }
+
+      if (emailError) {
+        return openToast(emailError, "error");
+      }
+
       try {
         setIsProcessing(true);
 
@@ -87,6 +108,12 @@ const CheckoutForm: FC<CheckoutFormType> = ({
               name: shippingInfo.name,
               phone: shippingInfo.phone,
             },
+            payment_method_data: {
+              billing_details: {
+                email,
+              },
+            },
+            receipt_email: email,
             return_url: `${getBaseUrl()}/checkout-success/${id}?t=${total}&q=${1}`,
           },
         });
@@ -141,7 +168,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
       <div className="w-full flex flex-col mb-4">
         <h2 className="text-base tracking-wide mb-2">SHIPPING DETAILS</h2>
         <AddressElement
-          className="w-full"
+          className="w-full mb-3"
           options={{
             allowedCountries: ["America"],
             mode: "shipping",
@@ -185,7 +212,59 @@ const CheckoutForm: FC<CheckoutFormType> = ({
           }}
           onLoaderStart={() => setAddressLoading(true)}
           onReady={() => setAddressLoading(false)}
+          onLoadError={() => setAddressLoadError(true)}
         />
+        {!addressLoading && !addressLoadError && (
+          <div className="w-full flex flex-col items-start">
+            {/* email */}
+            <label className="text-[12px] sm:text-[13px] mb-1 leading-[1.15]">
+              Email
+            </label>
+            <input
+              type="email"
+              value={email}
+              placeholder="name@gmail.com"
+              className={classNames(
+                "pay-input w-full bg-transparent text-[13px] sm:text-[15px] border border-primary p-4 focus:outline-none",
+                {
+                  error: !!emailError,
+                }
+              )}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              onBlur={() => {
+                emailError && setEmailError(null);
+
+                if (email.trim() === "") {
+                  setEmailError("This field is incomplete.");
+                }
+                if (
+                  !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+                    email.trim()
+                  )
+                ) {
+                  setEmailError("Your email is invalid.");
+                }
+              }}
+              onInput={() => {
+                emailError && setEmailError(null);
+              }}
+            />
+            {emailError && (
+              <span
+                className={classNames(
+                  "text-[12px] sm:text-[13px] text-danger leading-[1.15] mt-1",
+                  {
+                    emailError: "",
+                  }
+                )}
+              >
+                {emailError}
+              </span>
+            )}
+          </div>
+        )}
         {addressLoading && (
           <div className="w-full flex justify-center items-center py-4 sm:py-6">
             <Spinner size="md" />
@@ -274,12 +353,6 @@ const CheckoutForm: FC<CheckoutFormType> = ({
           <PaymentElement
             className="w-full mb-3"
             options={{
-              defaultValues: {
-                billingDetails: {
-                  email: "art@wrcked.com",
-                  name: "Jane Doe",
-                },
-              },
               business: {
                 name: "Wrcked Art",
               },

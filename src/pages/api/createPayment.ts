@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import groq from "groq";
 import sanityClient from "@src/config/sanity";
 import stripe from "@src/config/stripe";
+import { getSanityImageUrl } from "@src/utils";
 
 const createPaymentHandler = async (
   req: NextApiRequest,
@@ -36,6 +37,8 @@ const createPaymentHandler = async (
           id,
           name: productFromServer.name,
           price: productFromServer.price,
+          quantity,
+          image: getSanityImageUrl(productFromServer.image as any),
         },
       });
 

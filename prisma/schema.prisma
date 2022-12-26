@@ -21,6 +21,9 @@ model Order {
   createdAt DateTime @default(now())
   updateAt  DateTime @updatedAt
 
+  username String @default("")
+  email String @default("")
+  phone String @default("")
   total      Int
   status     OrderStatus  @default(UNFULFILLED)
   item       String
@@ -33,6 +36,7 @@ model Notification {
   updateAt  DateTime @updatedAt
 
   text String
+  orderId String
   status NotificationStatus
 }
 

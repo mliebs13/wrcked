@@ -37,17 +37,12 @@ const Product = ({
       className="relative w-full overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
     >
-      <AnimatePresence initial={true}>
+      <AnimatePresence>
         {detailsOpen && (
           <motion.div
-            transition={{
-              type: "spring",
-              damping: 20,
-              stiffness: 70,
-            }}
-            initial={{ opacity: "0" }}
-            animate={{ opacity: "1" }}
-            exit={{ opacity: "0" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="top-0 absolute w-screen h-screen z-20 bg-[#0000004d]"
           />
         )}
@@ -81,7 +76,7 @@ const Product = ({
             animate={{ y: "0" }}
             exit={{ y: "100vh" }}
             className={classNames(
-              "fixed bottom-0 left-0 w-full h-[80vh] max-h-[80vh] bg-skyBlue bg-dots-secondary py-8 px-3 sm:px-10 2xl:px-20 overflow-y-auto z-30",
+              "fixed bottom-0 left-0 w-full h-[90vh] max-h-[90vh] bg-skyBlue bg-dots-secondary py-8 px-3 sm:px-10 2xl:px-20 overflow-y-auto z-30",
               spaceMono.className
             )}
             style={{
@@ -122,7 +117,7 @@ const Product = ({
                 </div>
 
                 {/* 'buy now' button */}
-                <div className="bg-secondary w-full p-4">
+                <div className="bg-secondary w-full p-4 shadow-block">
                   <AltButton
                     className="w-full py-2.5 text-3xl font-bold mb-2"
                     onClick={() =>
@@ -144,7 +139,7 @@ const Product = ({
 
               {/* right */}
               <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-center pr-14 2xl:pr-16 pb-8">
-                <div className="w-auto h-[50%] max-h-[540px]">
+                <div className="w-auto h-[65%] max-h-[560px]">
                   <Image
                     src={getSanityImageUrl(product.image)}
                     alt="product image"
@@ -159,7 +154,7 @@ const Product = ({
                   <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
                     36IN / 90CM
                   </p>
-                  <div className="h-[90%]">
+                  <div className="h-[85%]">
                     <RuleVertical className="h-full" />
                   </div>
                 </div>

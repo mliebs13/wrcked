@@ -154,7 +154,7 @@ const Login: NextPageWithLayout = () => {
               onClick={handleLogin}
               disabled={loading}
             >
-              {loading ? <Spinner size="sm" /> : "Login"}
+              {loading ? <Spinner size="md" /> : "Login"}
             </Button>
           </form>
         </div>

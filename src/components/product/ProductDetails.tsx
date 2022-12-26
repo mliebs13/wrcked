@@ -94,14 +94,20 @@ const ProductDetails: FC<ProductDetailsProps> = ({
                 viewBox="0 0 30 31"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
+                className="w-4 sm:w-5 h-4 sm:h-5"
               >
-                <line x1="30" y1="1" y2="1" stroke="#000000" strokeWidth="2" />
+                <line
+                  x1="30"
+                  y1="1"
+                  y2="1"
+                  className="stroke-primary"
+                  strokeWidth="2"
+                />
                 <line
                   x1="29"
                   y1="31"
                   x2="29"
-                  stroke="#000000"
+                  className="stroke-primary"
                   strokeWidth="2"
                 />
               </svg>
@@ -111,14 +117,20 @@ const ProductDetails: FC<ProductDetailsProps> = ({
                 viewBox="0 0 30 31"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
+                className="w-4 sm:w-5 h-4 sm:h-5"
               >
-                <line x1="30" y1="1" y2="1" stroke="#000000" strokeWidth="2" />
+                <line
+                  x1="30"
+                  y1="1"
+                  y2="1"
+                  className="stroke-primary"
+                  strokeWidth="2"
+                />
                 <line
                   x1="29"
                   y1="31"
                   x2="29"
-                  stroke="#000000"
+                  className="stroke-primary"
                   strokeWidth="2"
                 />
               </svg>

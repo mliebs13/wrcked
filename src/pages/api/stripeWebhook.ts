@@ -2,13 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import stripe from "@src/config/stripe";
 import Stripe from "stripe";
 import { prisma } from "@src/lib/prisma";
-import axios from "@src/config/axios";
-import { getBaseUrl } from "@src/utils";
+import { orderShippingDelimeter, orderItemDelimeter } from "@src/utils";
+import { sendNotificationEmail } from "@src/lib/utils";
 
 const fulfillOrder = async (data: Stripe.Event.Data) => {
   try {
     const payData = data.object as any;
-
+    console.log("data.object: ", data.object);
     const {
       id,
       amount,
@@ -17,6 +17,7 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       status,
       shipping,
       metadata,
+      receipt_email,
     } = payData;
 
     console.log("processing order->", {
@@ -26,6 +27,7 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       shipping,
       payment_method_details,
       status,
+      receipt_email,
     });
 
     /*const product = await stripe.products.create({
@@ -63,57 +65,55 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
 
     const order = await prisma.order.create({
       data: {
-        item: `${metadata.id}, ${metadata.name}, ${metadata.price / 100}`,
-        total: amount,
-        shipping: `${shipping?.address?.country ?? "-"} ${
+        username: shipping.name,
+        phone: shipping.phone,
+        email: receipt_email ?? "",
+        item: `${metadata.id}${orderItemDelimeter}${metadata.name}${orderItemDelimeter}${metadata.quantity}${orderItemDelimeter}${metadata.price}`,
+        total: amount / 100,
+        shipping: `${
+          shipping?.address?.country ?? "-"
+        }${orderShippingDelimeter}${
           shipping?.address?.state ?? "-"
-        } ${shipping?.address?.city ?? "-"} ${
+        }${orderShippingDelimeter}${
+          shipping?.address?.city ?? "-"
+        }${orderShippingDelimeter}${
           shipping?.address?.postal_code ?? "-"
-        }} ${shipping?.address?.line1 ?? "-"} ${
-          shipping?.address?.line2 ?? "-"
-        }`,
+        }${orderShippingDelimeter}${
+          shipping?.address?.line1 ?? "-"
+        }${orderShippingDelimeter}${shipping?.address?.line2 ?? "-"}`,
       },
     });
 
     console.log("created order: ", order);
 
-    const notification = await prisma.notification.create({
-      data: {
-        text: `An order was placed for product '${
-          metadata.name
-        }' on ${Date.now()}`,
-        status: "PENDING",
-      },
-    });
+    const now = new Date();
+    const notification =
+      order &&
+      (await prisma.notification.create({
+        data: {
+          orderId: order.id,
+          text: `An order was placed for '${metadata.name}' x${
+            metadata.quantity
+          } on ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`,
+          status: "PENDING",
+        },
+      }));
 
     console.log("new notification crated: ", notification);
 
-    axios
-      .post(`${getBaseUrl()}/api/sendNotificationMail`, {
-        id: order.id,
-        product: [
-          {
-            name: metadata?.name ?? "-",
-            quantity: 1,
-            price: +metadata.price,
-          },
-        ],
-        total: amount / 100,
-      })
-      .then((data) => {
-        const mailSendResult = data.data;
-
-        if (mailSendResult.success) {
-          console.log("success: ", mailSendResult.message);
-        } else {
-          console.log("email not sent: ", mailSendResult.message);
-          throw new Error(mailSendResult.message);
-        }
-      })
-      .catch((err: any) => {
-        console.log("error occurred sending notification mail: ", err.message);
-        throw err;
-      });
+    const sendMailResult = await sendNotificationEmail({
+      id: order.id,
+      products: [
+        {
+          name: metadata.name,
+          price: metadata.price,
+          quantity: metadata.quantity,
+          image: metadata.image,
+        },
+      ],
+      total: String(amount / 100),
+    });
+    console.log("sendMailResult: ", sendMailResult);
   } catch (err: any) {
     console.log("error occurred fulfulling order: ", err.message);
   }

@@ -5,8 +5,6 @@ export const shortenString = (string: string, length: number = 8): string => {
 };
 
 export const getBaseUrl = (): string => {
-  if (typeof window === "undefined") return "";
-
   if (process.env.NEXT_PUBLIC_VERCEL_URL)
     return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 
@@ -16,10 +14,22 @@ export const getBaseUrl = (): string => {
   return `http://localhost:${process.env.PORT ?? 8080}`;
 };
 
+export const formatPrice = (price: number): string => {
+  return Intl.NumberFormat(undefined, {
+    currency: "USD",
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+  }).format(+price);
+};
+
 export const getSanityImageUrl = (image: SanityImage): string => {
   const [type, ref, resolution, extension] = image.asset._ref.split("-");
   return `https://cdn.sanity.io/images/t4jr7tcz/production/${ref}-${resolution}.${extension}`;
 };
+
+export const orderShippingDelimeter = "!#@**%";
+
+export const orderItemDelimeter = "*^#!#";
 
 export const breakpoints = {
   sm: 640,

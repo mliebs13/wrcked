@@ -3,9 +3,9 @@ import { prisma } from "@src/lib/prisma";
 import bcrypt from "bcrypt";
 
 const register = async (req: NextApiRequest, res: NextApiResponse) => {
-  return res.status(401).json({
-    message: "Unauthorized request",
-  });
+  // return res.status(401).json({
+  //   message: "Unauthorized request",
+  // });
 
   const { username, password } = req.body;
 

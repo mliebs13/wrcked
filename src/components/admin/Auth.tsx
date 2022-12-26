@@ -10,7 +10,7 @@ const Auth: FC<
   const result = useAdmin(true);
 
   return result ? (
-    <div>
+    <div className="w-full h-screen max-h-screen overflow-hidden">
       {result?.admin ? (
         <Fragment>{children}</Fragment>
       ) : (
