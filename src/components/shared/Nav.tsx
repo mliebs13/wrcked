@@ -55,7 +55,9 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
           colorClass
         )}
       >
-        <Link href="/">INSTAGRAM</Link>
+        <Link href="https://instagram.com/wrcked" target="_blank">
+          INSTAGRAM
+        </Link>
       </li>
     </ul>
   );

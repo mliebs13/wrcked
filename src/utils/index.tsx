@@ -12,7 +12,7 @@ export const getBaseUrl = (): string => {
   if (process.env.RENDER_INTERNAL_HOSTNAME)
     return `http://${process.env.RENDER_INTERNAL_HOSTNAME}:${process.env.PORT}`;
 
-  return `http://localhost:${process.env.PORT ?? 3000}`;
+  return `http://localhost:${process.env.PORT ?? 8080}`;
 };
 
 export const getSanityImageUrl = (image: SanityImage): string => {
