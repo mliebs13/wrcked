@@ -23,7 +23,6 @@ import Auth from "@src/components/admin/Auth";
 import Hamburger from "@src/components/shared/Hamburger";
 import { spaceMono } from "@src/config/fonts";
 import axios from "@src/config/axios";
-import { Head } from "next/document";
 
 type AdminLayoutProps = {
   description?: string;
