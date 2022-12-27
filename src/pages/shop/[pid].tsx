@@ -47,7 +47,7 @@ const Product = ({
       </Head>
 
       {/* preload next and previous image */}
-      {index + 1 <= products.length - 1 && products[index + 1] && (
+      {/* {index + 1 <= products.length - 1 && products[index + 1] && (
         <Image
           src={getSanityImageUrl(products[index + 1].image)}
           alt="preload-next"
@@ -64,10 +64,10 @@ const Product = ({
           height={0}
           className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
         />
-      )}
+      )} */}
 
       {/* preload next and previous gif */}
-      {index + 1 <= products.length - 1 && products[index + 1] && (
+      {/* {index + 1 <= products.length - 1 && products[index + 1] && (
         <Image
           src={getSanityImageUrl(products[index + 1].gif)}
           alt="preload-next"
@@ -84,7 +84,7 @@ const Product = ({
           height={0}
           className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
         />
-      )}
+      )} */}
 
       <AnimatePresence>
         {detailsOpen && (
