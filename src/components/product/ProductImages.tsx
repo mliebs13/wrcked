@@ -2,7 +2,7 @@ import { FC, Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import useWindowDimensions from "@src/hooks/useWindowDimensions";
+import useWindowSize from "@src/hooks/useWindowDimensions";
 import Rule from "@src/components/shared/svgs/Rule";
 import RuleMobile from "@src/components/shared/svgs/RuleMobile";
 import { breakpoints } from "@src/utils";
@@ -15,7 +15,7 @@ type ProductImagesProps = {
 
 const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
   const router = useRouter();
-  const { width } = useWindowDimensions();
+  const { width } = useWindowSize();
 
   return (
     <div className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] max-w-[500px] lg:max-w-[1640px] flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 mx-auto">
@@ -58,7 +58,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
             alt="product image"
             width={519}
             height={550}
-            className="w-auto h-auto lg:h-[68vh] max-h-[230px] lg:max-h-[575px] min-h-[135px] lg:min-h-[300px] lg:pb-20"
+            className="w-auto h-auto lg:h-[68vh] max-h-[255px] lg:max-h-[575px] min-h-[135px] lg:min-h-[300px] lg:pb-20"
           />
         </motion.div>
       </div>
