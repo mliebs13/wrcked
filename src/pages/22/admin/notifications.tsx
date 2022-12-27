@@ -167,7 +167,14 @@ const Notifications: NextPageWithLayout = () => {
 };
 
 Notifications.getLayout = (page: ReactElement) => {
-  return <AdminLayout>{page}</AdminLayout>;
+  return (
+    <AdminLayout
+      title="Admin - Notifications"
+      description="Admin - Notifications"
+    >
+      {page}
+    </AdminLayout>
+  );
 };
 
 export default Notifications;

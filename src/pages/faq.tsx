@@ -21,7 +21,7 @@ const FAQ: NextPage = () => {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Checkout Success" />
+        <meta name="description" content="FAQ - Wrcked" />
       </Head>
 
       <div className="w-full max-w-4xl flex flex-col mx-auto mb-12">

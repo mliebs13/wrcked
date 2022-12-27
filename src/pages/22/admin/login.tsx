@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -89,6 +90,14 @@ const Login: NextPageWithLayout = () => {
         spaceMono.className
       )}
     >
+      <Head>
+        <title>Admin - Login</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Admin - Login" />
+      </Head>
+
       <div className="relative w-full flex flex-col items-center px-3 sm:px-10 py-12 sm:py-16 2xl:px-20">
         <Toast
           open={toastOpen}

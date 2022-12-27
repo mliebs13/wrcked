@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
@@ -89,6 +90,14 @@ const AdminLayout: FC<AdminLayoutProps> = ({
 
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={description} />
+      </Head>
+
       <Auth>
         <div
           className={classNames(

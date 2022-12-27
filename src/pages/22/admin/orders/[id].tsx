@@ -80,7 +80,11 @@ const Order: NextPageWithLayout = () => {
 };
 
 Order.getLayout = (page: ReactElement) => {
-  return <AdminLayout>{page}</AdminLayout>;
+  return (
+    <AdminLayout title="Admin - Order" description="Admin - Order">
+      {page}
+    </AdminLayout>
+  );
 };
 
 export default Order;

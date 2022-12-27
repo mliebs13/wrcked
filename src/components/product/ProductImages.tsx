@@ -58,7 +58,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
             alt="product image"
             width={519}
             height={550}
-            className="w-auto h-auto lg:h-[68vh] max-h-[255px] lg:max-h-[575px] min-h-[135px] lg:min-h-[300px] lg:pb-20"
+            className="w-auto h-auto lg:h-[68vh] max-h-[260px] lg:max-h-[575px] min-h-[135px] lg:min-h-[300px] lg:pb-20"
           />
         </motion.div>
       </div>

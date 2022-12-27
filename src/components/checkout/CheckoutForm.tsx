@@ -181,16 +181,16 @@ const CheckoutForm: FC<CheckoutFormType> = ({
               phone: "always",
             },
             defaultValues: {
-              name: "Jane Doe",
+              name: "",
               address: {
-                line1: "354 Oyster Point Blvd",
+                line1: "",
                 line2: "",
-                city: "South San Francisco",
+                city: "",
                 state: "CA",
-                postal_code: "94080",
+                postal_code: "",
                 country: "US",
               },
-              phone: "(201) 555-0123",
+              phone: "",
             },
             validation: {
               phone: {
@@ -225,7 +225,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
             <input
               type="email"
               value={email}
-              placeholder="name@gmail.com"
+              placeholder="Your email"
               className={classNames(
                 "pay-input w-full bg-transparent text-[13px] sm:text-[15px] border border-primary p-4 focus:outline-none",
                 {

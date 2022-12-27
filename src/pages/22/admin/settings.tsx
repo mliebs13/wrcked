@@ -188,7 +188,11 @@ const Settings: NextPageWithLayout = () => {
 };
 
 Settings.getLayout = (page: ReactElement) => {
-  return <AdminLayout>{page}</AdminLayout>;
+  return (
+    <AdminLayout title="Admin - Settings" description="Admin - Settings">
+      {page}
+    </AdminLayout>
+  );
 };
 
 export default Settings;

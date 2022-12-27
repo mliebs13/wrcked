@@ -21,7 +21,7 @@ const Refunds: NextPage = () => {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Checkout Success" />
+        <meta name="description" content="Refunds -Wrcked" />
       </Head>
       <div className="w-full flex flex-col items-center justify-center mb-12">
         <h1 className="w-fit font-bold text-[72px] sm:text-[96px] lg:text-[120px] text-primary text-left leading-snug tracking-wide mb-4">

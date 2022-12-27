@@ -61,9 +61,17 @@ button {
   outline: none;
 }
 
+.Button:disabled:hover {
+  @apply !shadow-block !translate-x-0 !translate-y-0;
+}
+
 .pay-input {
   transition: 0.15s ease, border 0.15s ease, box-shadow 0.15s ease,
     color 0.15s ease;
+}
+
+.pay-input::placeholder {
+  color: #616161;
 }
 
 .pay-input:focus {

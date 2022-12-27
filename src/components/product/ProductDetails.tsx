@@ -39,7 +39,55 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         "absolute top-0 w-full items-center justify-center px-10"
       )}
     >
-      <div className="w-fit lg:w-full absolute top-[calc(-1*(30px+var(--box-height)/2))] left-1/2 lg:left-[calc(var(--base-padding)+(var(--logo-width)-var(--box-width))/2)] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
+      <div className="lg:w-fit absolute top-[calc(-1*(30px+var(--box-height)/2))] left-1/2 lg:left-[calc(var(--base-padding)+(var(--logo-width)-var(--box-width))/2)] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
+        {/* angle brackets pattern */}
+        <span className="w-fit absolute -bottom-[34px] left-[calc(var(--box-width)/2-26px)] hidden lg:block bg-white -translate-x-1/4 pointer-events-none">
+          <svg
+            viewBox="0 0 30 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 sm:w-5 h-4 sm:h-5"
+          >
+            <line
+              x1="30"
+              y1="1"
+              y2="1"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+            <line
+              x1="29"
+              y1="31"
+              x2="29"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+          </svg>
+        </span>
+        <span className="absolute -bottom-[34px] right-[calc(var(--box-width)/2-26px)] hidden lg:block bg-white translate-x-1/4 -rotate-90 pointer-events-none">
+          <svg
+            viewBox="0 0 30 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 sm:w-5 h-4 sm:h-5"
+          >
+            <line
+              x1="30"
+              y1="1"
+              y2="1"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+            <line
+              x1="29"
+              y1="31"
+              x2="29"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+          </svg>
+        </span>
+
         <div className="w-full h-5 lg:max-w-[var(--box-width)] flex items-center justify-start bg-secondary mb-[5px] shadow-block border-2 border-primary overflow-hidden">
           {/* name */}
           <div className="w-full bg-secondary text-sm text-primary uppercase px-2">
@@ -67,12 +115,12 @@ const ProductDetails: FC<ProductDetailsProps> = ({
             <Image
               src={index > 0 ? arrowLeftImage : timesImage}
               alt="end"
-              width={20}
-              height={20}
+              width={22}
+              height={22}
             />
           </IconButton>
           <AltButton
-            className="relative flex-1 h-full w-auto text-lg font-bold mx-1 disabled:cursor-not-allowed"
+            className="relative flex-1 h-full w-auto text-lg font-bold mx-[0.275rem] disabled:cursor-not-allowed"
             onClick={() =>
               // isAvailable &&
               typeof handleBuy === "string"
@@ -86,54 +134,6 @@ const ProductDetails: FC<ProductDetailsProps> = ({
               <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
             )}
             {isAvailable ? "Buy Now" : "Sold"}
-
-            {/* angle brackets pattern */}
-            <span className="absolute -bottom-8 left-[4rem] hidden lg:block bg-white -translate-x-1/4">
-              <svg
-                viewBox="0 0 30 31"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 sm:w-5 h-4 sm:h-5"
-              >
-                <line
-                  x1="30"
-                  y1="1"
-                  y2="1"
-                  className="stroke-primary"
-                  strokeWidth="2"
-                />
-                <line
-                  x1="29"
-                  y1="31"
-                  x2="29"
-                  className="stroke-primary"
-                  strokeWidth="2"
-                />
-              </svg>
-            </span>
-            <span className="absolute -bottom-8 right-[4rem] hidden lg:block bg-white translate-x-1/4 -rotate-90">
-              <svg
-                viewBox="0 0 30 31"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 sm:w-5 h-4 sm:h-5"
-              >
-                <line
-                  x1="30"
-                  y1="1"
-                  y2="1"
-                  className="stroke-primary"
-                  strokeWidth="2"
-                />
-                <line
-                  x1="29"
-                  y1="31"
-                  x2="29"
-                  className="stroke-primary"
-                  strokeWidth="2"
-                />
-              </svg>
-            </span>
           </AltButton>
           <IconButton
             className="h-full w-[var(--box-height)] p-3 disabled:cursor-not-allowed"
@@ -145,8 +145,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({
             <Image
               src={index < totalProducts - 1 ? arrowRightImage : timesImage}
               alt="end"
-              width={20}
-              height={20}
+              width={22}
+              height={22}
             />
           </IconButton>
         </div>

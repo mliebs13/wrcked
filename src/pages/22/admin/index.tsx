@@ -103,7 +103,11 @@ const Admin: NextPageWithLayout = () => {
 };
 
 Admin.getLayout = (page: ReactElement) => {
-  return <AdminLayout>{page}</AdminLayout>;
+  return (
+    <AdminLayout title="Admin - Overview" description="Admin - Overview">
+      {page}
+    </AdminLayout>
+  );
 };
 
 export default Admin;

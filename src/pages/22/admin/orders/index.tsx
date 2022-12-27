@@ -281,7 +281,11 @@ const Orders: NextPageWithLayout = () => {
 };
 
 Orders.getLayout = (page: ReactElement) => {
-  return <AdminLayout>{page}</AdminLayout>;
+  return (
+    <AdminLayout title="Orders - Admin" description="Orders - Admin">
+      {page}
+    </AdminLayout>
+  );
 };
 
 export default Orders;

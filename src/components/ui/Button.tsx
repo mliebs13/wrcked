@@ -7,13 +7,14 @@ const Button: FC<
 > = ({ children, className, ...props }) => {
   return (
     <button
-      {...props}
       className={classNames(
-        "Button relative flex items-center justify-center bg-secondary shadow-block border border-primary cursor-pointer",
+        "Button relative flex items-center justify-center bg-secondary shadow-block border border-primary cursor-pointer transition-all",
         spaceMono.className,
         "disabled:cursor-not-allowed",
+        "hover:!shadow-blockHover hover:translate-x-[1px] hover:translate-y-[1px] will-change-transform",
         className
       )}
+      {...(props as any)}
     >
       {children}
     </button>
