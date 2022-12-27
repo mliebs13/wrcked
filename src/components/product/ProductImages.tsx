@@ -2,7 +2,7 @@ import { FC, Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import useWindowSize from "@src/hooks/useWindowDimensions";
+import useWindowDimensions from "@src/hooks/useWindowDimensions";
 import Rule from "@src/components/shared/svgs/Rule";
 import RuleMobile from "@src/components/shared/svgs/RuleMobile";
 import { breakpoints } from "@src/utils";
@@ -15,10 +15,10 @@ type ProductImagesProps = {
 
 const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
   const router = useRouter();
-  const { width } = useWindowSize();
+  const { width } = useWindowDimensions();
 
   return (
-    <div className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] max-w-[500px] lg:max-w-[2000px] flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 mx-auto">
+    <div className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] max-w-[500px] lg:max-w-[1640px] flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 mx-auto">
       <div className="flex flex-[0.8] sm:flex-[0.6] lg:flex-[0.825] items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-4 lg:mr-10">
         <motion.div
           key={gif}

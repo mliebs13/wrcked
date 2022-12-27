@@ -293,6 +293,12 @@ button {
   }
 }
 
+@media screen and (min-width: 1536px) {
+  :root {
+    --base-padding: 5rem;
+  }
+}
+
 @media screen and (max-width: 960px) {
   :root {
     --logo-width: 302px;
