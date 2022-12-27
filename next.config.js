@@ -8,7 +8,27 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/shop",
+        destination: "/shop/all",
+        permanent: true,
+      },
+      {
+        source: "/shop",
+        destination: "/shop/all",
+        permanent: true,
+      },
+      {
+        source: "/home",
+        destination: "/shop/all",
+        permanent: true,
+      },
+      {
+        source: "/products",
+        destination: "/shop/all",
+        permanent: true,
+      },
+      {
+        source: "/product",
+        destination: "/shop/all",
         permanent: true,
       },
     ];

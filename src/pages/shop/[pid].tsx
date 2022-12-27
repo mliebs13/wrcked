@@ -22,7 +22,7 @@ const Product = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [index, setIndex] = useState(
-    products.findIndex((p) => p._id === product._id)
+    product ? products?.findIndex((p) => p._id === product._id) : 0
   );
   const [detailsOpen, setDetailsOpen] = useState(false);
 
@@ -30,7 +30,7 @@ const Product = ({
   const isAvailable = currentProduct.quantity >= 1;
 
   useEffect(() => {
-    !detailsOpen && setDetailsOpen(true);
+    !detailsOpen && product && setDetailsOpen(true);
   }, [product]);
 
   return (
@@ -39,7 +39,7 @@ const Product = ({
       onClick={() => detailsOpen && setDetailsOpen(false)}
     >
       <Head>
-        <title>Shop - {product.name}</title>
+        <title>Shop - {product?.name ? "Wrcked" : product.name}</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -86,17 +86,6 @@ const Product = ({
         />
       )} */}
 
-      <AnimatePresence>
-        {detailsOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="top-0 absolute w-screen h-screen z-20 bg-[#0000004d]"
-          />
-        )}
-      </AnimatePresence>
-
       <ProductDetails
         name={currentProduct.name}
         price={currentProduct.price}
@@ -107,121 +96,137 @@ const Product = ({
         index={index}
         setIndex={setIndex}
         handleBuy={
-          currentProduct._id === product._id
+          currentProduct._id === product?._id
             ? setDetailsOpen
             : `/shop/${currentProduct._id}`
         }
       />
-      {/* details */}
-      <AnimatePresence initial={true}>
-        {detailsOpen && (
-          <motion.div
-            transition={{
-              type: "spring",
-              damping: 20,
-              stiffness: 70,
-            }}
-            initial={{ y: "100vh" }}
-            animate={{ y: "0" }}
-            exit={{ y: "100vh" }}
-            className={classNames(
-              "fixed bottom-0 left-0 w-full h-[90vh] max-h-[90vh] bg-skyBlue bg-dots-secondary py-8 px-3 sm:px-10 2xl:px-20 overflow-y-auto z-30",
-              spaceMono.className
+
+      {product && (
+        <>
+          <AnimatePresence>
+            {detailsOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="top-0 absolute w-screen h-screen z-20 bg-[#0000004d]"
+              />
             )}
-            style={{
-              backgroundSize: "42px",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="w-full h-full min-h-[400px] max-w-8xl grid place-content-start grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
-              {/* left */}
-              <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto pb-8">
-                <AltButton
-                  className="text-base uppercase px-10 py-4 mb-4"
-                  onClick={() => setDetailsOpen(false)}
-                >
-                  Close
-                </AltButton>
+          </AnimatePresence>
 
-                {/* product details */}
-                <div className="w-full min-h-[250px] flex flex-col bg-lightGray border-2 border-primary shadow-block p-6 mb-2">
-                  <div className="mb-7">
-                    <Logo size="lg" color="gray" />
-                    <p className="text-4xl font-bold uppercase tracking-wide -mt-6 lg:-mt-7 ml-6">
-                      {product.name}
-                    </p>
-                    <p className="text-sm font-bold uppercase ml-8">
-                      LITHOGRAPH
-                    </p>
-                    <p className="text-xs text-darkGray font-bold uppercase ml-8 -mb-1">
-                      CAPSULE A. COLLECTION A.
-                    </p>
+          {/* details */}
+          <AnimatePresence initial={true}>
+            {detailsOpen && (
+              <motion.div
+                transition={{
+                  type: "spring",
+                  damping: 20,
+                  stiffness: 70,
+                }}
+                initial={{ y: "100vh" }}
+                animate={{ y: "0" }}
+                exit={{ y: "100vh" }}
+                className={classNames(
+                  "fixed bottom-0 left-0 w-full h-[90vh] max-h-[90vh] bg-skyBlue bg-dots-secondary py-8 px-3 sm:px-10 2xl:px-20 overflow-y-auto z-30",
+                  spaceMono.className
+                )}
+                style={{
+                  backgroundSize: "42px",
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="w-full h-full min-h-[400px] max-w-8xl grid place-content-start grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
+                  {/* left */}
+                  <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto pb-8">
+                    <AltButton
+                      className="text-base uppercase px-10 py-4 mb-4"
+                      onClick={() => setDetailsOpen(false)}
+                    >
+                      Close
+                    </AltButton>
+
+                    {/* product details */}
+                    <div className="w-full min-h-[250px] flex flex-col bg-lightGray border-2 border-primary shadow-block p-6 mb-2">
+                      <div className="mb-7">
+                        <Logo size="lg" color="gray" />
+                        <p className="text-4xl font-bold uppercase tracking-wide -mt-6 lg:-mt-7 ml-6">
+                          {product.name}
+                        </p>
+                        <p className="text-sm font-bold uppercase ml-8">
+                          LITHOGRAPH
+                        </p>
+                        <p className="text-xs text-darkGray font-bold uppercase ml-8 -mb-1">
+                          CAPSULE A. COLLECTION A.
+                        </p>
+                      </div>
+
+                      {/* price */}
+                      <p className="font-bold text-xl mb-7">${product.price}</p>
+
+                      {/* description */}
+                      <p className="font-bold text-sm">{product.description}</p>
+                    </div>
+
+                    {/* 'buy now' button */}
+                    <div className="bg-secondary w-full p-4 shadow-block">
+                      <AltButton
+                        className="w-full py-2.5 text-3xl font-bold mb-2"
+                        onClick={() =>
+                          router.push(`/checkout/${currentProduct._id}`)
+                        }
+                        disabled={!isAvailable}
+                      >
+                        {!isAvailable && (
+                          <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
+                        )}
+
+                        {isAvailable ? "BUY NOW" : "SOLD"}
+                      </AltButton>
+                      <p className="text-sm font-bold text-danger text-center">
+                        FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
+                      </p>
+                    </div>
                   </div>
 
-                  {/* price */}
-                  <p className="font-bold text-xl mb-7">${product.price}</p>
+                  {/* right */}
+                  <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-center pr-14 2xl:pr-16 pb-8">
+                    <div className="w-auto h-[65%] max-h-[560px]">
+                      <Image
+                        src={getSanityImageUrl(product.image)}
+                        alt="product image"
+                        width={519}
+                        height={550}
+                        className="w-auto h-full"
+                      />
+                    </div>
 
-                  {/* description */}
-                  <p className="font-bold text-sm">{product.description}</p>
-                </div>
+                    {/* vertical */}
+                    <div className="absolute top-0 right-0 h-full flex items-start">
+                      <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
+                        36IN / 90CM
+                      </p>
+                      <div className="h-[80%] bg-skyBlue">
+                        <RuleVertical className="h-full" />
+                      </div>
+                    </div>
 
-                {/* 'buy now' button */}
-                <div className="bg-secondary w-full p-4 shadow-block">
-                  <AltButton
-                    className="w-full py-2.5 text-3xl font-bold mb-2"
-                    onClick={() =>
-                      router.push(`/checkout/${currentProduct._id}`)
-                    }
-                    disabled={!isAvailable}
-                  >
-                    {!isAvailable && (
-                      <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
-                    )}
-
-                    {isAvailable ? "BUY NOW" : "SOLD"}
-                  </AltButton>
-                  <p className="text-sm font-bold text-danger text-center">
-                    FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
-                  </p>
-                </div>
-              </div>
-
-              {/* right */}
-              <div className="relative w-full h-full hidden lg:flex flex-col justify-center self-center items-center pr-14 2xl:pr-16 pb-8">
-                <div className="w-auto h-[65%] max-h-[560px]">
-                  <Image
-                    src={getSanityImageUrl(product.image)}
-                    alt="product image"
-                    width={519}
-                    height={550}
-                    className="w-auto h-full"
-                  />
-                </div>
-
-                {/* vertical */}
-                <div className="absolute top-0 right-0 h-full flex items-start">
-                  <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
-                    36IN / 90CM
-                  </p>
-                  <div className="h-[80%] bg-skyBlue">
-                    <RuleVertical className="h-full" />
+                    {/* horizontal */}
+                    <div className="w-full absolute bottom-5 left-0">
+                      <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
+                        24IN / 60CM
+                      </p>
+                      <div className="w-[90%] bg-skyBlue">
+                        <RuleHorizontal className="w-full" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                {/* horizontal */}
-                <div className="w-full absolute bottom-5 left-0">
-                  <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
-                    24IN / 60CM
-                  </p>
-                  <div className="w-[90%] bg-skyBlue">
-                    <RuleHorizontal className="w-full" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      )}
     </main>
   );
 };
@@ -232,7 +237,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   );
 
   return {
-    paths: paths.map((pid: string) => ({ params: { pid } })),
+    paths: [
+      { params: { pid: "all" } },
+      ...paths.map((pid: string) => ({ params: { pid } })),
+    ],
     fallback: false,
   };
 };
@@ -244,16 +252,25 @@ export const getStaticProps: GetStaticProps<{
   try {
     const { pid = "" } = context.params as any;
 
+    const products: any[] = await sanityClient.fetch(
+      groq`*[_type == "product"] | order(_createdAt asc)`
+    );
+
+    if (pid === "all") {
+      return {
+        props: {
+          products,
+          product: null,
+        },
+      };
+    }
+
     const product = pid
       ? await sanityClient.fetch(
           groq`*[_type == "product" && _id == $pid][0]`,
           { pid }
         )
       : null;
-
-    const products: any[] = await sanityClient.fetch(
-      groq`*[_type == "product"] | order(_createdAt asc)`
-    );
 
     if (!product || !products) {
       throw new Error("Failed to fetch products");
