@@ -64,7 +64,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
       </div>
 
       <div className="flex flex-[0.2] lg:flex-[0.175] h-[335px] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-[8]">
-        <p className="min-w-fit w-max h-fit bg-white text-sm font-bold lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3">
+        <p className="min-w-fit w-max h-fit bg-white text-sm font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3">
           12IN / 30cm
         </p>
         <div className="h-full bg-white">
