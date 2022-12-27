@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import classNames from "classnames";
 import Nav from "@src/components/shared/Nav";
 import AltButton from "@src/components/ui/AltButton";
@@ -15,6 +16,13 @@ const Refunds: NextPage = () => {
         "min-h-screen w-full flex flex-col items-center justify-center py-8 sm:py-12 px-3 sm:px-10 2xl:px-20"
       )}
     >
+      <Head>
+        <title>Refunds - Wrcked</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Checkout Success" />
+      </Head>
       <div className="w-full flex flex-col items-center justify-center mb-12">
         <h1 className="w-fit font-bold text-[72px] sm:text-[96px] lg:text-[120px] text-primary text-left leading-snug tracking-wide mb-4">
           NO <br />

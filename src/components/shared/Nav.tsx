@@ -12,7 +12,7 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
   return (
     <ul
       className={classNames(
-        "w-full flex items-center justify-center",
+        "w-fit h-fit flex items-center justify-center bg-white mx-auto",
         className
       )}
       {...props}
@@ -47,7 +47,7 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
           colorClass
         )}
       >
-        <Link href="/">TERMS</Link>
+        <Link href="/terms.html">TERMS</Link>
       </li>
       <li
         className={classNames(

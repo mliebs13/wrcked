@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import classNames from "classnames";
 import Nav from "@src/components/shared/Nav";
 import AltButton from "@src/components/ui/AltButton";
@@ -15,6 +16,14 @@ const FAQ: NextPage = () => {
         "min-h-screen w-full flex flex-col items-center justify-center py-8 sm:py-12 px-3 sm:py-10 2xl:px-20"
       )}
     >
+      <Head>
+        <title>FAQ - Wrcked</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Checkout Success" />
+      </Head>
+
       <div className="w-full max-w-4xl flex flex-col mx-auto mb-12">
         <div className="mb-6">
           <h2 className="mb-5 font-bold text-sm">WHAT IS WRCKED ART?</h2>

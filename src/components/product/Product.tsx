@@ -34,7 +34,7 @@ const Product: FC<ProductProps> = ({
   return (
     <div
       style={{
-        backgroundSize: "14px 26px",
+        backgroundSize: "36px 40px",
       }}
       className={classNames(
         "Product relative w-full min-h-screen flex flex-col justify-start bg-dots-primary pb-10",
@@ -48,7 +48,7 @@ const Product: FC<ProductProps> = ({
 
       <div className="relative flex flex-col justify-start">
         {total >= 1 ? (
-          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[520px] lg:h-[calc(90vh-132px)] pt-[22.5px] lg:pt-[27px]">
+          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[500px] lg:h-[calc(96vh-var(--header-height))] pt-[calc(var(--box-height)/2)]">
             <ProductDetails
               price={price}
               name={name}
@@ -62,31 +62,31 @@ const Product: FC<ProductProps> = ({
             {/* more details */}
             <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 pt-4 pb-5">
               <div className="hidden lg:block mb-12">
-                <div className="flex items-center text-sm font-bold mb-2">
+                <div className="bg-white flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     IT
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="flex items-center text-sm font-bold mb-2">
+                <div className="bg-white flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     ENG
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="flex items-center text-sm font-bold mb-2">
+                <div className="bg-white flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     EST
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="flex items-center text-sm font-bold mb-2">
+                <div className="bg-white flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     DE
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="flex items-center text-sm font-bold">
+                <div className="bg-white flex items-center text-sm font-bold">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     KR
                   </div>
@@ -94,7 +94,7 @@ const Product: FC<ProductProps> = ({
                 </div>
               </div>
 
-              <div className="w-full lg:w-fit flex justify-start items-center lg:justify-center text-left lg:text-center mb-2 lg:mb-6">
+              <div className="w-full w-fit bg-white flex justify-start items-center lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-2 lg:mb-6">
                 {/* 1 */}
                 <div className="mr-2">
                   <svg
@@ -242,24 +242,24 @@ const Product: FC<ProductProps> = ({
                 </div>
               </div>
 
-              <div className="w-full lg:w-fit flex justify-start lg:justify-center text-left lg:text-center mb-4 lg:mb-6">
+              <div className="w-fit bg-white flex justify-start lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-4 lg:mb-6">
                 <p
                   className={classNames(
                     "font-bold text-sm text-left lg:text-center text-primary"
                   )}
                 >
-                  CONTENTS:
+                  <span className="bg-white">CONTENTS:</span>
                   <br />
-                  1(one) ORIGINAL
+                  <span className="bg-white">1(one) ORIGINAL</span>
                   <br />
-                  LITHOGRAPH
+                  <span className="bg-white">LITHOGRAPH</span>
                 </p>
               </div>
 
               <div>
                 <p
                   className={classNames(
-                    "font-bold text-sm text-center text-danger"
+                    "bg-white font-bold text-sm text-center text-danger px-[1px]"
                   )}
                 >
                   No Copies, No Duplicates.
@@ -270,6 +270,7 @@ const Product: FC<ProductProps> = ({
             <ProductImages
               image={getSanityImageUrl(image)}
               gif={getSanityImageUrl(gif)}
+              handleClick={handleBuy}
             />
           </div>
         ) : (
@@ -278,7 +279,7 @@ const Product: FC<ProductProps> = ({
           </p>
         )}
 
-        <Nav />
+        <Nav className="mt-5" />
       </div>
     </div>
   );

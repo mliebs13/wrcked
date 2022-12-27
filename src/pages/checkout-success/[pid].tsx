@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -26,13 +27,21 @@ const Checkout = ({
   return (
     <main
       style={{
-        backgroundSize: "14px 26px",
+        backgroundSize: "42px",
       }}
       className={classNames(
-        "Product relative w-full min-h-screen flex flex-col items-center bg-gray py-12 px-3 sm:px-10 2xl:px-20",
+        "CheckoutSuccess relative w-full min-h-screen flex flex-col items-center bg-gray py-12 px-3 sm:px-10 2xl:px-20",
         spaceMono.className
       )}
     >
+      <Head>
+        <title>Checkout - Wrcked</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Checkout" />
+      </Head>
+
       <CheckoutHeader />
 
       <div className="w-full max-w-6xl flex flex-col md:flex-row justify-start md:justify-between mx-auto">

@@ -30,7 +30,6 @@ const ProductDetails: FC<ProductDetailsProps> = ({
   handleBuy,
 }) => {
   const router = useRouter();
-
   const isAvailable = quantity >= 1;
 
   return (
@@ -40,8 +39,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         "absolute top-0 w-full items-center justify-center px-10"
       )}
     >
-      <div className="w-fit lg:w-full absolute top-[calc(-1*(30px+22.5px))] lg:top-[calc(-1*(30px+27px))] left-1/2 lg:left-[calc(2.5rem+15px)] 2xl:left-[calc(5rem+15px)] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
-        <div className="w-full h-5 max-w-[300px] lg:max-w-[320px] flex items-center justify-start bg-secondary mb-[5px] shadow-block border-2 border-primary overflow-hidden">
+      <div className="w-fit lg:w-full absolute top-[calc(-1*(30px+var(--box-height)/2))] left-1/2 lg:left-[calc(var(--base-padding)+(var(--logo-width)-var(--box-width))/2)] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
+        <div className="w-full h-5 lg:max-w-[var(--box-width)] flex items-center justify-start bg-secondary mb-[5px] shadow-block border-2 border-primary overflow-hidden">
           {/* name */}
           <div className="w-full bg-secondary text-sm text-primary uppercase px-2">
             {name}
@@ -54,12 +53,12 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         </div>
 
         {/* spacing */}
-        <div className="w-[300px] lg:w-[320px] bg-secondary p-0.5 -mt-[1px] z-1" />
+        <div className="w-[var(--box-width)] bg-secondary p-0.5 -mt-[1px] z-1" />
 
         {/* 'buy now' button & navigation - 25% 60% 25% */}
-        <div className="flex items-center w-[300px] lg:w-[320px] h-[45px] lg:h-[54px]">
+        <div className="flex items-center w-[var(--box-width)] h-[var(--box-height)]">
           <IconButton
-            className="h-full w-1/4 p-3 disabled:cursor-not-allowed"
+            className="h-full w-[var(--box-height)] p-3 disabled:cursor-not-allowed"
             disabled={index === 0}
             onClick={() => {
               index > 0 && setIndex((prev) => prev - 1);
@@ -73,23 +72,23 @@ const ProductDetails: FC<ProductDetailsProps> = ({
             />
           </IconButton>
           <AltButton
-            className="relative h-full w-1/2 text-lg font-bold mx-1 disabled:cursor-not-allowed"
+            className="relative flex-1 h-full w-auto text-lg font-bold mx-1 disabled:cursor-not-allowed"
             onClick={() =>
-              isAvailable &&
-              (typeof handleBuy === "string"
+              // isAvailable &&
+              typeof handleBuy === "string"
                 ? router.push(handleBuy)
-                : handleBuy(true))
+                : handleBuy(true)
             }
-            disabled={!isAvailable}
+            // disabled={!isAvailable}
           >
             {/* line through */}
             {!isAvailable && (
               <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
             )}
-
             {isAvailable ? "Buy Now" : "Sold"}
+
             {/* angle brackets pattern */}
-            <span className="absolute -bottom-7 left-[38%] hidden lg:block -translate-x-1/4">
+            <span className="absolute -bottom-8 left-[4rem] hidden lg:block bg-white -translate-x-1/4">
               <svg
                 viewBox="0 0 30 31"
                 fill="none"
@@ -112,7 +111,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
                 />
               </svg>
             </span>
-            <span className="absolute -bottom-7 right-[38%] hidden lg:block translate-x-1/4 -rotate-90">
+            <span className="absolute -bottom-8 right-[4rem] hidden lg:block bg-white translate-x-1/4 -rotate-90">
               <svg
                 viewBox="0 0 30 31"
                 fill="none"
@@ -137,7 +136,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
             </span>
           </AltButton>
           <IconButton
-            className="h-full w-1/4 p-3 disabled:cursor-not-allowed"
+            className="h-full w-[var(--box-height)] p-3 disabled:cursor-not-allowed"
             disabled={index === totalProducts - 1}
             onClick={() => {
               index < totalProducts - 1 && setIndex((prev) => prev + 1);

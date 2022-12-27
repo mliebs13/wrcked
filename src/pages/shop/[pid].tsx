@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import { motion, AnimatePresence } from "framer-motion";
 import groq from "groq";
 import classNames from "classnames";
@@ -37,6 +38,14 @@ const Product = ({
       className="relative w-full overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
     >
+      <Head>
+        <title>Shop - {product.name}</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Checkout Success" />
+      </Head>
+
       <AnimatePresence>
         {detailsOpen && (
           <motion.div
@@ -80,7 +89,7 @@ const Product = ({
               spaceMono.className
             )}
             style={{
-              backgroundSize: "14px 26px",
+              backgroundSize: "42px",
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -154,7 +163,7 @@ const Product = ({
                   <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
                     36IN / 90CM
                   </p>
-                  <div className="h-[85%]">
+                  <div className="h-[80%] bg-skyBlue">
                     <RuleVertical className="h-full" />
                   </div>
                 </div>
@@ -164,7 +173,7 @@ const Product = ({
                   <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
                     24IN / 60CM
                   </p>
-                  <div className="w-[90%]">
+                  <div className="w-[90%] bg-skyBlue">
                     <RuleHorizontal className="w-full" />
                   </div>
                 </div>

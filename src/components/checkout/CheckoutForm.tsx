@@ -79,11 +79,12 @@ const CheckoutForm: FC<CheckoutFormType> = ({
   };
 
   const handleCardPayment = async () => {
-    if (stripe && elements && agreedToTerms) {
+    if (stripe && elements) {
       if (email.trim() === "") {
-        setEmailError("This field is incomplete.");
-        return openToast("This field is incomplete.", "error");
+        setEmailError("Your email is incomplete.");
+        return openToast("Your email is incomplete.", "error");
       }
+
       if (
         !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
           email.trim()
@@ -95,6 +96,17 @@ const CheckoutForm: FC<CheckoutFormType> = ({
 
       if (emailError) {
         return openToast(emailError, "error");
+      }
+
+      if (!agreedToTerms) {
+        openToast(
+          "You must agree to our terms before proceeding with payment",
+          "error"
+        );
+
+        return document.querySelector(".summary")?.scrollIntoView({
+          behavior: "smooth",
+        });
       }
 
       try {
@@ -139,17 +151,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
         setIsProcessing(false);
       }
     } else {
-      !agreedToTerms
-        ? openToast(
-            "You must agree to our terms before proceeding with payment",
-            "error"
-          )
-        : openToast("An error occurred while processing your payment", "error");
-
-      !agreedToTerms &&
-        document.querySelector(".summary")?.scrollIntoView({
-          behavior: "smooth",
-        });
+      openToast("An error occurred while processing your payment", "error");
     }
   };
 
@@ -237,7 +239,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
                 emailError && setEmailError(null);
 
                 if (email.trim() === "") {
-                  setEmailError("This field is incomplete.");
+                  setEmailError("Your email is incomplete.");
                 }
                 if (
                   !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(

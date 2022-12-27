@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames";
@@ -74,13 +75,21 @@ const Checkout = ({
   return (
     <main
       style={{
-        backgroundSize: "14px 26px",
+        backgroundSize: "42px",
       }}
       className={classNames(
-        "Product relative w-full min-h-screen flex flex-col items-center bg-gray py-12 px-3 sm:px-10 2xl:px-20",
+        "Checkout relative w-full min-h-screen flex flex-col items-center bg-gray py-12 px-3 sm:px-10 2xl:px-20",
         spaceMono.className
       )}
     >
+      <Head>
+        <title>Checkout Success - Wrcked</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Checkout Success" />
+      </Head>
+
       <CheckoutHeader />
 
       {/* content */}
@@ -166,7 +175,10 @@ const Checkout = ({
             >
               TERMS
             </Link>
-            <Link href="/privacy-policy" className="text-darkGray text-base">
+            <Link
+              href="/privacy-policy.html"
+              className="text-darkGray text-base"
+            >
               PRIVACY
             </Link>
           </div>

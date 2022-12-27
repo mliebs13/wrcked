@@ -6,7 +6,7 @@ const CheckoutHeader: FC = () => {
   const router = useRouter();
 
   return (
-    <header className="relative w-full h-fit max-w-6xl flex justify-center items-center mx-auto mb-12">
+    <header className="CheckoutHeader relative w-full h-fit max-w-6xl flex justify-center items-center mx-auto mb-12">
       {/* back button */}
       <button
         className="absolute left-0 top-0 flex items-center text-primary"

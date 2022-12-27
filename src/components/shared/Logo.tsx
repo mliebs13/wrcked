@@ -17,9 +17,9 @@ const Logo: FC<LogoProps> = ({ size = "sm", color = "white", ...props }) => {
         src={color === "white" ? whiteLogoImage : grayLogoImage}
         alt="Wrcked logo"
         width={350}
-        className={classNames("h-auto", {
-          "w-[85px] lg:w-[100px]": size === "sm",
-          "w-[300px] lg:w-[350px]": size === "lg",
+        className={classNames("h-auto w-[var(--logo-width)]", {
+          // "w-[85px] lg:w-[100px]": size === "sm",
+          // "w-[300px] lg:w-[350px]": size === "lg",
         })}
       />
     </div>
