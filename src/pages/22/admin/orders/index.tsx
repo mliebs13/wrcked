@@ -58,13 +58,13 @@ const Orders: NextPageWithLayout = () => {
     <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray flex items-start">
       <div className="w-full max-w-8xl flex flex-col items-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
         {/* navigation */}
-        <ul className="w-full max-w-lg flex items-center justify-between mb-8">
+        <ul className="w-full max-w-[560px] flex items-center justify-between mb-8">
           <li
             className={classNames(
-              "font-bold text-sm mr-5 cursor-pointer hover:text-primary",
+              "font-bold text-sm text-darkGray mr-5 cursor-pointer tracking-wide hover:text-primary",
               {
-                "text-primary": selected === "",
-                "text-darkGray": selected !== "",
+                "!text-primary after:content-[''] after:block after:h-0.5 after:w-full after:bg-primary after:rounded":
+                  selected === "",
               }
             )}
             onClick={() => setSelected("")}
@@ -73,10 +73,10 @@ const Orders: NextPageWithLayout = () => {
           </li>
           <li
             className={classNames(
-              "font-bold text-sm mr-5 cursor-pointer hover:text-primary",
+              "font-bold text-sm text-darkGray mr-5 cursor-pointer tracking-wide hover:text-primary",
               {
-                "text-primary": selected === "fulfilled",
-                "text-darkGray": selected !== "fulfilled",
+                "!text-primary after:content-[''] after:block after:h-0.5 after:w-full after:bg-primary after:rounded":
+                  selected === "fulfilled",
               }
             )}
             onClick={() => setSelected("fulfilled")}
@@ -85,10 +85,10 @@ const Orders: NextPageWithLayout = () => {
           </li>
           <li
             className={classNames(
-              "font-bold text-sm cursor-pointer hover:text-primary",
+              "font-bold text-sm text-darkGray cursor-pointer tracking-wide hover:text-primary",
               {
-                "text-primary": selected === "unfulfilled",
-                "text-darkGray": selected !== "unfulfilled",
+                "!text-primary after:content-[''] after:block after:h-0.5 after:w-full after:bg-primary after:rounded":
+                  selected === "unfulfilled",
               }
             )}
             onClick={() => setSelected("unfulfilled")}

@@ -41,7 +41,8 @@ const Notifications: NextPageWithLayout = () => {
   }, [status]);
 
   useEffect(() => {
-    console.log("scroll");
+    checkNotifs();
+
     document
       .querySelector(".scroll")
       ?.removeEventListener("scroll", checkNotifs);
@@ -55,9 +56,7 @@ const Notifications: NextPageWithLayout = () => {
   }, [notifs]);
 
   const checkNotifs = () => {
-    console.log("notfis check");
     if (notifs) {
-      console.log("notifs: ", notifs);
       for (const notif of notifs) {
         const el = document.querySelector(`.notif-${notif.id}`);
         if (el && isVisible(el)) {
@@ -143,7 +142,7 @@ const Notifications: NextPageWithLayout = () => {
                 })}
               </div>
               <p className="font-bold text-sm text-primary tracking-wide mb-2">
-                showing {notifs.length} of {total} notifications
+                Showing {notifs.length} of {total} recent notifications
               </p>
 
               {/* <p className="font-bold text-sm text-primary tracking-wide">

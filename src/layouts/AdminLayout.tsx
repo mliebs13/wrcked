@@ -69,7 +69,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
           status: "PENDING",
         });
 
-        data?.count && setCount(data.count);
+        data?.count !== null && setCount(data.count);
       } catch (err: any) {
         console.log("error occurred: ", err.message);
       }
@@ -175,9 +175,9 @@ const AdminLayout: FC<AdminLayoutProps> = ({
                   onClick={() => router.push("/22/admin/notifications")}
                 >
                   <BellIcon width={20} height={20} />
-                  {count !== null && (
+                  {!!count && count >= 1 && (
                     <span className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-4 bg-orange-500 font-bold text-white text-xs rounded-full">
-                      {count ?? "-"}
+                      {count}
                     </span>
                   )}
                 </button>
