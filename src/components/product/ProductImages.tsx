@@ -67,17 +67,17 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
 
       <div className="flex flex-[0.2] lg:flex-[0.175] h-[335px] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-[8]">
         <motion.p
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="min-w-fit w-max h-fit bg-secondary text-sm font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3"
         >
           12IN / 30cm
         </motion.p>
         <motion.div
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="h-full min-w-[38px] lg:min-w-[34px]"
         >
           <RuleMobile className="rule-mobile h-full bg-secondary" />
