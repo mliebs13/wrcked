@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
+import Script from "next/script";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { motion, AnimatePresence } from "framer-motion";
@@ -48,6 +49,8 @@ const Product = ({
         />
         <meta name="description" content="Shop - Wrcked" />
       </Head>
+
+      <Script src="../../scripts/script.js" strategy="beforeInteractive" />
 
       {/* preload next and previous image */}
       {/* {index + 1 <= products.length - 1 && products[index + 1] && (

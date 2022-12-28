@@ -94,7 +94,7 @@ const Product: FC<ProductProps> = ({
                 </div>
               </div>
 
-              <div className="w-full w-fit bg-secondary flex justify-start items-center lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-2 lg:mb-6">
+              <div className="w-fit bg-secondary flex justify-start items-center lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-2 lg:mb-6">
                 {/* 1 */}
                 <div className="mr-2">
                   <svg
@@ -148,6 +148,7 @@ const Product: FC<ProductProps> = ({
                       d="M17.166 15.6334V11.6399C17.166 11.5345 17.2187 11.4818 17.3242 11.4818C17.9015 11.4818 18.4787 11.4818 19.056 11.4818C19.1588 11.4818 19.1825 11.5134 19.1825 11.6083C19.1825 14.297 19.1825 16.9855 19.1825 19.6782C19.1825 19.773 19.1588 19.8048 19.06 19.8048C18.4708 19.8048 17.8856 19.8048 17.3005 19.8048C17.2161 19.8048 17.1739 19.7612 17.1739 19.6742C17.1739 18.3259 17.1739 16.9817 17.1739 15.6374L17.166 15.6334Z"
                       className="fill-primary"
                     />
+
                     <path
                       d="M22.1426 15.6376V11.6441C22.1426 11.5387 22.1953 11.4859 22.3007 11.4859C22.878 11.4859 23.4553 11.4859 24.0326 11.4859C24.1314 11.4859 24.1591 11.5176 24.1591 11.6125C24.1591 14.3012 24.1591 16.9898 24.1591 19.6824C24.1591 19.7773 24.1353 19.809 24.0365 19.809C23.4474 19.809 22.8622 19.809 22.277 19.809C22.1927 19.809 22.1505 19.7655 22.1505 19.6785C22.1505 18.3302 22.1505 16.9859 22.1505 15.6415L22.1426 15.6376Z"
                       className="fill-primary"
@@ -279,7 +280,7 @@ const Product: FC<ProductProps> = ({
           </p>
         )}
 
-        <Nav className="mt-5" />
+        <Nav className="mt-4" />
       </div>
     </div>
   );

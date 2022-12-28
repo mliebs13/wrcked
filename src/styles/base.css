@@ -87,6 +87,14 @@ button {
   color: var(--danger);
 }
 
+.rule-mobile {
+  display: var(--small);
+}
+
+.rule-desktop {
+  display: var(--large);
+}
+
 /* Toast */
 
 .ToastViewport {
