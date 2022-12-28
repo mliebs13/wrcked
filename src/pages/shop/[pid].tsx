@@ -139,7 +139,7 @@ const Product = ({
                 }}
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="w-full h-full min-h-[400px] max-w-8xl grid place-content-start grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
+                <div className="w-full h-full min-h-[360px] sm:min-h-[400px] max-w-8xl grid place-content-start grid-cols-[1fr] lg:grid-cols-[0.55fr_0.45fr] gap-16 mx-auto">
                   {/* left */}
                   <div className="w-full h-fit max-w-3xl flex flex-col items-start justify-start lg:mr-[8%] mx-auto pb-8">
                     <AltButton
