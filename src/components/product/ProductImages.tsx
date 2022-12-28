@@ -38,7 +38,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
               alt="product gif"
               width={350}
               height={350}
-              // priority={true}
+              priority={true}
               className="hidden lg:block w-auto h-[48vh] max-h-[375px] lg:min-h-[200px]"
             />
           )}
@@ -56,7 +56,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
         >
           <Image
             src={image}
-            // priority={true}
+            priority={true}
             alt="product image"
             width={519}
             height={550}
