@@ -41,7 +41,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
     >
       <div className="lg:w-fit absolute top-[calc(-1*(30px+var(--box-height)/2))] left-1/2 lg:left-[calc(var(--base-padding)+(var(--logo-width)-var(--box-width))/2)] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
         {/* angle brackets pattern */}
-        <span className="w-fit absolute -bottom-[34px] left-[calc(var(--box-width)/2-26px)] hidden lg:block bg-secondary -translate-x-1/4 pointer-events-none">
+        <span className="w-fit absolute -bottom-[33px] left-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary -translate-x-1/4 pointer-events-none">
           <svg
             viewBox="0 0 30 31"
             fill="none"
@@ -64,7 +64,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
             />
           </svg>
         </span>
-        <span className="absolute -bottom-[34px] right-[calc(var(--box-width)/2-26px)] hidden lg:block bg-secondary translate-x-1/4 -rotate-90 pointer-events-none">
+        <span className="absolute -bottom-[33px] right-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary translate-x-1/4 -rotate-90 pointer-events-none">
           <svg
             viewBox="0 0 30 31"
             fill="none"
@@ -88,7 +88,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
           </svg>
         </span>
 
-        <div className="w-full h-5 lg:max-w-[var(--box-width)] flex items-center justify-start bg-secondary mb-[5px] shadow-block border-2 border-primary overflow-hidden">
+        <div className="w-full h-5 lg:max-w-[var(--box-width)] flex items-center justify-start bg-primary mb-1.5 shadow-block border-2 border-primary overflow-hidden">
           {/* name */}
           <div className="w-full bg-secondary text-sm text-primary uppercase px-2">
             {name}

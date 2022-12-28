@@ -69,11 +69,11 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
         <p className="min-w-fit w-max h-fit bg-secondary text-sm font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3">
           12IN / 30cm
         </p>
-        <div className="h-full bg-secondary">
+        <div className="h-full">
           {width < breakpoints.lg ? (
-            <RuleMobile className="h-full" />
+            <RuleMobile className="h-full bg-secondary" />
           ) : (
-            <Rule className="h-full" />
+            <Rule className="h-full bg-secondary" />
           )}
         </div>
       </div>

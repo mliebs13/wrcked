@@ -172,9 +172,11 @@ const Product = ({
                     <div className="bg-secondary w-full p-4 shadow-block">
                       <AltButton
                         className="w-full py-2.5 text-3xl font-bold mb-2"
-                        onClick={() =>
-                          router.push(`/checkout/${currentProduct._id}`)
-                        }
+                        onClick={() => {
+                          isAvailable &&
+                            router.push(`/checkout/${currentProduct._id}`);
+                          isAvailable && setDetailsOpen(false);
+                        }}
                         disabled={!isAvailable}
                       >
                         {!isAvailable && (
