@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import groq from "groq";
 import Product from "@src/components/product/Product";
 import { Product as ProductType } from "@src/types";
 import sanityClient from "@src/config/sanity";
 import classNames from "classnames";
 import { spaceMono } from "@src/config/fonts";
-import { getSanityImageUrl } from "@src/utils";
 
 const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [index, setIndex] = useState(0);

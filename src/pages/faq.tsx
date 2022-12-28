@@ -13,7 +13,7 @@ const FAQ: NextPage = () => {
     <main
       className={classNames(
         spaceMono.className,
-        "min-h-screen w-full flex flex-col items-center justify-center py-8 sm:py-12 px-3 sm:px-10 2xl:px-20"
+        "min-h-screen w-full flex flex-col items-center justify-center bg-secondary text-primary py-8 sm:py-12 px-3 sm:px-10 2xl:px-20"
       )}
     >
       <Head>
@@ -27,7 +27,7 @@ const FAQ: NextPage = () => {
         <meta name="description" content="FAQ - Wrcked" />
       </Head>
 
-      <div className="w-full max-w-4xl flex flex-col bg-secondary text-primary mx-auto mb-12">
+      <div className="w-full max-w-4xl flex flex-col mx-auto mb-12">
         <div className="mb-6">
           <h2 className="mb-5 font-bold text-sm">WHAT IS WRCKED ART?</h2>
 
