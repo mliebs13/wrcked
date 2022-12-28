@@ -4,11 +4,11 @@ const setVariables = () => {
   const windowWidth = innerWidth;
 
   windowWidth >= 960
-    ? root.style.setProperty("--small", "none")
-    : root.style.setProperty("--small", "flex");
+    ? root.style.setProperty("--mobile-rule", "none")
+    : root.style.setProperty("--mobile-rule", "flex");
   windowWidth < 960
-    ? root.style.setProperty("--large", "none")
-    : root.style.setProperty("--large", "flex");
+    ? root.style.setProperty("--desktop-rule", "none")
+    : root.style.setProperty("--desktop-rule", "flex");
 };
 
 setVariables();

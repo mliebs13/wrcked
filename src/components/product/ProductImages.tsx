@@ -80,11 +80,8 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
           // exit={{ opacity: 0 }}
           className="h-full min-w-[38px] lg:min-w-[34px]"
         >
-          {width < breakpoints.lg ? (
-            <RuleMobile className="rule-mobile h-full bg-secondary" />
-          ) : (
-            <Rule className="rule-desktop h-full bg-secondary" />
-          )}
+          <RuleMobile className="rule-mobile h-full bg-secondary" />
+          <Rule className="rule-desktop h-full bg-secondary" />
         </motion.div>
       </div>
     </div>

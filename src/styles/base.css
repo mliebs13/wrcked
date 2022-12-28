@@ -21,8 +21,9 @@
   --header-height: 136px;
   --box-width: 320px;
   --box-height: 64px;
-
   --base-padding: 2.5rem;
+  --mobile-rule: none;
+  --desktop-rule: none;
 }
 
 * {
@@ -88,11 +89,11 @@ button {
 }
 
 .rule-mobile {
-  display: var(--small);
+  display: var(--mobile-rule);
 }
 
 .rule-desktop {
-  display: var(--large);
+  display: var(--desktop-rule);
 }
 
 /* Toast */
