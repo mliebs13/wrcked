@@ -94,7 +94,10 @@ const Login: NextPageWithLayout = () => {
         <title>Admin - Login</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
         <meta name="description" content="Admin - Login" />
       </Head>
 

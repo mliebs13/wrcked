@@ -61,6 +61,10 @@ button {
   outline: none;
 }
 
+.Button:disabled {
+  @apply opacity-80;
+}
+
 .Button:disabled:hover {
   @apply !shadow-block !translate-x-0 !translate-y-0;
 }
