@@ -16,7 +16,12 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const product = products[index];
 
   return (
-    <main className={classNames(spaceMono.className, "w-full")}>
+    <main
+      className={classNames(
+        spaceMono.className,
+        "w-full bg-secondary text-primary"
+      )}
+    >
       <Head>
         <title>Shop - Wrcked</title>
         <meta charSet="UTF-8" />

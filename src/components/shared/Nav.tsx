@@ -12,7 +12,7 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
   return (
     <ul
       className={classNames(
-        "w-fit h-fit flex items-center justify-center bg-white mx-auto",
+        "w-fit h-fit flex items-center justify-center bg-secondary mx-auto",
         className
       )}
       {...props}

@@ -55,7 +55,7 @@ const Orders: NextPageWithLayout = () => {
   }, [selected, page]);
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray flex items-start">
+    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
       <div className="w-full max-w-8xl flex flex-col items-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
         {/* navigation */}
         <ul className="w-full max-w-[560px] flex items-center justify-between mb-8">
@@ -100,9 +100,9 @@ const Orders: NextPageWithLayout = () => {
         {orders && !loading ? (
           orders.length >= 1 ? (
             <>
-              <table className="w-fit min-w-full bg-white rounded-md mb-6 shadow">
+              <table className="w-fit min-w-full bg-secondary rounded-md mb-6 shadow">
                 {/* head */}
-                <thead className="bg-whites h-[55px]">
+                <thead className="bg-secondary h-[55px]">
                   <tr>
                     <th className="font-bold text-base text-primary text-center px-4">
                       Customer

@@ -34,7 +34,7 @@ module.exports = {
       boxShadow: {
         // block: "4px 4px 0px 0px #000000",
         block: `4px 4px 0 var(--primary),3px 3px 0 var(--primary),2px 2px 0 var(--primary),1px 1px 0 var(--primary)`,
-        blockHover: `4px 3px 0 var(--primary),2px 2px 0 var(--primary),1px 1px 0 var(--primary)`,
+        blockHover: `3px 3px 0 var(--primary),2px 2px 0 var(--primary),1px 1px 0 var(--primary)`,
         subtle: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       },
       backgroundImage: {

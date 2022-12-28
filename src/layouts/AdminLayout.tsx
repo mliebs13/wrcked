@@ -102,7 +102,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
         <div
           className={classNames(
             spaceMono.className,
-            "relative w-full h-full min-h-screen grid sm:grid-cols-[0.25fr_1fr] overflow-x-auto",
+            "relative w-full h-full min-h-screen grid sm:grid-cols-[0.25fr_1fr] text-primary overflow-x-auto",
             {
               "grid-cols-[0.25fr_1fr]": navOpen,
               "grid-cols-[1fr]": !navOpen,
@@ -116,7 +116,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
               flex: navOpen,
             })}
           >
-            <div className="sticky left-0 top-0 w-full h-full min-w-[200px] flex flex-col justify-between bg-white py-12 px-3 shadow">
+            <div className="sticky left-0 top-0 w-full h-full min-w-[200px] flex flex-col justify-between bg-secondary py-12 px-3 shadow">
               <ul className="w-full flex flex-col items-start">
                 {Object.keys(adminRoutes).map((item, idx) => {
                   const { route, icon } = adminRoutes[item];
@@ -160,7 +160,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
           {/* right */}
           <div className="scroll w-full h-full min-w-[360px] overflow-x-hidden">
             {/* top navigation */}
-            <div className="w-full flex justify-between items-center bg-white py-8 px-10 2xl:px-20">
+            <div className="w-full flex justify-between items-center bg-secondary py-8 px-10 2xl:px-20">
               <h1 className="hidden sm:block font-bold text-xl text-primary tracking-wide">
                 Admin Dashboard
               </h1>
@@ -178,7 +178,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
                 >
                   <BellIcon width={20} height={20} />
                   {!!count && count >= 1 && (
-                    <span className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-4 bg-orange-500 font-bold text-white text-xs rounded-full">
+                    <span className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-4 bg-orange-500 font-bold text-secondary text-xs rounded-full">
                       {count}
                     </span>
                   )}

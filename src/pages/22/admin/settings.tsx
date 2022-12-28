@@ -84,7 +84,7 @@ const Settings: NextPageWithLayout = () => {
   };
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray flex items-start">
+    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
       <Toast
         content={toastContent}
         open={toastOpen}

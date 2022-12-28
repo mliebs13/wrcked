@@ -34,13 +34,13 @@ const Admin: NextPageWithLayout = () => {
   }, []);
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray flex items-start">
+    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
       <div className="w-full h-full max-w-8xl flex flex-col items-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
         {products ? (
           products.length >= 1 ? (
-            <table className="w-fit min-w-full bg-white rounded-md shadow overflow-hidden">
+            <table className="w-fit min-w-full bg-secondary rounded-md shadow overflow-hidden">
               {/* head */}
-              <thead className="bg-white h-[55px]">
+              <thead className="bg-secondary h-[55px]">
                 <tr>
                   <th className="font-bold text-base text-primary px-4">Id</th>
                   <th className="font-bold text-base text-primary px-4">

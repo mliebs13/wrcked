@@ -36,7 +36,7 @@ const Toast: FC<ToastProps> = ({
   return (
     <>
       <RadixToast.Root
-        className="ToastRoot bg-white shadow rounded-md py-3 px-5"
+        className="ToastRoot bg-secondary shadow rounded-md py-3 px-5"
         open={open}
         onOpenChange={setOpen}
       >

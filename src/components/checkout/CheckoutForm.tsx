@@ -323,7 +323,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
               className={classNames(
                 "w-1/2 flex items-center text-center p-3 transition-colors cursor-pointer",
                 {
-                  "bg-primary text-white": paymentMethod === "other",
+                  "bg-primary text-secondary": paymentMethod === "other",
                   "bg-transparent text-primary": paymentMethod !== "other",
                 }
               )}

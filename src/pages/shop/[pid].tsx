@@ -35,7 +35,7 @@ const Product = ({
 
   return (
     <main
-      className="relative w-full overflow-x-hidden"
+      className="relative w-full bg-secondary text-primary overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
     >
       <Head>
@@ -206,7 +206,7 @@ const Product = ({
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
                         36IN / 90CM
                       </p>
-                      <div className="h-[80%] bg-skyBlue">
+                      <div className="h-[82%] bg-skyBlue">
                         <RuleVertical className="h-full" />
                       </div>
                     </div>

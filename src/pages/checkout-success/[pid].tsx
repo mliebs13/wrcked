@@ -30,7 +30,7 @@ const Checkout = ({
         backgroundSize: "42px",
       }}
       className={classNames(
-        "CheckoutSuccess relative w-full min-h-screen flex flex-col items-center bg-gray py-12 px-3 sm:px-10 2xl:px-20",
+        "CheckoutSuccess relative w-full min-h-screen flex flex-col items-center bg-gray text-primary py-12 px-3 sm:px-10 2xl:px-20",
         spaceMono.className
       )}
     >

@@ -21,7 +21,7 @@ export default function Home() {
       </Head>
       <main
         className={classNames(
-          "Home w-full py-12 px-10 2xl:px-20",
+          "Home w-full bg-secondary text-primary py-12 px-10 2xl:px-20",
           spaceMono.className
         )}
       >

@@ -90,7 +90,7 @@ const Notifications: NextPageWithLayout = () => {
   }
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray flex items-start">
+    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
       <div className="w-full flex flex-col items-center px-3 sm:px-10 py-8 sm:py-12 2xl:px-20">
         {notifs ? (
           notifs.length < 1 ? (
@@ -114,7 +114,7 @@ const Notifications: NextPageWithLayout = () => {
                       key={`notif-${i}`}
                       className={classNames(
                         `notif-${notif.id}`,
-                        "w-full flex justify-between items-center bg-white text-base rounded shadow-sm px-4 py-3 mb-4"
+                        "w-full flex justify-between items-center bg-secondary text-base rounded shadow-sm px-4 py-3 mb-4"
                       )}
                     >
                       <span

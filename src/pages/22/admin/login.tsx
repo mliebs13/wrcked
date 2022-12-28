@@ -86,7 +86,7 @@ const Login: NextPageWithLayout = () => {
   return (
     <main
       className={classNames(
-        "relative w-full min-h-screen bg-lightGray flex items-start",
+        "relative w-full min-h-screen bg-lightGray text-primary flex items-start",
         spaceMono.className
       )}
     >

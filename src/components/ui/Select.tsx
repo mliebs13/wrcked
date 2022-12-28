@@ -64,10 +64,10 @@ const Select: FC<SelectProps> = ({
                   key={`select-option-${idx}`}
                   value={option}
                   className={classNames(
-                    "flex items-center text-sm outline-none p-1.5 hover:bg-primary hover:bg-opacity-80 hover:text-white cursor-pointer",
+                    "flex items-center text-sm outline-none p-1.5 hover:bg-primary hover:bg-opacity-80 hover:text-secondary cursor-pointer",
                     {
                       "mb-1": idx !== options.length - 1,
-                      "bg-primary bg-opacity-80 text-white":
+                      "bg-primary bg-opacity-80 text-secondary":
                         selected === option,
                       "bg-secondary text-primary": selected !== option,
                     }

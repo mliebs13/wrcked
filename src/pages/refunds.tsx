@@ -10,10 +10,10 @@ const Refunds: NextPage = () => {
   const router = useRouter();
 
   return (
-    <div
+    <main
       className={classNames(
         spaceMono.className,
-        "min-h-screen w-full flex flex-col items-center justify-center py-8 sm:py-12 px-3 sm:px-10 2xl:px-20"
+        "min-h-screen w-full flex flex-col items-center justify-center bg-secondary text-primary py-8 sm:py-12 px-3 sm:px-10 2xl:px-20"
       )}
     >
       <Head>
@@ -41,7 +41,7 @@ const Refunds: NextPage = () => {
       <div className="w-screen bg-primary h-[2px] my-8" />
 
       <Nav />
-    </div>
+    </main>
   );
 };
 

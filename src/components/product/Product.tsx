@@ -62,31 +62,31 @@ const Product: FC<ProductProps> = ({
             {/* more details */}
             <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 pt-4 pb-5">
               <div className="hidden lg:block mb-12">
-                <div className="bg-white flex items-center text-sm font-bold mb-2">
+                <div className="bg-secondary flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     IT
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="bg-white flex items-center text-sm font-bold mb-2">
+                <div className="bg-secondary flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     ENG
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="bg-white flex items-center text-sm font-bold mb-2">
+                <div className="bg-secondary flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     EST
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="bg-white flex items-center text-sm font-bold mb-2">
+                <div className="bg-secondary flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     DE
                   </div>
                   <span className="text-sm"> VU A</span>
                 </div>
-                <div className="bg-white flex items-center text-sm font-bold">
+                <div className="bg-secondary flex items-center text-sm font-bold">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                     KR
                   </div>
@@ -94,7 +94,7 @@ const Product: FC<ProductProps> = ({
                 </div>
               </div>
 
-              <div className="w-full w-fit bg-white flex justify-start items-center lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-2 lg:mb-6">
+              <div className="w-full w-fit bg-secondary flex justify-start items-center lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-2 lg:mb-6">
                 {/* 1 */}
                 <div className="mr-2">
                   <svg
@@ -242,24 +242,24 @@ const Product: FC<ProductProps> = ({
                 </div>
               </div>
 
-              <div className="w-fit bg-white flex justify-start lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-4 lg:mb-6">
+              <div className="w-fit bg-secondary flex justify-start lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-4 lg:mb-6">
                 <p
                   className={classNames(
                     "font-bold text-sm text-left lg:text-center text-primary"
                   )}
                 >
-                  <span className="bg-white">CONTENTS:</span>
+                  <span className="bg-secondary">CONTENTS:</span>
                   <br />
-                  <span className="bg-white">1(one) ORIGINAL</span>
+                  <span className="bg-secondary">1(one) ORIGINAL</span>
                   <br />
-                  <span className="bg-white">LITHOGRAPH</span>
+                  <span className="bg-secondary">LITHOGRAPH</span>
                 </p>
               </div>
 
               <div>
                 <p
                   className={classNames(
-                    "bg-white font-bold text-sm text-center text-danger px-[1px]"
+                    "bg-secondary font-bold text-sm text-center text-danger px-[1px]"
                   )}
                 >
                   No Copies, No Duplicates.
