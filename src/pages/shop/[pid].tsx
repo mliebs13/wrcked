@@ -45,7 +45,7 @@ const Product = ({
       onClick={() => detailsOpen && setDetailsOpen(false)}
     >
       <Head>
-        <title>Shop - {product ? product.name : "Wrcked"}</title>
+        <title>Shop - {/*product ? product.name : */ "Wrcked"}</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
@@ -219,7 +219,7 @@ const Product = ({
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
                         36IN / 90CM
                       </p>
-                      <div className="h-[82%] bg-skyBlue">
+                      <div className="h-[82%]">
                         <RuleVertical className="h-full" />
                       </div>
                     </div>
@@ -229,7 +229,7 @@ const Product = ({
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
                         24IN / 60CM
                       </p>
-                      <div className="w-[90%] bg-skyBlue">
+                      <div className="w-[90%]">
                         <RuleHorizontal className="w-full" />
                       </div>
                     </div>
