@@ -60,7 +60,7 @@ const Product: FC<ProductProps> = ({
             />
 
             {/* more details */}
-            <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 pt-4 pb-5">
+            <div className="w-full max-h-[420px] flex flex-col justify-end items-center self-end lg:min-w-[218px] 2xl:min-w-[258px] lg:w-[218px] 2xl:w-[258px] px-4 -mt-6 lg:mt-0 pt-4 pb-5">
               <div className="hidden lg:block mb-12">
                 <div className="bg-secondary flex items-center text-sm font-bold mb-2">
                   <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">

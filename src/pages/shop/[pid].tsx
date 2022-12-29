@@ -194,7 +194,7 @@ const Product = ({
                           <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
                         )}
 
-                        {isAvailable ? "BUY NOW" : "SOLD"}
+                        {isAvailable ? "BUY NOW" : "SOLD OUT"}
                       </AltButton>
                       <p className="text-sm font-bold text-danger text-center">
                         FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
