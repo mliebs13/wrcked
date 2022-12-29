@@ -65,7 +65,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
         </motion.div>
       </div>
 
-      <div className="flex flex-[0.2] lg:flex-[0.175] h-[335px] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-[8]">
+      <div className="flex flex-[0.2] lg:flex-[0.175] h-[350px] lg:h-[calc(100%+8rem)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-[8]">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
