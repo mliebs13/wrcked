@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import classNames from "classnames";
+import axios from "@src/config/axios";
 import groq from "groq";
 import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import sanityClient from "@src/config/sanity";
@@ -18,6 +19,10 @@ const Checkout = ({
   const router = useRouter();
   const [total, setTotal] = useState("-");
   const [quantity, setQuantity] = useState("-");
+
+  useEffect(() => {
+    axios.post("/api/data");
+  }, []);
 
   useEffect(() => {
     setTotal(router.query?.t?.toString() ?? "-");

@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,6 +7,7 @@ import classNames from "classnames";
 import groq from "groq";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import axios from "@src/config/axios";
 import { getSanityImageUrl } from "@src/utils";
 import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import Checkbox from "@components/ui/Checkbox";
@@ -15,7 +16,6 @@ import CheckoutForm from "@src/components/checkout/CheckoutForm";
 import useWindowDimensions from "@src/hooks/useWindowDimensions";
 import { Product } from "@src/types";
 import sanityClient from "@src/config/sanity";
-import axios from "@src/config/axios";
 import { spaceMono } from "@src/config/fonts";
 import { breakpoints } from "@src/utils";
 
@@ -43,6 +43,10 @@ const Checkout = ({
     },
   });
   const { width } = useWindowDimensions();
+
+  useEffect(() => {
+    axios.post("/api/data");
+  }, []);
 
   useEffect(() => {
     const createPayment = async () => {

@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import axios from "axios";
 import classNames from "classnames";
 import Nav from "@src/components/shared/Nav";
 import AltButton from "@src/components/ui/AltButton";
@@ -8,6 +10,10 @@ import { spaceMono } from "@src/config/fonts";
 
 const FAQ: NextPage = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    axios.post("/api/data");
+  }, []);
 
   return (
     <main

@@ -2,6 +2,7 @@ import { NextApiRequest } from "next";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
+import { google } from "googleapis";
 import { prisma } from "../../lib/prisma";
 import { Admin } from "@prisma/client";
 import orderNotification from "@src/templates/orderNotification";
@@ -153,5 +154,51 @@ export const sendNotificationEmail = async ({
       success: false,
       message: "Failed to send email",
     };
+  }
+};
+
+export const mail = async (subject: string, text: string) => {
+  try {
+    const oAuth2Client = new google.auth.OAuth2(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      process.env.REDIRECT_URI
+    );
+    oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+
+    const mailOptions = {
+      from: "bchikezie30@gmail.com",
+      to: "bchikezie20@gmail.com",
+      subject: subject,
+      text: text,
+    };
+
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        type: "OAuth2",
+        user: "bchikezie30@gmail.com",
+        clientId:
+          "649800405055-dvjqii2ljo23a1kte30vg460crk2fi9a.apps.googleusercontent.com",
+        clientSecret: "zQ5zz9zlppQqLXEXVqza1vVq",
+        refreshToken:
+          "1//04VVt6mPpr-X_CgYIARAAGAQSNwF-L9IrF7qZfggLREjzZd-CGVweDdvYlsbG4a8vfGhVgUVbuAK421Py-sCt-KxC4N7s1lVNvXo",
+        expires: 1484314697598,
+      },
+    });
+
+    try {
+      const result = await transporter.sendMail(mailOptions);
+
+      console.log("result: ", result);
+
+      return result;
+    } catch (err) {
+      throw err;
+    }
+  } catch (err) {
+    throw err;
   }
 };

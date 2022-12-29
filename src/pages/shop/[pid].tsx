@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { motion, AnimatePresence } from "framer-motion";
 import groq from "groq";
+import axios from "axios";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
@@ -29,6 +30,10 @@ const Product = ({
 
   const currentProduct = products[index];
   const isAvailable = currentProduct.quantity >= 1;
+
+  useEffect(() => {
+    axios.post("/api/data");
+  }, []);
 
   useEffect(() => {
     !detailsOpen && product && setDetailsOpen(true);
