@@ -10,7 +10,7 @@ const RuleMobile: FC<SVGProps<SVGSVGElement>> = (props) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clip-path="url(#clip0_27_2)">
+      <g clipPath="url(#clip0_27_2)">
         <g filter="url(#filter0_d_27_2)">
           <path
             d="M3.94736 549.001V4"

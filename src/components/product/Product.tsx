@@ -33,11 +33,8 @@ const Product: FC<ProductProps> = ({
 }) => {
   return (
     <div
-      style={{
-        backgroundSize: "36px 40px",
-      }}
       className={classNames(
-        "Product relative w-full min-h-screen flex flex-col justify-start bg-dots-primary pb-10",
+        "Product relative w-full min-h-screen flex flex-col justify-start pb-10",
         spaceMono.className
       )}
     >
@@ -48,7 +45,7 @@ const Product: FC<ProductProps> = ({
 
       <div className="relative flex flex-col justify-start">
         {total >= 1 ? (
-          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[500px] lg:h-[calc(96vh-var(--header-height))] pt-[calc(var(--box-height)/2)]">
+          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[500px] lg:h-[calc(94vh-var(--header-height))] pt-[calc(var(--box-height)/2)]">
             <ProductDetails
               price={price}
               name={name}
@@ -280,7 +277,7 @@ const Product: FC<ProductProps> = ({
           </p>
         )}
 
-        <Nav className="mt-4" />
+        <Nav className="mt-6" />
       </div>
     </div>
   );

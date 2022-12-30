@@ -41,8 +41,11 @@ const Product = ({
 
   return (
     <main
-      className="relative w-full bg-secondary text-primary overflow-x-hidden"
+      className="relative w-full bg-secondary bg-dots-primary text-primary overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
+      style={{
+        backgroundSize: "42px",
+      }}
     >
       <Head>
         <title>Shop - {/*product ? product.name : */ "Wrcked"}</title>

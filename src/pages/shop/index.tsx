@@ -22,8 +22,11 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <main
       className={classNames(
         spaceMono.className,
-        "w-full bg-secondary text-primary"
+        "w-full bg-secondary text-primary bg-dots-primary"
       )}
+      style={{
+        backgroundSize: "42px",
+      }}
     >
       <Head>
         <title>Shop - Wrcked</title>
