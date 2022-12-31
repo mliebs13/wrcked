@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { motion, AnimatePresence } from "framer-motion";
 import groq from "groq";
-import axios from "axios";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import Logo from "@components/shared/Logo";
@@ -218,7 +217,7 @@ const Product = ({
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
                         36IN / 90CM
                       </p>
-                      <div className="h-[82%]">
+                      <div className="h-[84%]">
                         <RuleVertical className="h-full" />
                       </div>
                     </div>

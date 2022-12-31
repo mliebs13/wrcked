@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import groq from "groq";
