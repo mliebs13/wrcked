@@ -10,7 +10,7 @@ const RuleVertical: FC<SVGProps<SVGSVGElement>> = (props) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clip-path="url(#clip0_37_437)">
+      <g clipPath="url(#clip0_37_437)">
         <rect width="31" height="674" fill="none" />
         <g filter="url(#filter0_d_37_437)">
           <path

@@ -105,10 +105,16 @@ export const sendNotificationEmail = async ({
 }): Promise<{ success: boolean; message: string }> => {
   try {
     let transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
-        user: "bchikezie20@gmail.com",
-        pass: "meister231",
+        type: "OAuth2",
+        user: "wrckedart22@gmail.com",
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN,
+        expires: 1484314697598,
       },
     });
 
@@ -117,8 +123,8 @@ export const sendNotificationEmail = async ({
     const dateNow = new Date(Date.now());
 
     const payload = {
-      from: "bchikezie20@gmail.com",
-      to: "wrckedart22@gmail.com",
+      from: "wrckedart22@gmail.com",
+      to: "bchikezie30@gmail.com",
       subject: "New Order",
       html: orderNotification(
         id,
@@ -159,13 +165,6 @@ export const sendNotificationEmail = async ({
 
 export const mail = async (subject: string, text: string) => {
   try {
-    const oAuth2Client = new google.auth.OAuth2(
-      process.env.CLIENT_ID,
-      process.env.CLIENT_SECRET,
-      process.env.REDIRECT_URI
-    );
-    oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
-
     const mailOptions = {
       from: "bchikezie30@gmail.com",
       to: "bchikezie20@gmail.com",

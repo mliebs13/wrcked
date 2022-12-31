@@ -63,6 +63,13 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
     },
   };*/
 
+    receipt_email &&
+      (await stripe.customers.create({
+        email: receipt_email,
+        description: "Wrcked Customer",
+        name: shipping?.name ?? "",
+      }));
+
     const order = await prisma.order.create({
       data: {
         username: shipping.name,
