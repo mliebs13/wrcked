@@ -32,10 +32,6 @@ const Product = ({
   const isAvailable = currentProduct.quantity >= 1;
 
   useEffect(() => {
-    axios.post("/api/data");
-  }, []);
-
-  useEffect(() => {
     !detailsOpen && product && setDetailsOpen(true);
   }, [product]);
 
@@ -48,7 +44,7 @@ const Product = ({
       }}
     >
       <Head>
-        <title>Shop - {/*product ? product.name : */ "Wrcked"}</title>
+        <title>Shop - Wrcked</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta

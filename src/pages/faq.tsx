@@ -11,10 +11,6 @@ import { spaceMono } from "@src/config/fonts";
 const FAQ: NextPage = () => {
   const router = useRouter();
 
-  useEffect(() => {
-    axios.post("/api/data");
-  }, []);
-
   return (
     <main
       className={classNames(

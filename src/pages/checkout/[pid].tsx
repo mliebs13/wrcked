@@ -45,10 +45,6 @@ const Checkout = ({
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    axios.post("/api/data");
-  }, []);
-
-  useEffect(() => {
     const createPayment = async () => {
       try {
         setLoading(true);

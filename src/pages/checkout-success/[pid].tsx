@@ -21,10 +21,6 @@ const Checkout = ({
   const [quantity, setQuantity] = useState("-");
 
   useEffect(() => {
-    axios.post("/api/data");
-  }, []);
-
-  useEffect(() => {
     setTotal(router.query?.t?.toString() ?? "-");
     setQuantity(router.query?.q?.toString() ?? "-");
   }, [router.query]);
