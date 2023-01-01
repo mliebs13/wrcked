@@ -5,9 +5,9 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import AltButton from "../ui/AltButton";
-import Spinner from "../shared/Spinner";
-import Toast from "../ui/Toast";
+import AltButton from "@components/ui/AltButton";
+import Spinner from "@components/shared/Spinner";
+import Toast from "@components/ui/Toast";
 import { ToastType, Shipping } from "@src/types";
 import { getBaseUrl } from "@src/utils";
 import classNames from "classnames";

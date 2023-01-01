@@ -14,10 +14,7 @@ const handleGetOrders = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const { status, page } = req.body;
 
-    if (
-      (status !== "" && status !== "fulfilled" && status !== "unfulfilled") ||
-      !page
-    ) {
+    if (!["", "PENDING", "DISPATCHED", "DELIVERED"].includes(status) || !page) {
       return res.status(400).json({
         message: "Invalid payload",
       });
@@ -28,7 +25,7 @@ const handleGetOrders = async (req: NextApiRequest, res: NextApiResponse) => {
         ? { where: {} }
         : {
             where: {
-              status: String(status).toUpperCase(),
+              status: status,
             },
           };
 

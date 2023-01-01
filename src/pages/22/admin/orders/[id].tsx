@@ -1,10 +1,11 @@
 import { ReactElement, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import AdminLayout from "@src/layouts/AdminLayout";
-import { NextPageWithLayout } from "@src/pages/_app";
 import axios from "@src/config/axios";
+import { formatInTimeZone } from "date-fns-tz";
+import { NextPageWithLayout } from "@src/pages/_app";
+import AdminLayout from "@src/layouts/AdminLayout";
 import { Order } from "@prisma/client";
-import { formatPrice, orderItemDelimeter } from "@src/utils";
+import { formatPrice } from "@src/utils";
 import classNames from "classnames";
 import { spaceMono } from "@src/config/fonts";
 
@@ -20,6 +21,8 @@ const Order: NextPageWithLayout = () => {
       if (id) {
         const { data } = await axios.get(`/api/orders/${id}`);
         if (data) {
+          console.log("order: ", data.order);
+
           setOrder(data.order);
         } else {
           setError("Failed to retrieve order details");
@@ -30,9 +33,24 @@ const Order: NextPageWithLayout = () => {
     getOrder();
   }, [router.query]);
 
-  const [productId, name, quantity, price] = order
-    ? order.item.split(orderItemDelimeter)
-    : [];
+  const {
+    productId: pid,
+    productName: name,
+    quantity,
+    productPrice: price,
+    username,
+    total,
+    status,
+    email,
+    phone,
+    country,
+    state,
+    city,
+    postalCode,
+    line1,
+    line2,
+    deliveryDate,
+  } = order ?? {};
 
   return (
     <main
@@ -43,18 +61,22 @@ const Order: NextPageWithLayout = () => {
     >
       <div className="max-w-8xl w-full h-full flex justify-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
         {order ? (
-          <div className="w-full flex flex-col items-center">
+          <div className="w-fit flex flex-col items-start">
+            <p className="text-base font-bold text-primary text-left mb-4">
+              <span>Order status: </span>
+              <span>{status}</span>
+            </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Customer name: </span>
-              <span>{order?.username}</span>
+              <span>{username}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Customer phone: </span>
-              <span>{order?.phone}</span>
+              <span>{phone}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Customer email: </span>
-              <span>{order?.email}</span>
+              <span>{email}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Product name: </span>
@@ -66,7 +88,21 @@ const Order: NextPageWithLayout = () => {
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Total amount: </span>
-              <span>${formatPrice(order.total)}</span>
+              <span>{total ? `$${formatPrice(total)}` : "-"}</span>
+            </p>
+            <p className="text-base font-bold text-primary text-left mb-4">
+              <span>Address: </span>
+              <span>{`${country}, ${state}, ${city}, ${postalCode}, ${line1}${
+                line2 ? " ," + line2 : ""
+              }`}</span>
+            </p>
+            <p className="text-base font-bold text-primary text-left mb-4">
+              <span>Delivery Date: </span>
+              <span>{`${formatInTimeZone(
+                new Date(String(deliveryDate)),
+                "America/Chicago",
+                "yyyy-MM-dd zzz"
+              )}`}</span>
             </p>
           </div>
         ) : error ? (

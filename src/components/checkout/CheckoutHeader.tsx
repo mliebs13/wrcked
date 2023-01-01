@@ -2,7 +2,11 @@ import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
-const CheckoutHeader: FC = () => {
+type CheckoutHeaderProps = {
+  text: string;
+};
+
+const CheckoutHeader: FC<CheckoutHeaderProps> = ({ text }) => {
   const router = useRouter();
 
   return (
@@ -15,7 +19,7 @@ const CheckoutHeader: FC = () => {
         <ChevronLeftIcon width={24} height={24} />
         <span className="text-base font-bold ml-1">BACK</span>
       </button>
-      <h1 className="text-base tracking-wide underline">WRCKED CHECKOUT</h1>
+      <h1 className="text-base tracking-wide underline">{text}</h1>
     </header>
   );
 };

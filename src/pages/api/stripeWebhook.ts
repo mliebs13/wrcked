@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import stripe from "@src/config/stripe";
 import Stripe from "stripe";
+import uuid from "short-uuid";
+import { add } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import { prisma } from "@src/lib/prisma";
-import { orderShippingDelimeter, orderItemDelimeter } from "@src/utils";
 import { sendNotificationEmail } from "@src/lib/utils";
 
 const fulfillOrder = async (data: Stripe.Event.Data) => {
@@ -67,48 +69,57 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       (await stripe.customers.create({
         email: receipt_email,
         description: "Wrcked Customer",
-        name: shipping?.name ?? "",
+        name: shipping?.name ?? "-",
       }));
+
+    const now = Date.now();
+    const formattedNow = formatInTimeZone(
+      now,
+      "America/Chicago",
+      "yyyy-MM-dd HH:mm:ss zzz"
+    );
+    const deliveryDate = add(now, {
+      days: 7,
+    });
 
     const order = await prisma.order.create({
       data: {
+        id: uuid.generate(),
         username: shipping.name,
         phone: shipping.phone,
         email: receipt_email ?? "",
-        item: `${metadata.id}${orderItemDelimeter}${metadata.name}${orderItemDelimeter}${metadata.quantity}${orderItemDelimeter}${metadata.price}`,
+        productId: metadata.id,
+        productName: metadata.name,
+        quantity: metadata.quantity,
+        productPrice: metadata.price,
         total: amount / 100,
-        shipping: `${
-          shipping?.address?.country ?? "-"
-        }${orderShippingDelimeter}${
-          shipping?.address?.state ?? "-"
-        }${orderShippingDelimeter}${
-          shipping?.address?.city ?? "-"
-        }${orderShippingDelimeter}${
-          shipping?.address?.postal_code ?? "-"
-        }${orderShippingDelimeter}${
-          shipping?.address?.line1 ?? "-"
-        }${orderShippingDelimeter}${shipping?.address?.line2 ?? "-"}`,
+        country: shipping?.address?.country ?? "",
+        state: shipping?.address?.state ?? "",
+        city: shipping?.address?.city ?? "",
+        postalCode: shipping?.address?.postal_code ?? "",
+        line1: shipping?.address?.line1 ?? "",
+        line2: shipping?.address?.line2 ?? "",
+        deliveryDate,
       },
     });
 
     console.log("created order: ", order);
 
-    const now = new Date();
     const notification =
       order &&
       (await prisma.notification.create({
         data: {
           orderId: order.id,
-          text: `An order was placed for '${metadata.name}' x${
+          text: `An order was placed for '${metadata.name}' (${
             metadata.quantity
-          } on ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`,
+          } ${metadata.quantity <= 1 ? "unit" : "units"}) on ${formattedNow}`,
           status: "PENDING",
         },
       }));
 
     console.log("new notification crated: ", notification);
 
-    const sendMailResult = await sendNotificationEmail({
+    /*const sendMailResult = await sendNotificationEmail({
       id: order.id,
       products: [
         {
@@ -120,7 +131,7 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       ],
       total: String(amount / 100),
     });
-    console.log("sendMailResult: ", sendMailResult);
+    console.log("sendMailResult: ", sendMailResult);*/
   } catch (err: any) {
     console.log("error occurred fulfulling order: ", err.message);
   }

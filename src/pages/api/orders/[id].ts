@@ -4,9 +4,11 @@ import { prisma } from "../../../lib/prisma";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    const email = req.query?.email?.toString();
+
     const authResult = await verifyAccess(req);
 
-    if (!authResult.admin) {
+    if (!authResult.admin && !email) {
       return res.status(401).json({
         message: "Unauthorized request",
       });
@@ -15,7 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const id = req.query?.id?.toString();
 
     if (!id) {
-      return res.status(500).json({
+      return res.status(400).json({
         message: "Invalid payload",
       });
     }
@@ -26,6 +28,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           id,
         },
       });
+
+      if (order?.email !== email) {
+        return res.status(401).json({
+          message: "Unauthorized request",
+        });
+      }
 
       console.log("order: ", order);
 
@@ -47,7 +55,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       console.log("updated order: ", updatedOrder);
 
       if (updatedOrder) {
-        return res.status(200).json({ success: true });
+        return res.status(200).json({ success: true, ...payload });
       } else {
         return res
           .status(404)

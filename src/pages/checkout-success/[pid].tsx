@@ -46,7 +46,7 @@ const Checkout = ({
         <meta name="description" content="Checkout Success" />
       </Head>
 
-      <CheckoutHeader />
+      <CheckoutHeader text="WRCKED CHECKOUT" />
 
       <div className="w-full max-w-6xl flex flex-col md:flex-row justify-start md:justify-between mx-auto">
         {/* left - product summary */}

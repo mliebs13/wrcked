@@ -19,7 +19,7 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
     >
       <li
         className={classNames(
-          "font-bold text-sm text-primary underline mr-6",
+          "font-bold text-sm text-primary underline mr-6 sm:mr-8",
           colorClass
         )}
       >
@@ -27,7 +27,7 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
       </li>
       <li
         className={classNames(
-          "font-bold text-sm text-primary underline mr-6",
+          "font-bold text-sm text-primary underline mr-6 sm:mr-8",
           colorClass
         )}
       >
@@ -35,7 +35,7 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
       </li>
       <li
         className={classNames(
-          "font-bold text-sm text-primary underline mr-6",
+          "font-bold text-sm text-primary underline mr-6 sm:mr-8",
           colorClass
         )}
       >
@@ -43,11 +43,13 @@ const Nav: FC<NavProps> = ({ className, color = "dark", ...props }) => {
       </li>
       <li
         className={classNames(
-          "font-bold text-sm text-primary underline mr-6",
+          "font-bold text-sm text-primary underline mr-6 sm:mr-8",
           colorClass
         )}
       >
-        <Link href="/terms.html">TERMS</Link>
+        <Link href="/terms.html" target="_blank">
+          TERMS
+        </Link>
       </li>
       <li
         className={classNames(

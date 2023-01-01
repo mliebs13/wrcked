@@ -81,7 +81,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
           className="h-full min-w-fit"
         >
           {width >= breakpoints.lg ? (
-            <Rule className="rule-desktop w-auto h-full bg-secondary" />
+            <Rule className="rule-desktop w-auto h-full bg-secondary px-[3.5px]" />
           ) : (
             <RuleMobile className="rule-mobile w-auto h-full bg-secondary" />
           )}

@@ -93,7 +93,7 @@ const Checkout = ({
         <meta name="description" content="Checkout" />
       </Head>
 
-      <CheckoutHeader />
+      <CheckoutHeader text="WRCKED CHECKOUT" />
 
       {/* content */}
       <div className="w-full max-w-6xl flex flex-col md:flex-row justify-start md:justify-between mx-auto">
@@ -173,13 +173,15 @@ const Checkout = ({
             className={classNames("hidden md:block mt-4", spaceMono.className)}
           >
             <Link
-              href="/terms-of-service"
+              href="/terms.html"
+              target="_blank"
               className="text-darkGray text-base mr-4"
             >
               TERMS
             </Link>
             <Link
               href="/privacy-policy.html"
+              target="_blank"
               className="text-darkGray text-base"
             >
               PRIVACY

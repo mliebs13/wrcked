@@ -25,9 +25,22 @@ model Order {
   email String @default("")
   phone String @default("")
   total      Int
-  status     OrderStatus  @default(UNFULFILLED)
-  item       String
-  shipping   String
+
+  productId       String
+  productName String
+  quantity String
+  productPrice String
+
+  country String
+  state String
+  city String
+  postalCode String @default("")
+  line1 String @default("")
+  line2 String @default("")
+
+  deliveryDate DateTime
+  
+  status     OrderStatus  @default(PENDING)
 }
 
 model Notification {
@@ -41,8 +54,9 @@ model Notification {
 }
 
 enum OrderStatus {
-  FULFILLED
-  UNFULFILLED
+  PENDING
+  DISPATCHED
+  DELIVERED
 }
 
 enum NotificationStatus {
