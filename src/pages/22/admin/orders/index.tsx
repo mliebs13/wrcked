@@ -8,6 +8,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@radix-ui/react-icons";
+// @ts-ignore
 import DatePicker from "react-datepicker";
 import en from "date-fns/locale/en-US";
 import { Order, OrderStatus } from "@prisma/client";

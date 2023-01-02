@@ -16,6 +16,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const id = req.query?.id?.toString();
 
+    console.log("id: ", id);
+
     if (!id) {
       return res.status(400).json({
         message: "Invalid payload",
@@ -29,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         },
       });
 
-      if (order?.email !== email) {
+      if (email && order?.email !== email) {
         return res.status(401).json({
           message: "Unauthorized request",
         });

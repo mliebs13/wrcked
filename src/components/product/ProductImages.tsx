@@ -32,7 +32,7 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
           }
           className="lg:mr-16"
         >
-          {width >= 960 && (
+          {width >= breakpoints.lg && (
             <Image
               src={gif}
               alt="product gif"
@@ -80,15 +80,10 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
           exit={{ opacity: 0 }}
           className="h-full min-w-fit"
         >
-          {width >= breakpoints.lg ? (
-            <Rule className="rule-desktop w-auto h-full bg-secondary px-[3.5px]" />
-          ) : (
-            <RuleMobile className="rule-mobile w-auto h-full bg-secondary" />
-          )}
+          <Rule className="rule-desktop w-auto h-full bg-secondary px-[3.5px]" />
+          <RuleMobile className="rule-mobile w-auto h-full bg-secondary" />
         </motion.div>
       </div>
-
-      {/* <span className="bg-red-500 absolute top-[58px] left-1/2 -translate-x-1/4 hidden lg:block h-0.5 w-[28px]" /> */}
     </div>
   );
 };

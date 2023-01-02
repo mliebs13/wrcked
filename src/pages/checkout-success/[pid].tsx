@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import classNames from "classnames";
-import axios from "@src/config/axios";
 import groq from "groq";
 import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import sanityClient from "@src/config/sanity";

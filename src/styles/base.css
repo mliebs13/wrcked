@@ -97,6 +97,16 @@ button {
   display: var(--desktop-rule);
 }
 
+.before\:bg-gray::before,
+.after\:bg-gray::after {
+  @apply bg-[#dadada];
+}
+
+.before\:bg-primary::before,
+.after\:bg-primary::after {
+  @apply bg-primary;
+}
+
 /* react-datepicker */
 .react-datepicker > * {
   font-family: "Space Mono", monospace, system-ui, -apple-system,

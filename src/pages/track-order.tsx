@@ -1,13 +1,15 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import { spaceMono } from "@src/config/fonts";
 import { FormEvent, useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
+import { add } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import { Order } from "@prisma/client";
+import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import Button from "@src/components/ui/Button";
 import Spinner from "@src/components/shared/Spinner";
 import Toast from "@components/ui/Toast";
@@ -33,7 +35,7 @@ const TrackOrder: NextPage = () => {
     register,
     formState: { errors },
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
-  const [orderDetails, setOrderDetails] = useState<Order[] | null>(null);
+  const [orderDetails, setOrderDetails] = useState<Order | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState<string>("");
@@ -94,11 +96,14 @@ const TrackOrder: NextPage = () => {
     }
   };
 
+  const dispatchedBg = orderDetails?.status !== "PENDING" ? "primary" : "gray";
+  const deliveredBg = orderDetails?.status === "DELIVERED" ? "primary" : "gray";
+
   return (
     <main
       className={classNames(
         spaceMono.className,
-        "w-full h-full min-h-screen flex flex-col items-center bg-gray text-primary py-12 px-3 sm:px-10 2xl:px-20"
+        "w-full h-fit min-h-screen flex flex-col items-center bg-gray text-primary py-12 px-3 sm:px-10 2xl:px-20"
       )}
     >
       <Head>
@@ -123,7 +128,7 @@ const TrackOrder: NextPage = () => {
 
       <CheckoutHeader text="TRACK ORDER" />
 
-      <div className="bg-secondary w-full max-w-2xl min-h-[300px] rounded-lg shadow-sm">
+      <div className="bg-secondary w-full h-fit max-w-2xl rounded-lg shadow-sm">
         <div className="w-full max-w-xl mb-6 flex flex-col mx-auto px-4 py-6">
           <h2 className="mb-4 text-base text-primary">ENTER ORDER DETAILS</h2>
           <form className="w-full flex flex-col" onSubmit={fetchOrderInfo}>
@@ -163,10 +168,10 @@ const TrackOrder: NextPage = () => {
             </div>
             <Button
               type="submit"
-              className="min-h-[56px] text-sm text-primary tracking-wide px-6 py-4"
+              className="min-h-[56px] font-bold text-sm text-primary tracking-wide px-6 py-4"
               disabled={loading}
             >
-              {loading ? <Spinner size="md" /> : "Get Details"}
+              {loading ? <Spinner size="md" /> : "GET ORDER DETAILS"}
             </Button>
           </form>
         </div>
@@ -184,7 +189,92 @@ const TrackOrder: NextPage = () => {
 
         {orderDetails && !loading && !error && (
           <div className="w-full max-w-xl mb-6 flex flex-col mx-auto px-4 py-6">
-            <h2 className="mb-4 text-base text-primary">ORDER INFO</h2>
+            <h2 className="text-base text-primary mb-6">
+              ORDER INFO - {orderDetails.id}
+            </h2>
+            <div className="w-full flex items-start mb-6">
+              <div
+                className={classNames(
+                  "relative w-1/2 text-primary text-sm tracking-wide pt-4",
+                  `after:absolute after:top-0 after:left-0 after:w-3 after:h-3 after:bg-primary after:rounded-full`,
+                  `before:absolute before:top-[4px] before:left-3 before:h-1 before:w-full before:bg-${dispatchedBg}`,
+                  {
+                    "font-bold": orderDetails.status === "PENDING",
+                  }
+                )}
+              >
+                PENDING
+              </div>
+              <div
+                className={classNames(
+                  "relative w-1/2 text-primary text-sm tracking-wide pt-4",
+                  `after:absolute after:top-0 after:left-0 after:w-3 after:h-3 after:bg-${dispatchedBg} after:rounded-full`,
+                  `before:absolute before:top-[4px] before:left-3 before:h-1 before:w-full before:bg-${deliveredBg}`,
+                  {
+                    "font-bold": orderDetails.status === "DISPATCHED",
+                  }
+                )}
+              >
+                DISPATCHED
+              </div>
+              <div
+                className={classNames(
+                  "relative text-primary text-sm tracking-wide pt-4",
+                  `after:absolute after:top-0 after:left-0 after:w-3 after:h-3 after:bg-${deliveredBg} after:rounded-full`,
+                  {
+                    "font-bold": orderDetails.status === "DELIVERED",
+                  }
+                )}
+              >
+                DELIVERED
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h2 className="text-base text-primary mb-2">DELIVERY ADDRESS</h2>
+              <p className="text-sm text-primary">{`${orderDetails.country}, ${
+                orderDetails.state
+              }, ${orderDetails.city}, ${orderDetails.postalCode}, ${
+                orderDetails.line1
+              }${orderDetails?.line2 ? " ," + orderDetails.line2 : ""}`}</p>
+            </div>
+
+            <div className="mb-6">
+              <h2 className="text-base text-primary mb-2">
+                ESTIMATED DELIVERY DATE
+              </h2>
+              <span className="text-sm text-primary">
+                {formatInTimeZone(
+                  orderDetails.deliveryDate,
+                  "America/Chicago",
+                  "yyyy-MM-dd zzz"
+                )}
+              </span>
+              <span> - </span>
+              <span className="text-sm text-primary">
+                {formatInTimeZone(
+                  add(new Date(orderDetails.deliveryDate), {
+                    days: 3,
+                  }),
+                  "America/Chicago",
+                  "yyyy-MM-dd zzz"
+                )}
+              </span>
+            </div>
+
+            <div className="mb-6">
+              <h2 className="text-base text-primary mb-2">ORDER ITEMS</h2>
+              <ul>
+                <li className="text-sm text-primary">
+                  <p className="mb-1">{orderDetails.productName}</p>
+                  <p>
+                    {orderDetails.quantity}{" "}
+                    {+orderDetails.quantity <= 1 ? "unit" : "units"}
+                  </p>
+                </li>
+              </ul>
+              <div></div>
+            </div>
           </div>
         )}
       </div>
