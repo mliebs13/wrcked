@@ -1,12 +1,12 @@
 import { ReactElement, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "@src/config/axios";
-import { formatInTimeZone } from "date-fns-tz";
+import classNames from "classnames";
+import { add, intlFormat } from "date-fns";
 import { NextPageWithLayout } from "@src/pages/_app";
 import AdminLayout from "@src/layouts/AdminLayout";
 import { Order } from "@prisma/client";
 import { formatPrice } from "@src/utils";
-import classNames from "classnames";
 import { spaceMono } from "@src/config/fonts";
 
 const Order: NextPageWithLayout = () => {
@@ -34,6 +34,7 @@ const Order: NextPageWithLayout = () => {
   }, [router.query]);
 
   const {
+    createdAt,
     productId: pid,
     productName: name,
     quantity,
@@ -62,6 +63,26 @@ const Order: NextPageWithLayout = () => {
       <div className="max-w-8xl w-full h-full flex justify-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
         {order ? (
           <div className="w-fit flex flex-col items-start">
+            <p className="text-base font-bold text-primary text-left mb-4">
+              <span>Creation Date: </span>
+              <span>
+                {intlFormat(
+                  add(new Date(createdAt ?? ""), {
+                    days: 3,
+                  }),
+                  {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    timeZone: "America/Chicago",
+                  },
+                  {
+                    locale: "en-US",
+                  }
+                )}
+              </span>
+            </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Order status: </span>
               <span>{status}</span>
@@ -98,11 +119,23 @@ const Order: NextPageWithLayout = () => {
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Delivery Date: </span>
-              <span>{`${formatInTimeZone(
-                new Date(String(deliveryDate)),
-                "America/Chicago",
-                "yyyy-MM-dd zzz"
-              )}`}</span>
+              <span>
+                {intlFormat(
+                  add(new Date(deliveryDate ?? ""), {
+                    days: 3,
+                  }),
+                  {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    timeZone: "America/Chicago",
+                  },
+                  {
+                    locale: "en-US",
+                  }
+                )}
+              </span>
             </p>
           </div>
         ) : error ? (

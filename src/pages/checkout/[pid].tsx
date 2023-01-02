@@ -90,7 +90,28 @@ const Checkout = ({
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <meta name="description" content="Checkout" />
+        <meta name="description" content="Checkout - Wrcked" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="page-topic" content="Checkout" />
+        <meta name="page-type" content="Checkout" />
+        <meta name="audience" content="Everyone" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.wrcked.com/" />
+        <meta name="publisher" content="Wrcked" />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Wrcked" />
+        <meta property="og:url" content="https://www.wrcked.com/" />
+        <meta property="og:title" content="Checkout - Wrcked" />
+        <meta property="og:description" content="Checkout - Wrcked" />
+        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.wrcked.com/" />
+        <meta property="twitter:title" content="Checkout - Wrcked" />
+        <meta property="twitter:description" content="Checkout - Wrcked" />
+        <meta
+          property="twitter:image"
+          content="https://wrcked.com/wrcked-banner.png/"
+        />
       </Head>
 
       <CheckoutHeader text="WRCKED CHECKOUT" />

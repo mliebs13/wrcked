@@ -32,6 +32,27 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <meta name="description" content="Shop - Wrcked" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="page-topic" content="Shop" />
+        <meta name="page-type" content="Shop" />
+        <meta name="audience" content="Everyone" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.wrcked.com/" />
+        <meta name="publisher" content="Wrcked" />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Wrcked" />
+        <meta property="og:url" content="https://www.wrcked.com/" />
+        <meta property="og:title" content="Shop - Wrcked" />
+        <meta property="og:description" content="Shop - Wrcked" />
+        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.wrcked.com/" />
+        <meta property="twitter:title" content="Shop - Wrcked" />
+        <meta property="twitter:description" content="Shop - Wrcked" />
+        <meta
+          property="twitter:image"
+          content="https://wrcked.com/wrcked-banner.png/"
+        />
       </Head>
 
       {/* {index + 1 <= products.length - 1 && products[index + 1] && (

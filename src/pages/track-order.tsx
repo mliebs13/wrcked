@@ -6,8 +6,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
-import { add } from "date-fns";
-import { formatInTimeZone } from "date-fns-tz";
+import { add, intlFormat } from "date-fns";
 import { Order } from "@prisma/client";
 import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import Button from "@src/components/ui/Button";
@@ -23,10 +22,7 @@ const schema = yup.object().shape({
     .required("Order ID required"),
   email: yup
     .string()
-    .matches(
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-      "Your email is not valid"
-    )
+    .email("Your email is not valid")
     .required("Email is required"),
 });
 
@@ -114,7 +110,28 @@ const TrackOrder: NextPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <meta name="description" content="Checkout" />
+        <meta name="description" content="Track Order - Wrcked" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="page-topic" content="Track Order" />
+        <meta name="page-type" content="Track Order" />
+        <meta name="audience" content="Everyone" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.wrcked.com/" />
+        <meta name="publisher" content="Wrcked" />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Wrcked" />
+        <meta property="og:url" content="https://www.wrcked.com/" />
+        <meta property="og:title" content="Track Order - Wrcked" />
+        <meta property="og:description" content="Track Order - Wrcked" />
+        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.wrcked.com/" />
+        <meta property="twitter:title" content="Track Order - Wrcked" />
+        <meta property="twitter:description" content="Track Order - Wrcked" />
+        <meta
+          property="twitter:image"
+          content="https://wrcked.com/wrcked-banner.png/"
+        />
       </Head>
 
       <Toast
@@ -128,9 +145,9 @@ const TrackOrder: NextPage = () => {
 
       <CheckoutHeader text="TRACK ORDER" />
 
-      <div className="bg-secondary w-full h-fit max-w-2xl rounded-lg shadow-sm">
-        <div className="w-full max-w-xl mb-6 flex flex-col mx-auto px-4 py-6">
-          <h2 className="mb-4 text-base text-primary">ENTER ORDER DETAILS</h2>
+      <div className="bg-secondary w-full h-fit max-w-2xl rounded-lg shadow-sm px-4 py-8">
+        <div className="w-full max-w-xl flex flex-col mx-auto mb-8">
+          <h2 className="mb-4 text-base text-primary">ENTER DETAILS</h2>
           <form className="w-full flex flex-col" onSubmit={fetchOrderInfo}>
             <div className="w-full mb-4">
               <input
@@ -188,9 +205,12 @@ const TrackOrder: NextPage = () => {
           ))}
 
         {orderDetails && !loading && !error && (
-          <div className="w-full max-w-xl mb-6 flex flex-col mx-auto px-4 py-6">
+          <div className="w-full max-w-xl flex flex-col mx-auto">
             <h2 className="text-base text-primary mb-6">
-              ORDER INFO - {orderDetails.id}
+              ORDER STATUS -{" "}
+              <span className="font-bold text-sm tracking-wide">
+                {orderDetails.id}
+              </span>
             </h2>
             <div className="w-full flex items-start mb-6">
               <div
@@ -244,25 +264,41 @@ const TrackOrder: NextPage = () => {
                 ESTIMATED DELIVERY DATE
               </h2>
               <span className="text-sm text-primary">
-                {formatInTimeZone(
-                  orderDetails.deliveryDate,
-                  "America/Chicago",
-                  "yyyy-MM-dd zzz"
+                {intlFormat(
+                  new Date(orderDetails.deliveryDate),
+                  {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    timeZone: "America/Chicago",
+                  },
+                  {
+                    locale: "en-US",
+                  }
                 )}
               </span>
               <span> - </span>
               <span className="text-sm text-primary">
-                {formatInTimeZone(
+                {intlFormat(
                   add(new Date(orderDetails.deliveryDate), {
                     days: 3,
                   }),
-                  "America/Chicago",
-                  "yyyy-MM-dd zzz"
+                  {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    timeZone: "America/Chicago",
+                  },
+                  {
+                    locale: "en-US",
+                  }
                 )}
               </span>
             </div>
 
-            <div className="mb-6">
+            <div>
               <h2 className="text-base text-primary mb-2">ORDER ITEMS</h2>
               <ul>
                 <li className="text-sm text-primary">

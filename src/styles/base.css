@@ -67,15 +67,18 @@ button {
   @apply !shadow-block !translate-x-0 !translate-y-0;
 }
 
+input,
 .pay-input {
   transition: 0.15s ease, border 0.15s ease, box-shadow 0.15s ease,
     color 0.15s ease;
 }
 
+input::placeholder,
 .pay-input::placeholder {
   color: #616161;
 }
 
+input:focus,
 .pay-input:focus {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 0px 3px,
     rgba(0, 0, 0, 0.5) 0px 0px 0px 1px;
