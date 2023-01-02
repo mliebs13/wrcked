@@ -65,7 +65,6 @@ const Login: NextPageWithLayout = () => {
             password,
           })
         ).data;
-        setLoading(false);
 
         if (loginResult.success && loginResult.token) {
           Cookies.set("wrcked-a-t", loginResult.token);
@@ -74,9 +73,13 @@ const Login: NextPageWithLayout = () => {
           openToast(loginResult.message, "success");
         }
       } catch (err: any) {
-        setLoading(false);
-        openToast(err?.response?.data?.message || err.message, "error");
+        const message = err?.response?.data?.message ?? err.message;
+
         console.log("an error occurred: ", err.message);
+
+        openToast(message, "error");
+      } finally {
+        setLoading(false);
       }
     } else {
       openToast("Fill out all fields before submitting", "error");
@@ -111,7 +114,7 @@ const Login: NextPageWithLayout = () => {
           type={toastType}
         />
 
-        <h2 className="font-bold text-lg text-center mb-6">Login</h2>
+        <h2 className="text-lg text-center mb-6">LOGIN</h2>
         <div className="w-full">
           <form className="w-full max-w-xl mx-auto">
             <div className="w-full mb-5">
@@ -162,11 +165,11 @@ const Login: NextPageWithLayout = () => {
             </div>
             <Button
               type="submit"
-              className="w-1/2 min-w-[240px] max-w-[320px] h-14 font-bold text-base mx-auto py-4 px-3"
+              className="w-1/2 min-w-[240px] max-w-[320px] h-14 font-bold text-base tracking-wide mx-auto py-4 px-3"
               onClick={handleLogin}
               disabled={loading}
             >
-              {loading ? <Spinner size="md" /> : "Login"}
+              {loading ? <Spinner size="md" /> : "LOGIN"}
             </Button>
           </form>
         </div>

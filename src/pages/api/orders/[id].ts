@@ -10,7 +10,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (!authResult.admin && !email) {
       return res.status(401).json({
-        message: "Unauthorized request",
+        message: "Incorrect details",
       });
     }
 
@@ -33,7 +33,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       if (email && order?.email !== email) {
         return res.status(401).json({
-          message: "Unauthorized request",
+          message: "Incorrect details",
         });
       }
 

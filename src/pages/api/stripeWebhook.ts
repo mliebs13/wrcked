@@ -2,10 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import stripe from "@src/config/stripe";
 import Stripe from "stripe";
 import uuid from "short-uuid";
-import { add } from "date-fns";
+import { add, format, intlFormat } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
 import { prisma } from "@src/lib/prisma";
-import { sendNotificationEmail } from "@src/lib/utils";
+import { sendMail } from "@src/lib/utils";
+import orderNotification from "@src/templates/orderNotification";
+import orderSummary from "@src/templates/orderSummary";
+import { formatPrice } from "@src/utils";
 
 const fulfillOrder = async (data: Stripe.Event.Data) => {
   try {
@@ -75,16 +78,17 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
     const now = Date.now();
     const formattedNow = formatInTimeZone(
       now,
-      "America/Chicago",
+      "America/New_York",
       "yyyy-MM-dd HH:mm:ss zzz"
     );
     const deliveryDate = add(now, {
       days: 7,
     });
 
+    const orderId = uuid.generate();
     const order = await prisma.order.create({
       data: {
-        id: uuid.generate(),
+        id: orderId,
         username: shipping.name,
         phone: shipping.phone,
         email: receipt_email ?? "",
@@ -109,29 +113,82 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       order &&
       (await prisma.notification.create({
         data: {
-          orderId: order.id,
+          orderId: orderId,
           text: `An order was placed for '${metadata.name}' (${
             metadata.quantity
           } ${metadata.quantity <= 1 ? "unit" : "units"}) on ${formattedNow}`,
           status: "PENDING",
         },
       }));
-
     console.log("new notification crated: ", notification);
 
-    /*const sendMailResult = await sendNotificationEmail({
-      id: order.id,
-      products: [
-        {
-          name: metadata.name,
-          price: metadata.price,
-          quantity: metadata.quantity,
-          image: metadata.image,
-        },
-      ],
-      total: String(amount / 100),
-    });
-    console.log("sendMailResult: ", sendMailResult);*/
+    // order notification
+    const notifPayload = {
+      to: "bchikezie30@gmail.com",
+      subject: "New Order - Wrcked",
+      html: orderNotification(
+        orderId,
+        `${intlFormat(
+          new Date(),
+          {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            timeZone: "America/New_York",
+            timeZoneName: "short",
+          },
+          {
+            locale: "en-US",
+          }
+        )}`,
+        metadata.name,
+        metadata.image,
+        metadata.quantity,
+        formatPrice(+metadata.price),
+        formatPrice(+amount / 100)
+      ),
+    };
+    await sendMail(notifPayload);
+
+    // order summary
+    const summaryPayload = {
+      to: receipt_email,
+      subject: "Order Summary - Wrcked",
+      html: orderSummary(
+        shipping.name,
+        receipt_email,
+        orderId,
+        `${intlFormat(
+          new Date(),
+          {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "America/New_York",
+            timeZoneName: "short",
+          },
+          {
+            locale: "en-US",
+          }
+        )}`,
+        formatPrice(+amount / 100),
+        formatPrice(0),
+        metadata.name,
+        formatPrice(+metadata.price),
+        metadata.quantity,
+        shipping?.address?.line1 ?? "",
+        shipping?.address?.city ?? "",
+        shipping?.address?.state ?? "",
+        shipping?.address?.country ?? "",
+        shipping?.address?.postal_code ?? "",
+        metadata.image
+      ),
+    };
+    await sendMail(summaryPayload);
   } catch (err: any) {
     console.log("error occurred fulfulling order: ", err.message);
   }

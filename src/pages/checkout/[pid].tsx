@@ -179,13 +179,14 @@ const Checkout = ({
                 "agree-to-terms flex items-center",
                 spaceMono.className
               )}
+              onClick={() => setAgreedToTerms(!agreedToTerms)}
             >
               <Checkbox
                 checked={agreedToTerms}
                 handleClick={() => setAgreedToTerms(!agreedToTerms)}
               />
               <p className="text-darkGray text-sm ml-2">
-                I AGREE WITH THE <Link href="/terms">TERMS</Link>
+                I AGREE WITH THE <Link href="/terms.html">TERMS</Link>
               </p>
             </div>
           </div>

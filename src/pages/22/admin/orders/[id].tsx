@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "@src/config/axios";
 import classNames from "classnames";
-import { add, intlFormat } from "date-fns";
+import { intlFormat } from "date-fns";
 import { NextPageWithLayout } from "@src/pages/_app";
 import AdminLayout from "@src/layouts/AdminLayout";
 import { Order } from "@prisma/client";
@@ -67,15 +67,16 @@ const Order: NextPageWithLayout = () => {
               <span>Creation Date: </span>
               <span>
                 {intlFormat(
-                  add(new Date(createdAt ?? ""), {
-                    days: 3,
-                  }),
+                  new Date(createdAt ?? ""),
                   {
                     weekday: "long",
                     year: "numeric",
                     month: "long",
                     day: "numeric",
-                    timeZone: "America/Chicago",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    timeZone: "America/New_York",
+                    timeZoneName: "short",
                   },
                   {
                     locale: "en-US",
@@ -109,27 +110,24 @@ const Order: NextPageWithLayout = () => {
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Total amount: </span>
-              <span>{total ? `$${formatPrice(total)}` : "-"}</span>
+              <span>{total ? `${formatPrice(total)}` : "-"}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Address: </span>
-              <span>{`${country}, ${state}, ${city}, ${postalCode}, ${line1}${
-                line2 ? " ," + line2 : ""
-              }`}</span>
+              <span>{`${country}, ${state}, ${city}, ${postalCode}, ${line1}`}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Delivery Date: </span>
               <span>
                 {intlFormat(
-                  add(new Date(deliveryDate ?? ""), {
-                    days: 3,
-                  }),
+                  new Date(deliveryDate ?? ""),
                   {
                     weekday: "long",
                     year: "numeric",
                     month: "long",
                     day: "numeric",
-                    timeZone: "America/Chicago",
+                    timeZone: "America/New_York",
+                    timeZoneName: "short",
                   },
                   {
                     locale: "en-US",

@@ -19,7 +19,7 @@ const CheckoutHeader: FC<CheckoutHeaderProps> = ({ text }) => {
         <ChevronLeftIcon width={24} height={24} />
         <span className="text-base font-bold ml-1">BACK</span>
       </button>
-      <h1 className="text-base tracking-wide underline">{text}</h1>
+      <h1 className="text-lg tracking-wide underline">{text}</h1>
     </header>
   );
 };

@@ -130,9 +130,9 @@ const AdminLayout: FC<AdminLayoutProps> = ({
                     >
                       <li
                         className={classNames(
-                          "w-full h-16 capitalize font-bold text-base flex items-center p-3 rounded-lg cursor-pointer transition-colors hover:bg-gray",
+                          "w-full h-16 flex items-center capitalize text-base tracking-wide p-3 rounded-lg cursor-pointer transition-colors hover:bg-gray",
                           {
-                            "bg-gray": currentRoute === route,
+                            "bg-gray font-bold": currentRoute === route,
                           }
                         )}
                       >
@@ -152,7 +152,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
                 }}
               >
                 <ExitIcon width={20} height={20} />
-                <span className="ml-2">Logout</span>
+                <span className="ml-2 text-base tracking-wide">LOGOUT</span>
               </Button>
             </div>
           </div>
@@ -161,8 +161,8 @@ const AdminLayout: FC<AdminLayoutProps> = ({
           <div className="scroll w-full h-full min-w-[360px] overflow-x-hidden">
             {/* top navigation */}
             <div className="w-full flex justify-between items-center bg-secondary py-8 px-10 2xl:px-20">
-              <h1 className="hidden sm:block font-bold text-xl text-primary tracking-wide">
-                Admin Dashboard
+              <h1 className="hidden sm:block text-lg text-primary tracking-wide">
+                ADMIN
               </h1>
 
               {/* mobile nav toggler */}

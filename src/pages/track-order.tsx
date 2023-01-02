@@ -1,12 +1,13 @@
+import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import { spaceMono } from "@src/config/fonts";
-import { FormEvent, useState } from "react";
+import { useRouter } from "next/router";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
 import { add, intlFormat } from "date-fns";
+import { spaceMono } from "@src/config/fonts";
 import { Order } from "@prisma/client";
 import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import Button from "@src/components/ui/Button";
@@ -31,6 +32,7 @@ const TrackOrder: NextPage = () => {
     register,
     formState: { errors },
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
+  const router = useRouter();
   const [orderDetails, setOrderDetails] = useState<Order | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,6 +41,14 @@ const TrackOrder: NextPage = () => {
   const [toastOpen, setToastOpen] = useState(false);
   const [toastContent, setToastContent] = useState("");
   const [toastType, setToastType] = useState<ToastType>("neutral");
+
+  useEffect(() => {
+    const { email, orderId } = router.query;
+    email && setEmail(email.toString());
+    orderId && setOrderId(orderId.toString());
+
+    email && orderId && fetchOrderInfo(email.toString(), orderId.toString());
+  }, [router.query]);
 
   const openToast = (text: string, type: ToastType) => {
     setToastOpen(false);
@@ -49,14 +59,15 @@ const TrackOrder: NextPage = () => {
     }, 150);
   };
 
-  const fetchOrderInfo = async (e: FormEvent) => {
-    e.preventDefault();
-
+  const fetchOrderInfo = async (queryEmail?: string, queryOrderId?: string) => {
     console.log("errors: ", errors);
 
+    const emailPayload = email === "" ? queryEmail : email;
+    const orderIdPayload = orderId === "" ? queryOrderId : orderId;
+
     if (
-      email !== "" &&
-      orderId !== "" &&
+      !!emailPayload &&
+      !!orderIdPayload &&
       (!errors || (errors && (Object.keys(errors ?? {})?.length ?? 0) < 1))
     ) {
       try {
@@ -64,7 +75,7 @@ const TrackOrder: NextPage = () => {
         setLoading(true);
 
         const { data } = await axios.get(
-          `/api/orders/${orderId}?email=${email}`
+          `/api/orders/${orderIdPayload}?email=${emailPayload}`
         );
 
         console.log("data: ", data);
@@ -72,18 +83,21 @@ const TrackOrder: NextPage = () => {
         if (data.order) {
           setOrderDetails(data.order);
         } else {
-          const error = data?.message ?? "Failed to fetch order details";
-          openToast(error, "error");
+          openToast(data?.message ?? "Failed to fetch order details", "error");
         }
       } catch (err: any) {
-        const error = err.message ?? "An error occurred";
-        openToast(error, "error");
+        const message =
+          err?.response?.data?.message ?? err?.message ?? "An error occurred";
+
+        console.log("error occurred: ", message);
+
+        openToast(message, "error");
       } finally {
         setLoading(false);
       }
     } else {
       openToast(
-        email === "" || orderId === ""
+        emailPayload === "" || orderIdPayload === ""
           ? "Fill out all fields before submitting"
           : Object.values(errors)[0]?.message ??
               "Fix all errors before submitting",
@@ -148,7 +162,14 @@ const TrackOrder: NextPage = () => {
       <div className="bg-secondary w-full h-fit max-w-2xl rounded-lg shadow-sm px-4 py-8">
         <div className="w-full max-w-xl flex flex-col mx-auto mb-8">
           <h2 className="mb-4 text-base text-primary">ENTER DETAILS</h2>
-          <form className="w-full flex flex-col" onSubmit={fetchOrderInfo}>
+          <form
+            className="w-full flex flex-col"
+            onSubmit={async (e) => {
+              e.preventDefault();
+
+              await fetchOrderInfo();
+            }}
+          >
             <div className="w-full mb-4">
               <input
                 type="text"
@@ -160,7 +181,7 @@ const TrackOrder: NextPage = () => {
                     setEmail(e.target.value.trim());
                   },
                 }) as any)}
-                className="w-full text-sm text-primary bg-transparent font-normal border border-primary outline-none p-3 mb-1"
+                className="w-full text-base text-primary bg-transparent font-normal border border-primary outline-none p-3 mb-1"
               />
               <span className="text-sm text-danger">
                 {String(errors?.email?.message ?? "")}
@@ -177,7 +198,7 @@ const TrackOrder: NextPage = () => {
                     setOrderId(e.target.value.trim());
                   },
                 }) as any)}
-                className="w-full text-sm text-primary bg-transparent font-normal border border-primary outline-none p-3 mb-1"
+                className="w-full text-base text-primary bg-transparent font-normal border border-primary outline-none p-3 mb-1"
               />
               <span className="text-sm text-danger">
                 {String(errors?.orderId?.message ?? "")}
@@ -185,7 +206,7 @@ const TrackOrder: NextPage = () => {
             </div>
             <Button
               type="submit"
-              className="min-h-[56px] font-bold text-sm text-primary tracking-wide px-6 py-4"
+              className="min-h-[56px] font-bold text-base text-primary tracking-wide px-6 py-4"
               disabled={loading}
             >
               {loading ? <Spinner size="md" /> : "GET ORDER DETAILS"}
@@ -252,18 +273,14 @@ const TrackOrder: NextPage = () => {
 
             <div className="mb-6">
               <h2 className="text-base text-primary mb-2">DELIVERY ADDRESS</h2>
-              <p className="text-sm text-primary">{`${orderDetails.country}, ${
-                orderDetails.state
-              }, ${orderDetails.city}, ${orderDetails.postalCode}, ${
-                orderDetails.line1
-              }${orderDetails?.line2 ? " ," + orderDetails.line2 : ""}`}</p>
+              <p className="text-base text-primary">{`${orderDetails.country}, ${orderDetails.state}, ${orderDetails.city}, ${orderDetails.postalCode}, ${orderDetails.line1}`}</p>
             </div>
 
             <div className="mb-6">
               <h2 className="text-base text-primary mb-2">
                 ESTIMATED DELIVERY DATE
               </h2>
-              <span className="text-sm text-primary">
+              <span className="text-base text-primary">
                 {intlFormat(
                   new Date(orderDetails.deliveryDate),
                   {
@@ -271,7 +288,8 @@ const TrackOrder: NextPage = () => {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
-                    timeZone: "America/Chicago",
+                    timeZoneName: "short",
+                    timeZone: "America/New_York",
                   },
                   {
                     locale: "en-US",
@@ -279,7 +297,7 @@ const TrackOrder: NextPage = () => {
                 )}
               </span>
               <span> - </span>
-              <span className="text-sm text-primary">
+              <span className="text-base text-primary">
                 {intlFormat(
                   add(new Date(orderDetails.deliveryDate), {
                     days: 3,
@@ -289,7 +307,8 @@ const TrackOrder: NextPage = () => {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
-                    timeZone: "America/Chicago",
+                    timeZone: "America/New_York",
+                    timeZoneName: "short",
                   },
                   {
                     locale: "en-US",
@@ -301,7 +320,7 @@ const TrackOrder: NextPage = () => {
             <div>
               <h2 className="text-base text-primary mb-2">ORDER ITEMS</h2>
               <ul>
-                <li className="text-sm text-primary">
+                <li className="text-base text-primary">
                   <p className="mb-1">{orderDetails.productName}</p>
                   <p>
                     {orderDetails.quantity}{" "}
@@ -309,7 +328,6 @@ const TrackOrder: NextPage = () => {
                   </p>
                 </li>
               </ul>
-              <div></div>
             </div>
           </div>
         )}

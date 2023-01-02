@@ -24,7 +24,9 @@ const Admin: NextPageWithLayout = () => {
         setProducts(fetchedProducts);
       } catch (err: any) {
         console.log("error occurred: ", err.message);
-        setProductsError(`Error occurred fetching products: ${err.message}`);
+        setProductsError(
+          `Error occurred fetching products: ${err.message ?? ""}`
+        );
       } finally {
         setLoading(false);
       }
@@ -75,7 +77,7 @@ const Admin: NextPageWithLayout = () => {
                         </td>
                         <td className="p-3 text-sm text-center">{quantity}</td>
                         <td className="p-3 text-sm text-center">
-                          ${formatPrice(price)}
+                          {formatPrice(price)}
                         </td>
                       </tr>
                     );

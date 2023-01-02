@@ -13,7 +13,10 @@ const Checkbox: FC<CheckboxProps> = ({ checked, handleClick }) => {
       className="Checkbox flex items-center justify-center border border-[#0000009C] w-3.5 h-3.5"
       checked={checked}
       defaultChecked
-      onClick={handleClick}
+      onClick={(e) => {
+        e.stopPropagation();
+        handleClick();
+      }}
     >
       <RadixCheckbox.Indicator className="CheckboxIndicator">
         <CheckIcon className="fill-[#0000009C] w-3 h-3" />

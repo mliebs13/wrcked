@@ -95,9 +95,7 @@ const Settings: NextPageWithLayout = () => {
       />
 
       <div className="w-full flex flex-col items-center px-3 sm:px-10 py-8 sm:py-12 2xl:px-20">
-        <h2 className="font-bold text-lg text-center mb-8">
-          Edit Login Details
-        </h2>
+        <h2 className="text-lg text-center mb-8">EDIT LOGIN DETAILS</h2>
         <div className="w-full">
           <form className="w-full max-w-2xl mx-auto">
             <div className="w-full mb-5">
@@ -175,10 +173,10 @@ const Settings: NextPageWithLayout = () => {
             </div>
             <Button
               type="submit"
-              className="w-1/2 min-w-[240px] max-w-[320px] h-14 font-bold text-base mx-auto py-4 px-3"
+              className="w-1/2 min-w-[240px] max-w-[320px] h-14 font-bold text-base tracking-wide mx-auto py-4 px-3"
               onClick={handleSubmit}
             >
-              {loading ? <Spinner size="sm" /> : "Edit"}
+              {loading ? <Spinner size="sm" /> : "EDIT"}
             </Button>
           </form>
         </div>

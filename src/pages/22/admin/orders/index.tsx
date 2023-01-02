@@ -226,9 +226,7 @@ const Orders: NextPageWithLayout = () => {
                               {id}
                             </Link>
                           </td>
-                          <td className="p-4 text-sm text-primary text-center">{`${country}, ${state}, ${city}, ${postalCode}, ${line1}${
-                            line2 ? " ," + line2 : ""
-                          }`}</td>
+                          <td className="p-4 text-sm text-primary text-center">{`${country}, ${state}, ${city}, ${postalCode}, ${line1}`}</td>
                           <td className="p-4 text-sm text-primary text-center">
                             {phone ?? "-"}
                           </td>
@@ -236,10 +234,10 @@ const Orders: NextPageWithLayout = () => {
                             {email.length < 1 ? "-" : email}
                           </td>
                           <td className="p-4 text-sm text-primary text-center">
-                            {`${name} ×${quantity} $${formatPrice(+price)}`}
+                            {`${name} ×${quantity} ${formatPrice(+price)}`}
                           </td>
                           <td className="p-4 text-sm text-primary text-center">
-                            ${formatPrice(total)}
+                            {formatPrice(total)}
                           </td>
                           <td className="p-4 text-sm text-primary text-center">
                             <div
@@ -388,7 +386,7 @@ const Orders: NextPageWithLayout = () => {
                                     ) : (
                                       formatInTimeZone(
                                         deliveryDate,
-                                        "America/Chicago",
+                                        "America/New_York",
                                         "yyyy-MM-dd zzz"
                                       )
                                     )}

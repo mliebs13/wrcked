@@ -76,7 +76,6 @@ export const verifyAccess = async (
 
     if (typeof jwtPayload !== "string" && jwtPayload?.id === admin?.id) {
       const resAdmin = { ...admin };
-      // delete resAdmin?.password;
 
       return {
         admin: resAdmin,
@@ -94,14 +93,10 @@ export const verifyAccess = async (
   }
 };
 
-export const sendNotificationEmail = async ({
-  id,
-  products,
-  total,
-}: {
-  id: string;
-  products: { name: string; price: string; quantity: number; image: string }[];
-  total: string;
+export const sendMail = async (payload: {
+  subject: string;
+  to: string;
+  html: string;
 }): Promise<{ success: boolean; message: string }> => {
   try {
     let transporter = nodemailer.createTransport({
@@ -118,25 +113,10 @@ export const sendNotificationEmail = async ({
       },
     });
 
-    console.log("created transporter");
-
-    const dateNow = new Date(Date.now());
-
-    const payload = {
+    const result = await transporter.sendMail({
       from: "wrckedart22@gmail.com",
-      to: "bchikezie30@gmail.com",
-      subject: "New Order",
-      html: orderNotification(
-        id,
-        `${dateNow.toString().split(" ").splice(0, 3).join(" ")}`,
-        products,
-        total
-      ),
-    };
-
-    const result = await transporter.sendMail(payload);
-
-    console.log("notification send called: ", result.accepted);
+      ...payload,
+    });
 
     if (result.rejected.length >= 1) {
       console.log("Failed to send email");

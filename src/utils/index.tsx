@@ -15,11 +15,11 @@ export const getBaseUrl = (): string => {
 };
 
 export const formatPrice = (price: number): string => {
-  return Intl.NumberFormat(undefined, {
+  return `$${Intl.NumberFormat(undefined, {
     currency: "USD",
     maximumFractionDigits: 2,
     minimumFractionDigits: 2,
-  }).format(+price);
+  }).format(+price)}`;
 };
 
 export const getSanityImageUrl = (image: SanityImage): string => {

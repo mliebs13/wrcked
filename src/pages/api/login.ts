@@ -26,7 +26,8 @@ const login = async (req: NextApiRequest, res: NextApiResponse) => {
       });
     }
   } catch (err: any) {
-    console.log("error occurred: ", err.message);
+    console.log("login error occurred: ", err.message);
+
     return res.status(500).json({ success: false, message: "Server error" });
   }
 };
