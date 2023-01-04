@@ -14,6 +14,7 @@ type ProductProps = {
   quantity: number;
   image: SanityImage;
   gif: SanityImage;
+  verticalDimension: string;
   total: number;
   index: number;
   setIndex: Dispatch<SetStateAction<number>>;
@@ -26,6 +27,7 @@ const Product: FC<ProductProps> = ({
   quantity,
   image,
   gif,
+  verticalDimension,
   total,
   index,
   setIndex,
@@ -268,6 +270,7 @@ const Product: FC<ProductProps> = ({
             <ProductImages
               image={getSanityImageUrl(image)}
               gif={getSanityImageUrl(gif)}
+              verticalDimension={verticalDimension}
               handleClick={handleBuy}
             />
           </div>

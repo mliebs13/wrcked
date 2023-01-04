@@ -76,52 +76,13 @@ const Product = ({
 
       <Script src="../../scripts/script.js" strategy="beforeInteractive" />
 
-      {/* preload next and previous image */}
-      {/* {index + 1 <= products.length - 1 && products[index + 1] && (
-        <Image
-          src={getSanityImageUrl(products[index + 1].image)}
-          alt="preload-next"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )}
-      {index - 1 >= 0 && products[index - 1] && (
-        <Image
-          src={getSanityImageUrl(products[index - 1].image)}
-          alt="preload-prev"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )} */}
-
-      {/* preload next and previous gif */}
-      {/* {index + 1 <= products.length - 1 && products[index + 1] && (
-        <Image
-          src={getSanityImageUrl(products[index + 1].gif)}
-          alt="preload-next"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )}
-      {index - 1 >= 0 && products[index - 1] && (
-        <Image
-          src={getSanityImageUrl(products[index - 1].gif)}
-          alt="preload-prev"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )} */}
-
       <ProductDetails
         name={currentProduct.name}
         price={currentProduct.price}
         quantity={currentProduct.quantity}
         image={currentProduct.image}
         gif={currentProduct.gif}
+        verticalDimension={currentProduct.verticalDimension}
         total={products.length}
         index={index}
         setIndex={setIndex}
@@ -236,7 +197,7 @@ const Product = ({
                     {/* vertical */}
                     <div className="absolute top-0 right-0 h-full flex items-start">
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mr-6">
-                        36IN / 90CM
+                        {product.verticalDimension}
                       </p>
                       <div className="h-[84%]">
                         <RuleVertical className="h-full" />
@@ -246,7 +207,7 @@ const Product = ({
                     {/* horizontal */}
                     <div className="w-full absolute bottom-5 left-0">
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
-                        24IN / 60CM
+                        {product.horizontalDimension}
                       </p>
                       <div className="w-[90%]">
                         <RuleHorizontal className="w-full" />

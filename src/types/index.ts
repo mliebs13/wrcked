@@ -15,6 +15,8 @@ export type Product = {
   price: number;
   image: SanityImage;
   gif: SanityImage;
+  verticalDimension: string;
+  horizontalDimension: string;
 };
 
 export type Shipping = {

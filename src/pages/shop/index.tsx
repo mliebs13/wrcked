@@ -55,51 +55,13 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
         />
       </Head>
 
-      {/* {index + 1 <= products.length - 1 && products[index + 1] && (
-        <Image
-          src={getSanityImageUrl(products[index + 1].image)}
-          alt="preload-next"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )}
-      {index - 1 >= 0 && products[index - 1] && (
-        <Image
-          src={getSanityImageUrl(products[index - 1].image)}
-          alt="preload-prev"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )}*/}
-
-      {/* preload next and previous gif */}
-      {/*{index + 1 <= products.length - 1 && products[index + 1] && (
-        <Image
-          src={getSanityImageUrl(products[index + 1].gif)}
-          alt="preload-next"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )}
-      {index - 1 >= 0 && products[index - 1] && (
-        <Image
-          src={getSanityImageUrl(products[index - 1].gif)}
-          alt="preload-prev"
-          width={0}
-          height={0}
-          className="absolute w-0 h-0 -top-[200vh] pointer-events-none"
-        />
-      )} */}
-
       <Product
         name={product.name}
         price={product.price}
         quantity={product.quantity}
         image={product.image}
         gif={product.gif}
+        verticalDimension={product.verticalDimension}
         total={products.length}
         index={index}
         setIndex={setIndex}

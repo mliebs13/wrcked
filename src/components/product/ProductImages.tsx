@@ -10,10 +10,16 @@ import { breakpoints } from "@src/utils";
 type ProductImagesProps = {
   gif: any;
   image: any;
+  verticalDimension: string;
   handleClick: string | Dispatch<SetStateAction<boolean>>;
 };
 
-const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
+const ProductImages: FC<ProductImagesProps> = ({
+  gif,
+  image,
+  verticalDimension,
+  handleClick,
+}) => {
   const router = useRouter();
   const { width } = useWindowSize();
 
@@ -70,9 +76,9 @@ const ProductImages: FC<ProductImagesProps> = ({ gif, image, handleClick }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="min-w-fit w-max h-fit bg-secondary text-sm font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3"
+          className="min-w-fit lg:min-w-[90px] lg:max-w-[96px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3.5"
         >
-          12IN / 30cm
+          {verticalDimension}
         </motion.span>
         <motion.div
           initial={{ opacity: 0 }}
