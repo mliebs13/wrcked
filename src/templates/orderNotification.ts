@@ -366,7 +366,7 @@ const orderNotification = (
 
                                                                       <img align="center" border="0"
                                                                           src="${image}"
-                                                                          alt="Model" title="Model"
+                                                                          alt="Product" title="Product"
                                                                           style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: auto;max-height: 250px;"
                                                                           width="290"
                                                                           class="v-src-width v-src-max-width" />

@@ -48,9 +48,11 @@ const FAQ: NextPage = () => {
         />
       </Head>
 
-      <div className="w-full max-w-4xl flex flex-col mx-auto mb-12">
+      <div className="w-full max-w-3xl flex flex-col mx-auto mb-12">
         <div className="mb-6">
-          <h2 className="mb-5 font-bold text-sm">WHAT IS WRCKED ART?</h2>
+          <h2 className="mb-5 font-bold text-sm tracking-wide">
+            WHAT IS WRCKED ART?
+          </h2>
 
           <p className="font-bold text-sm">
             WRCKED IS AN AMERICAN ART COLLECTIVE DROPPING LITHOGRAPHS. WE LIKE
@@ -60,7 +62,9 @@ const FAQ: NextPage = () => {
         </div>
 
         <div className="mb-6">
-          <h2 className="mb-5 font-bold text-sm">HOW DO I BUY A LITHOGRAPH?</h2>
+          <h2 className="mb-5 font-bold text-sm tracking-wide">
+            HOW DO I BUY A LITHOGRAPH?
+          </h2>
           <p className="font-bold text-sm">
             ALL LITHOGRAPHS WILL BE AVAILABLE THROUGH DIRECT SALE. OTHER TIMES
             THEY WILL BE AVAILABLE VIA DRAW. AFTER A SUCCESSFUL TRANSACTION, THE
@@ -70,7 +74,9 @@ const FAQ: NextPage = () => {
         </div>
 
         <div className="mb-6">
-          <h2 className="mb-5 font-bold text-sm">HOW DOES THE DRAW WORK?</h2>
+          <h2 className="mb-5 font-bold text-sm tracking-wide">
+            HOW DOES THE DRAW WORK?
+          </h2>
 
           <p className="font-bold text-sm">
             EACH LITHOGRAPH IS MADE AVAILABLE ON OUR WEBSITE USING A DRAW SYSTEM
@@ -82,7 +88,9 @@ const FAQ: NextPage = () => {
         </div>
 
         <div className="mb-6">
-          <h2 className="mb-5 font-bold text-sm">WHY ARE THERE NO REFUNDS?</h2>
+          <h2 className="mb-5 font-bold text-sm tracking-wide">
+            WHY ARE THERE NO REFUNDS?
+          </h2>
           <p className="font-bold text-sm">
             WE MAKE EXTREMELY LIMITED RUNS OF EACH COLLECTION THAT SELL OUT
             QUICKLY. AS SUCH, WE DON&apos;T OFFER REFUNDS OR ALLOW RETURNS OR
@@ -91,7 +99,7 @@ const FAQ: NextPage = () => {
         </div>
 
         <div>
-          <h2 className="mb-5 font-bold text-sm">
+          <h2 className="mb-5 font-bold text-sm tracking-wide">
             HOW OFTEN DO YOU MAKE COLLECTIONS?
           </h2>
           <p className="font-bold text-sm">
@@ -101,7 +109,7 @@ const FAQ: NextPage = () => {
       </div>
 
       <AltButton
-        className="w-full self-center max-w-[150px] font-bold text-xl p-4"
+        className="w-full min-h-[56px] max-w-[165px] self-center font-bold text-lg tracking-wide py-3 px-4"
         onClick={() => router.back()}
       >
         BACK

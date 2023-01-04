@@ -509,8 +509,8 @@ const orderSummary = (
                                   >
                                     <img
                                       class="adapt-img"
-                                      src="images/wrcked.png"
-                                      alt
+                                      src="https://wrcked.vercel.app/images/wrcked.png"
+                                      alt="Logo
                                       style="
                                         display: block;
                                         border: 0;
@@ -952,7 +952,7 @@ const orderSummary = (
                                             ><img
                                               class="adapt-img p_image"
                                               src="${image}"
-                                              alt="Marshall Monitor"
+                                              alt="Product"
                                               style="
                                                 display: block;
                                                 border: 0;
@@ -960,8 +960,8 @@ const orderSummary = (
                                                 text-decoration: none;
                                                 -ms-interpolation-mode: bicubic;
                                               "
-                                              width="125"
-                                              title="Marshall Monitor"
+                                              height="175"
+                                              title="Product"
                                           /></a>
                                         </td>
                                       </tr>
@@ -1827,6 +1827,7 @@ const orderSummary = (
                                                 'lucida typewriter', monospace;
                                               color: #666666;
                                               font-size: 14px;
+                                              text-decoration: underline;
                                             "
                                             >Support</a
                                           >
@@ -1860,6 +1861,7 @@ const orderSummary = (
                                                 'lucida typewriter', monospace;
                                               color: #666666;
                                               font-size: 14px;
+                                              text-decoration: underline;
                                             "
                                             >FAQ</a
                                           >
@@ -1893,6 +1895,7 @@ const orderSummary = (
                                                 'lucida typewriter', monospace;
                                               color: #666666;
                                               font-size: 14px;
+                                              text-decoration: underline;
                                             "
                                             >Shop</a
                                           >
@@ -1926,6 +1929,7 @@ const orderSummary = (
                                                 'lucida typewriter', monospace;
                                               color: #666666;
                                               font-size: 14px;
+                                              text-decoration: underline;
                                             "
                                             >Instagram</a
                                           >

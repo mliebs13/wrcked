@@ -56,7 +56,7 @@ const Refunds: NextPage = () => {
       </div>
 
       <AltButton
-        className="w-full max-w-[150px] font-bold text-xl p-4"
+        className="w-full min-h-[56px] max-w-[165px] font-bold text-lg tracking-wide py-3 px-4"
         onClick={() => router.back()}
       >
         BACK

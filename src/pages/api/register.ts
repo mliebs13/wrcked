@@ -28,8 +28,6 @@ const register = async (req: NextApiRequest, res: NextApiResponse) => {
       },
     });
 
-    console.log("register result: ", admin);
-
     if (admin) {
       const resAdmin: any = { ...admin };
       delete resAdmin?.password;
@@ -45,13 +43,3 @@ const register = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 export default register;
-
-/*
-    ** access mysql db from cmd **
-    - >cd program files/mysql/mysql server 8.0/bin
-    - >mysql -u "wrcked" -p
-    - >connect "wrcked"
-    - >use "wrcked"
-    - >show tables
-    - >select * from `table name`
-*/
