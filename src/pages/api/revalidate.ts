@@ -27,6 +27,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       body: { _id },
     } = req;
 
+    await res.revalidate(`/shop/all`);
+
     await res.revalidate(`/shop/${_id}`);
 
     await res.revalidate(`/checkout/${_id}`);

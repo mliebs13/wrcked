@@ -76,7 +76,7 @@ const ProductImages: FC<ProductImagesProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="min-w-fit lg:min-w-[90px] lg:max-w-[96px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3.5"
+          className="min-w-fit lg:min-w-[96px] lg:max-w-[96px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3.5"
         >
           {verticalDimension}
         </motion.span>
