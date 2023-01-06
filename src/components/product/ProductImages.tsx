@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import useWindowSize from "@src/hooks/useWindowDimensions";
+// import Rule from "@src/components/shared/svgs/Rule";
 import Rule from "@src/components/shared/svgs/Rule";
 import RuleMobile from "@src/components/shared/svgs/RuleMobile";
 import { breakpoints } from "@src/utils";
@@ -71,15 +72,15 @@ const ProductImages: FC<ProductImagesProps> = ({
         </motion.div>
       </div>
 
-      <div className="flex flex-[0.2] lg:flex-[0.175] h-[375px] lg:h-[calc(103%+2.5rem+var(--box-height)+28px)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-10">
-        <motion.span
+      <div className="flex flex-[0.2] lg:flex-[0.175] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+28px)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-10">
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="min-w-fit lg:min-w-[96px] lg:max-w-[96px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3.5"
+          className="min-w-fit lg:min-w-[85px] lg:max-w-[85px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3.5"
         >
-          {verticalDimension}
-        </motion.span>
+          <p className="w-max">{verticalDimension}</p>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

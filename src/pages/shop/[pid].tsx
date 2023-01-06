@@ -205,7 +205,7 @@ const Product = ({
                     </div>
 
                     {/* horizontal */}
-                    <div className="w-full absolute bottom-5 left-0">
+                    <div className="absolute bottom-5 left-0 w-full flex flex-col">
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
                         {product.horizontalDimension}
                       </p>

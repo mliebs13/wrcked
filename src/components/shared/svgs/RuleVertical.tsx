@@ -15,7 +15,7 @@ const RuleVertical: FC<SVGProps<SVGSVGElement>> = (props) => {
         <g filter="url(#filter0_d_37_437)">
           <path
             d="M5 1H26"
-            className="stroke-secondary"
+            className="stroke-lightGray"
             strokeWidth="2"
             strokeLinecap="round"
           />
