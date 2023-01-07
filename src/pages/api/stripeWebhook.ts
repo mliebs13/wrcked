@@ -7,8 +7,8 @@ import { formatInTimeZone } from "date-fns-tz";
 import { prisma } from "@src/lib/prisma";
 import { sendMail } from "@src/lib/utils";
 import orderNotification from "@src/templates/orderNotification";
-import orderSummary from "@src/templates/orderSummary";
 import { formatPrice } from "@src/utils";
+import orderSummary2 from "@src/templates/orderSummary2";
 
 const fulfillOrder = async (data: Stripe.Event.Data) => {
   try {
@@ -129,7 +129,8 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       to: receipt_email,
       pass: process.env.EMAIL_PASS,
       subject: "Order Summary - Wrcked",
-      html: orderSummary(
+      html: /*
+      orderSummary(
         shipping.name,
         receipt_email,
         orderId,
@@ -147,8 +148,10 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
             locale: "en-US",
           }
         )}`,
+      */ orderSummary2(
+        receipt_email,
+        orderId,
         formatPrice(+amount / 100),
-        formatPrice(0),
         metadata.name,
         formatPrice(+metadata.price),
         metadata.quantity,

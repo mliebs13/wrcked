@@ -104,11 +104,15 @@ export const sendMail = async (payload: {
     let transporter = nodemailer.createTransport(
       payload?.from && payload?.pass
         ? {
-            host: "smtp-mail.outlook.com",
-            service: "hotmail",
+            host: "smtp.office365.com",
+            // secure: true,
+            port: 587,
             auth: {
               user: payload.from,
-              pass: payload.pass,
+              pass: process.env.EMAIL_PASS,
+            },
+            tls: {
+              ciphers: "SSLv3",
             },
           }
         : {

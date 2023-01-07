@@ -186,7 +186,10 @@ const Checkout = ({
                 handleClick={() => setAgreedToTerms(!agreedToTerms)}
               />
               <p className="text-darkGray text-sm ml-2">
-                I AGREE WITH THE <Link href="/terms.html">TERMS</Link>
+                I AGREE WITH THE{" "}
+                <Link target="_blank" href="/terms.html">
+                  TERMS
+                </Link>
               </p>
             </div>
           </div>
