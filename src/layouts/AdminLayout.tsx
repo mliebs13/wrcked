@@ -25,6 +25,7 @@ import Hamburger from "@src/components/shared/Hamburger";
 import { spaceMono } from "@src/config/fonts";
 import axios from "@src/config/axios";
 import Tooltip from "@src/components/ui/Tooltip";
+import useAdmin from "@src/hooks/useAdmin";
 
 type AdminLayoutProps = {
   description?: string;
@@ -63,6 +64,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
   const currentRoute = router.pathname.split("/")[3] ?? "";
   const [count, setCount] = useState<number | null>(null);
   const [intervalId, setIntervalId] = useState<NodeJS.Timer | null>(null);
+  const result = useAdmin(true);
 
   useEffect(() => {
     const getCount = async () => {
@@ -77,18 +79,20 @@ const AdminLayout: FC<AdminLayoutProps> = ({
       }
     };
 
-    getCount();
+    result?.admin && getCount();
 
-    const id = setInterval(() => {
-      getCount();
-    }, 30000);
+    const id = result?.admin
+      ? setInterval(() => {
+          getCount();
+        }, 30000)
+      : null;
 
-    setIntervalId(id);
+    id && setIntervalId(id);
 
     return () => {
       intervalId && clearInterval(intervalId);
     };
-  }, []);
+  }, [result]);
 
   return (
     <>
@@ -100,7 +104,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
         <meta name="description" content={description} />
       </Head>
 
-      <Auth>
+      <Auth result={result}>
         <div
           className={classNames(
             spaceMono.className,
@@ -147,7 +151,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
               </ul>
 
               <Button
-                className="w-[88%] min-h-[56px] text-base font-bold px-2 py-3"
+                className="w-[90%] min-h-[56px] text-base font-bold px-2 py-3"
                 onClick={() => {
                   Cookies.remove("wrcked-a-t");
                   router.push("/22/admin/login");

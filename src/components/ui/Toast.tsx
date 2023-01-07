@@ -24,13 +24,19 @@ const Toast: FC<ToastProps> = ({
   const timeoutRef = useRef<any>(null);
 
   useEffect(() => {
-    timeoutRef.current && clearTimeout(timeoutRef.current);
+    const timeout = timeoutRef.current;
+
+    timeout && clearTimeout(timeout);
 
     if (open) {
       timeoutRef.current = setTimeout(() => {
         setOpen(false);
       }, duration);
     }
+
+    return () => {
+      timeout && clearTimeout(timeout);
+    };
   }, [open]);
 
   return (
@@ -66,8 +72,8 @@ const Toast: FC<ToastProps> = ({
         className={classNames(
           "ToastViewport fixed flex flex-col outline-none gap-4 min-w-[240px]",
           {
-            "top-2 right-2": position === "top",
-            "bottom-2 right-2": position === "bottom",
+            "top-2 right-6": position === "top",
+            "bottom-2 right-6": position === "bottom",
             "top-2 left-1/2 -translate-x-1/4": position === "center",
           }
         )}

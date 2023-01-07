@@ -95,6 +95,9 @@ const CheckoutForm: FC<CheckoutFormType> = ({
 
           error.code === "incomplete"
             ? openToast("Payment cancelled", "error")
+            : error.code === "redirect_error" &&
+              error?.payment_intent?.status === "succeeded"
+            ? openToast("Payment successful", "success")
             : openToast(
                 error?.message ??
                   "An error occurred while processing your payment",
@@ -132,7 +135,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
         <AddressElement
           className="w-full mb-3"
           options={{
-            allowedCountries: ["America"],
+            // allowedCountries: ["US"],
             mode: "shipping",
             display: {
               name: "full",

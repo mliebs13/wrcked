@@ -78,7 +78,7 @@ const Checkout = ({
         backgroundSize: "42px",
       }}
       className={classNames(
-        "Checkout relative w-full min-h-screen flex flex-col items-center bg-gray text-primary py-12 px-3 sm:px-10 2xl:px-20",
+        "Checkout relative w-full min-h-screen grid place-items-start justify-center grid-cols-[1fr] grid-rows-[0fr_1fr] bg-gray text-primary py-12 px-3 sm:px-10 2xl:px-20",
         spaceMono.className
       )}
     >
@@ -117,12 +117,12 @@ const Checkout = ({
       <CheckoutHeader text="WRCKED CHECKOUT" />
 
       {/* content */}
-      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-start md:justify-between mx-auto">
+      <div className="w-full h-full max-w-6xl flex flex-col md:flex-row justify-start md:justify-between mx-auto">
         {/* left - product summary */}
         <div
           className={classNames(
             spaceMono.className,
-            "relative w-full md:w-[48%] flex flex-col justify-between md:mr-[4%] mb-8 md:mb-0"
+            "relative w-full h-full md:w-[48%] flex flex-col justify-between md:mr-[4%] mb-8 md:mb-0"
           )}
         >
           <div className="summary md:sticky top-6 left-0 w-full">
@@ -242,7 +242,7 @@ const Checkout = ({
                   },
 
                   ".Label": {
-                    fontSizeSm: width > breakpoints.sm ? "13px" : "12px",
+                    fontSize: width > breakpoints.sm ? "13px" : "12px",
                   },
 
                   ".CheckboxInput": {

@@ -95,28 +95,43 @@ export const verifyAccess = async (
 
 export const sendMail = async (payload: {
   subject: string;
+  from?: string;
+  pass?: string;
   to: string;
   html: string;
 }): Promise<{ success: boolean; message: string }> => {
   try {
-    let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        type: "OAuth2",
-        user: "wrckedart22@gmail.com",
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.REFRESH_TOKEN,
-        expires: 1484314697598,
-      },
-    });
+    let transporter = nodemailer.createTransport(
+      payload?.from && payload?.pass
+        ? {
+            host: "smtp-mail.outlook.com",
+            service: "hotmail",
+            auth: {
+              user: payload.from,
+              pass: payload.pass,
+            },
+          }
+        : {
+            host: "smtp.gmail.com",
+            auth: {
+              type: "OAuth2",
+              user: "wrckedart22@gmail.com",
+              clientId: process.env.CLIENT_ID,
+              clientSecret: process.env.CLIENT_SECRET,
+              refreshToken: process.env.REFRESH_TOKEN,
+              accessToken: process.env.ACCESS_TOKEN,
+            },
+          }
+    );
 
-    const result = await transporter.sendMail({
-      from: "wrckedart22@gmail.com",
-      ...payload,
-    });
+    const result = await transporter.sendMail(
+      payload?.from && payload?.pass
+        ? { ...payload }
+        : {
+            from: "wrckedart22@gmail.com",
+            ...payload,
+          }
+    );
 
     if (result.rejected.length >= 1) {
       console.log("Failed to send email");

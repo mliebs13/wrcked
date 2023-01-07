@@ -35,7 +35,12 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       receipt_email,
     });
 
+    const customer = await stripe.customers.search({
+      query: `email:"${receipt_email}"`,
+    });
+
     receipt_email &&
+      customer.data.length < 1 &&
       (await stripe.customers.create({
         email: receipt_email,
         description: "Wrcked Customer",
@@ -76,8 +81,7 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
 
     console.log("created order: ", order);
 
-    const notification =
-      order &&
+    order &&
       (await prisma.notification.create({
         data: {
           orderId: orderId,
@@ -87,11 +91,10 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
           status: "PENDING",
         },
       }));
-    console.log("new notification crated: ", notification);
 
     // order notification
     const notifPayload = {
-      to: "bchikezie30@gmail.com",
+      to: "art@wrcked.com",
       subject: "New Order - Wrcked",
       html: orderNotification(
         orderId,
@@ -122,7 +125,9 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
 
     // order summary
     const summaryPayload = {
+      from: "art@wrcked.com",
       to: receipt_email,
+      pass: process.env.EMAIL_PASS,
       subject: "Order Summary - Wrcked",
       html: orderSummary(
         shipping.name,

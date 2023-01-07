@@ -960,7 +960,7 @@ const orderSummary = (
                                                 text-decoration: none;
                                                 -ms-interpolation-mode: bicubic;
                                               "
-                                              height="175"
+                                              height="225"
                                               title="Product"
                                           /></a>
                                         </td>

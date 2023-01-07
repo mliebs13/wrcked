@@ -1,14 +1,16 @@
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react";
 import classNames from "classnames";
-import useAdmin from "../../hooks/useAdmin";
 import Spinner from "../shared/Spinner";
 import { spaceMono } from "@src/config/fonts";
 
-const Auth: FC<
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({ children }) => {
-  const result = useAdmin(true);
+type AuthProps = {
+  result: {
+    message?: string | undefined;
+    admin?: any;
+  } | null;
+} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
+const Auth: FC<AuthProps> = ({ result, children }) => {
   return result ? (
     <div className="w-full h-screen max-h-screen overflow-hidden">
       {result?.admin ? (

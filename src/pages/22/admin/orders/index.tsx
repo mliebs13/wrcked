@@ -481,8 +481,8 @@ const Orders: NextPageWithLayout = () => {
                 >
                   <ChevronLeftIcon width={22} height={22} />
                 </button>
-                <p className="font-bold text-sm text-primary mr-6">
-                  Showing {orders.length + (page - 1) * 10} of {total} orders
+                <p className="font-bold text-primary text-sm mr-6">
+                  Page {page} of {totalPages}
                 </p>
                 <button
                   className="flex items-center justify-center disabled:cursor-not-allowed"
@@ -492,9 +492,6 @@ const Orders: NextPageWithLayout = () => {
                   <ChevronRightIcon width={22} height={22} />
                 </button>
               </div>
-              <p className="font-bold text-primary text-sm">
-                Page {page} of {totalPages}
-              </p>
             </>
           ) : (
             <p className="font-bold text-sm text-primary">
