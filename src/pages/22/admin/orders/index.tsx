@@ -19,9 +19,9 @@ import { formatPrice } from "@src/utils";
 import Spinner from "@src/components/shared/Spinner";
 import Tooltip from "@src/components/ui/Tooltip";
 import Toast from "@src/components/ui/Toast";
-import { ToastType } from "@src/types";
 
 import "react-datepicker/dist/react-datepicker.css";
+import useToast from "@src/hooks/useToast";
 
 const Orders: NextPageWithLayout = () => {
   const [loading, setLoading] = useState(false);
@@ -39,9 +39,7 @@ const Orders: NextPageWithLayout = () => {
   const [statusLoading, setStatusLoading] = useState<String[]>([]);
   const [dateLoading, setDateLoading] = useState<String[]>([]);
   const [editDateValue, setEditDateValue] = useState<Date | null>(new Date());
-  const [toastOpen, setToastOpen] = useState(false);
-  const [toastContent, setToastContent] = useState("");
-  const [toastType, setToastType] = useState<ToastType>("neutral");
+  const { openToast, toastContent, setOpen, open, toastType } = useToast();
 
   const totalPages = Math.ceil(total / 10);
 
@@ -73,21 +71,12 @@ const Orders: NextPageWithLayout = () => {
     fetchOrders();
   }, [selected, page]);
 
-  const openToast = (text: string, type: ToastType = "neutral") => {
-    setToastOpen(false);
-    setTimeout(() => {
-      setToastContent(text);
-      setToastType(type);
-      setToastOpen(true);
-    }, 150);
-  };
-
   return (
     <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
       <Toast
         content={toastContent}
-        open={toastOpen}
-        setOpen={setToastOpen}
+        open={open}
+        setOpen={setOpen}
         duration={5000}
         position="bottom"
         type={toastType}

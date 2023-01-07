@@ -160,7 +160,7 @@ const Product = ({
                     </div>
 
                     {/* 'buy now' button */}
-                    <div className="bg-secondary w-full p-4 shadow-block">
+                    <div className="bg-secondary w-full border-2 border-primary p-4 shadow-block">
                       <AltButton
                         className="w-full py-2.5 text-3xl font-bold mb-2"
                         onClick={() => {
@@ -174,7 +174,7 @@ const Product = ({
                           <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
                         )}
 
-                        {isAvailable ? "BUY NOW" : "SOLD OUT"}
+                        {isAvailable ? "BUY NOW" : "SOLD"}
                       </AltButton>
                       <p className="text-sm font-bold text-danger text-center">
                         FINAL SALE. NO RETURNS OR EXCHANGES ACCEPTED.
@@ -209,7 +209,7 @@ const Product = ({
                       <p className="min-w-fit text-sm text-secondary font-bold tracking-wide mb-6">
                         {product.horizontalDimension}
                       </p>
-                      <div className="w-[90%]">
+                      <div className="w-[92%]">
                         <RuleHorizontal className="w-full" />
                       </div>
                     </div>

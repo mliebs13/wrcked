@@ -24,6 +24,7 @@ import Auth from "@src/components/admin/Auth";
 import Hamburger from "@src/components/shared/Hamburger";
 import { spaceMono } from "@src/config/fonts";
 import axios from "@src/config/axios";
+import Tooltip from "@src/components/ui/Tooltip";
 
 type AdminLayoutProps = {
   description?: string;
@@ -81,6 +82,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
     const id = setInterval(() => {
       getCount();
     }, 30000);
+
     setIntervalId(id);
 
     return () => {
@@ -145,7 +147,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
               </ul>
 
               <Button
-                className="w-[80%] min-h-[56px] text-base font-bold px-2 py-3"
+                className="w-[88%] min-h-[56px] text-base font-bold px-2 py-3"
                 onClick={() => {
                   Cookies.remove("wrcked-a-t");
                   router.push("/22/admin/login");
@@ -172,23 +174,51 @@ const AdminLayout: FC<AdminLayoutProps> = ({
               />
 
               <div className="flex items-center">
-                <button
-                  className="relative rounded-full mr-12"
-                  onClick={() => router.push("/22/admin/notifications")}
-                >
-                  <BellIcon width={20} height={20} />
-                  {!!count && count >= 1 && (
-                    <span className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-4 bg-orange-500 font-bold text-secondary text-xs rounded-full">
-                      {count}
+                <Tooltip
+                  trigger={
+                    <button
+                      className="relative rounded-full mr-12"
+                      onClick={() => router.push("/22/admin/notifications")}
+                    >
+                      <BellIcon width={20} height={20} />
+                      {!!count && count >= 1 && (
+                        <span className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-4 bg-orange-500 font-bold text-secondary text-xs rounded-full">
+                          {count}
+                        </span>
+                      )}
+                    </button>
+                  }
+                  content={
+                    <span
+                      className={classNames(
+                        spaceMono.className,
+                        "text-sm text-primary"
+                      )}
+                    >
+                      View notifications
                     </span>
-                  )}
-                </button>
-                <button
-                  className="rounded-full"
-                  onClick={() => router.push("/22/admin/settings")}
-                >
-                  <PersonIcon width={20} height={20} />
-                </button>
+                  }
+                />
+                <Tooltip
+                  trigger={
+                    <button
+                      className="rounded-full"
+                      onClick={() => router.push("/22/admin/settings")}
+                    >
+                      <PersonIcon width={20} height={20} />
+                    </button>
+                  }
+                  content={
+                    <span
+                      className={classNames(
+                        spaceMono.className,
+                        "text-sm text-primary"
+                      )}
+                    >
+                      Edit profile
+                    </span>
+                  }
+                />
               </div>
             </div>
 

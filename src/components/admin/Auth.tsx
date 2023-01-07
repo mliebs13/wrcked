@@ -18,10 +18,10 @@ const Auth: FC<
           <div
             className={classNames(
               spaceMono.className,
-              "w-full text-center text-base py-3 sm:py-10 2xl:py-20"
+              "w-full font-bold text-center text-base py-3 sm:py-10 2xl:py-20"
             )}
           >
-            Unauthorized access
+            Unauthorized
           </div>
         )
       )}

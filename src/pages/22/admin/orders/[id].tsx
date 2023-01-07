@@ -19,12 +19,21 @@ const Order: NextPageWithLayout = () => {
       const id = router.query?.id?.toString();
 
       if (id) {
-        const { data } = await axios.get(`/api/orders/${id}`);
-        if (data) {
-          console.log("order: ", data.order);
+        try {
+          error && setError(null);
 
-          setOrder(data.order);
-        } else {
+          const { data } = await axios.get(`/api/orders/${id}`);
+
+          if (data) {
+            console.log("order: ", data.order);
+
+            setOrder(data.order);
+          } else {
+            setError("Failed to retrieve order details");
+          }
+        } catch (err: any) {
+          console.log("error occurred retrieving order details: ", err.message);
+
           setError("Failed to retrieve order details");
         }
       }
@@ -61,7 +70,7 @@ const Order: NextPageWithLayout = () => {
       )}
     >
       <div className="max-w-8xl w-full h-full flex justify-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
-        {order ? (
+        {order && !error ? (
           <div className="w-fit flex flex-col items-start">
             <p className="text-base font-bold text-primary text-left mb-4">
               <span>Creation Date: </span>
@@ -101,7 +110,7 @@ const Order: NextPageWithLayout = () => {
               <span>{email}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
-              <span>Product name: </span>
+              <span>Product ordered: </span>
               <span>{name}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
@@ -148,7 +157,7 @@ const Order: NextPageWithLayout = () => {
 
 Order.getLayout = (page: ReactElement) => {
   return (
-    <AdminLayout title="Admin - Order" description="Admin - Order">
+    <AdminLayout title="Order - Admin" description="Order - Admin">
       {page}
     </AdminLayout>
   );

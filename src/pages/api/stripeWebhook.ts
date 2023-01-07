@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import stripe from "@src/config/stripe";
 import Stripe from "stripe";
 import uuid from "short-uuid";
-import { add, format, intlFormat } from "date-fns";
+import { add, intlFormat } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
 import { prisma } from "@src/lib/prisma";
 import { sendMail } from "@src/lib/utils";
@@ -34,39 +34,6 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       status,
       receipt_email,
     });
-
-    /*const product = await stripe.products.create({
-    name: metadata.name,
-    description: metadata.id,
-  });
-
-  const stripePrice = await stripe.prices.create({
-    unit_amount: metadata.price,
-    currency,
-    product: product.id,
-  });
-
-  const orderPayload = {
-    currency,
-    line_items: [
-      {
-        description: metadata.name,
-        quantity: 1,
-        price: stripePrice.id,
-      },
-    ],
-    expand: ["line_items"],
-    shipping_details: shipping,
-    billing_details: billing_details ?? {},
-    metadata: {
-      total: amount / 100,
-      status: status,
-      city: shipping.address.city,
-      country: shipping.address.country,
-      state: shipping.address.state,
-      receiptUrl: receipt_url,
-    },
-  };*/
 
     receipt_email &&
       (await stripe.customers.create({

@@ -12,8 +12,8 @@ import { NextPageWithLayout } from "../../_app";
 import Button from "@src/components/ui/Button";
 import Spinner from "@src/components/shared/Spinner";
 import Toast from "@src/components/ui/Toast";
-import { ToastType } from "@src/types";
 import { spaceMono } from "@src/config/fonts";
+import useToast from "@src/hooks/useToast";
 
 const schema = yup.object().shape({
   name: yup
@@ -36,18 +36,7 @@ const Login: NextPageWithLayout = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [toastOpen, setToastOpen] = useState(false);
-  const [toastContent, setToastContent] = useState("");
-  const [toastType, setToastType] = useState<ToastType>("neutral");
-
-  const openToast = (text: string, type: ToastType) => {
-    setToastOpen(false);
-    setTimeout(() => {
-      setToastType(type);
-      setToastContent(text);
-      setToastOpen(true);
-    }, 150);
-  };
+  const { openToast, toastContent, setOpen, open, toastType } = useToast();
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
@@ -94,7 +83,7 @@ const Login: NextPageWithLayout = () => {
       )}
     >
       <Head>
-        <title>Admin - Login</title>
+        <title>Login - Admin</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
@@ -106,8 +95,8 @@ const Login: NextPageWithLayout = () => {
 
       <div className="relative w-full flex flex-col items-center px-3 sm:px-10 py-12 sm:py-16 2xl:px-20">
         <Toast
-          open={toastOpen}
-          setOpen={setToastOpen}
+          open={open}
+          setOpen={setOpen}
           duration={5000}
           content={toastContent}
           position="bottom"
@@ -165,7 +154,7 @@ const Login: NextPageWithLayout = () => {
             </div>
             <Button
               type="submit"
-              className="w-1/2 min-w-[240px] max-w-[320px] h-14 font-bold text-base tracking-wide mx-auto py-4 px-3"
+              className="w-1/2 min-w-[190px] max-w-[240px] h-14 font-bold text-base tracking-wide mx-auto py-4 px-3"
               onClick={handleLogin}
               disabled={loading}
             >

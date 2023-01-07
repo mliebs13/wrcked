@@ -13,13 +13,11 @@ const useAdmin = (redirect: boolean = true) => {
     axios
       .get("/api/verifyAdminAccess")
       .then(({ data: { message, admin } }: any) => {
-        admin
-          ? redirect
-            ? router.push("/22/admin")
-            : ""
-          : redirect
-          ? router.push("/22/admin/login")
-          : "";
+        !!admin &&
+          router.pathname === "/22/admin/login" &&
+          router.push("/22/admin");
+
+        !admin && redirect ? router.push("/22/admin/login") : "";
 
         setResult({ message, admin });
       })

@@ -72,7 +72,7 @@ const Admin: NextPageWithLayout = () => {
                         <td className="p-3 text-sm text-center">{name}</td>
                         <td className="p-3 text-sm text-center">
                           <span className="max-w-sm">
-                            {shortenString(description ?? "", 40)}
+                            {shortenString(description ?? "", 55)}
                           </span>
                         </td>
                         <td className="p-3 text-sm text-center">{quantity}</td>
@@ -106,7 +106,7 @@ const Admin: NextPageWithLayout = () => {
 
 Admin.getLayout = (page: ReactElement) => {
   return (
-    <AdminLayout title="Admin - Overview" description="Admin - Overview">
+    <AdminLayout title="Overview - Admin" description="Overview - Admin">
       {page}
     </AdminLayout>
   );

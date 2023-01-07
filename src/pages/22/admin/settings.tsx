@@ -9,7 +9,7 @@ import Button from "@src/components/ui/Button";
 import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
 import Spinner from "@src/components/shared/Spinner";
 import Toast from "@src/components/ui/Toast";
-import { ToastType } from "@src/types";
+import useToast from "@src/hooks/useToast";
 
 const schema = yup.object().shape({
   name: yup
@@ -33,20 +33,7 @@ const Settings: NextPageWithLayout = () => {
   const [newPassword, setNewPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [newPasswordVisible, setNewPasswordVisible] = useState(false);
-  const [toastOpen, setToastOpen] = useState(false);
-  const [toastContent, setToastContent] = useState(
-    "Fix errors before submitting"
-  );
-  const [toastType, setToastType] = useState<ToastType>("neutral");
-
-  const openToast = (text: string, type: ToastType = "neutral") => {
-    setToastOpen(false);
-    setTimeout(() => {
-      setToastContent(text);
-      setToastType(type);
-      setToastOpen(true);
-    }, 150);
-  };
+  const { openToast, toastContent, setOpen, open, toastType } = useToast();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -87,8 +74,8 @@ const Settings: NextPageWithLayout = () => {
     <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
       <Toast
         content={toastContent}
-        open={toastOpen}
-        setOpen={setToastOpen}
+        open={open}
+        setOpen={setOpen}
         duration={5000}
         position="bottom"
         type={toastType}
@@ -187,7 +174,7 @@ const Settings: NextPageWithLayout = () => {
 
 Settings.getLayout = (page: ReactElement) => {
   return (
-    <AdminLayout title="Admin - Settings" description="Admin - Settings">
+    <AdminLayout title="Settings - Admin" description="Settings - Admin">
       {page}
     </AdminLayout>
   );

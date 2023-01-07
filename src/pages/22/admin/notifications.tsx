@@ -95,7 +95,7 @@ const Notifications: NextPageWithLayout = () => {
         {notifs ? (
           notifs.length < 1 ? (
             <p className="font-bold text-sm text-primary">
-              No notifications are available
+              No new notifications
             </p>
           ) : (
             <>
@@ -169,8 +169,8 @@ const Notifications: NextPageWithLayout = () => {
 Notifications.getLayout = (page: ReactElement) => {
   return (
     <AdminLayout
-      title="Admin - Notifications"
-      description="Admin - Notifications"
+      title="Notifications - Admin"
+      description="Notifications - Admin"
     >
       {page}
     </AdminLayout>

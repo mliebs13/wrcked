@@ -509,8 +509,8 @@ const orderSummary = (
                                   >
                                     <img
                                       class="adapt-img"
-                                      src="https://wrcked.vercel.app/images/wrcked.png"
-                                      alt="Logo
+                                      src="https://www.wrcked.com/images/wrcked.png"
+                                      alt="Wrcked Logo"
                                       style="
                                         display: block;
                                         border: 0;
@@ -678,7 +678,7 @@ const orderSummary = (
                                         mso-hide: all;
                                       "
                                       ><a
-                                        href="https://wrcked.com/track-order?orderId=${orderId}&email=${email}"
+                                        href="https://www.wrcked.com/track-order?orderId=${orderId}&email=${email}"
                                         class="es-button"
                                         target="_blank"
                                         style="
@@ -1665,7 +1665,7 @@ const orderSummary = (
                                         mso-hide: all;
                                       "
                                       ><a
-                                        href="https://wrcked.com/track-order?orderId=${orderId}&email=${email}"
+                                        href="https://www.wrcked.com/track-order?orderId=${orderId}&email=${email}"
                                         class="es-button"
                                         target="_blank"
                                         style="
@@ -1848,7 +1848,7 @@ const orderSummary = (
                                         >
                                           <a
                                             target="_blank"
-                                            href="https://wrcked.com/faq"
+                                            href="https://www.wrcked.com/faq"
                                             style="
                                               -webkit-text-size-adjust: none;
                                               -ms-text-size-adjust: none;
@@ -1882,7 +1882,7 @@ const orderSummary = (
                                         >
                                           <a
                                             target="_blank"
-                                            href="https://wrcked.com/shop/all"
+                                            href="https://www.wrcked.com/shop/all"
                                             style="
                                               -webkit-text-size-adjust: none;
                                               -ms-text-size-adjust: none;

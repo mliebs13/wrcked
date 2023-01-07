@@ -133,7 +133,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
             {!isAvailable && (
               <span className="absolute w-[90%] bg-primary h-[1px] top-1/2 -translate-y-1/4" />
             )}
-            {isAvailable ? "BUY NOW" : "SOLD OUT"}
+            {isAvailable ? "BUY NOW" : "SOLD"}
           </AltButton>
           <IconButton
             className="h-full w-[var(--box-height)] p-3 disabled:cursor-not-allowed"

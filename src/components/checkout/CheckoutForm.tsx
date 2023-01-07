@@ -5,12 +5,13 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
+import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import Spinner from "@components/shared/Spinner";
 import Toast from "@components/ui/Toast";
-import { ToastType, Shipping } from "@src/types";
+import { Shipping } from "@src/types";
 import { getBaseUrl } from "@src/utils";
-import classNames from "classnames";
+import useToast from "@src/hooks/useToast";
 
 type CheckoutFormType = {
   id: string;
@@ -27,9 +28,6 @@ const CheckoutForm: FC<CheckoutFormType> = ({
   shippingInfo,
   agreedToTerms,
 }) => {
-  const [toastOpen, setToastOpen] = useState(false);
-  const [toastContent, setToastContent] = useState("");
-  const [toastType, setToastType] = useState<ToastType>("neutral");
   const [isProcessing, setIsProcessing] = useState(false);
   const [addressLoading, setAddressLoading] = useState(true);
   const [paymentLoading, setPaymentLoading] = useState(true);
@@ -38,45 +36,7 @@ const CheckoutForm: FC<CheckoutFormType> = ({
   const [email, setEmail] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-
-  /*useEffect(() => {
-    if (stripe && elements) {
-      setApplePayLoading(true);
-
-      const pr = stripe.paymentRequest({
-        currency: "usd",
-        country: "US",
-        requestPayerEmail: true,
-        requestPayerName: true,
-        total: {
-          amount: total,
-          label: "Wrcked",
-        },
-        disableWallets: ["googlePay"],
-      });
-
-      pr.canMakePayment().then((result) => {
-        if (result) {
-          setPaymentRequest(pr);
-        } else {
-          setApplePayError("Apple pay is not available for payment");
-        }
-
-        setApplePayLoading(false);
-      });
-    } else {
-      return;
-    }
-  }, [stripe || elements]);*/
-
-  const openToast = (text: string, type: ToastType) => {
-    setToastOpen(false);
-    setTimeout(() => {
-      setToastType(type);
-      setToastContent(text);
-      setToastOpen(true);
-    }, 150);
-  };
+  const { openToast, toastContent, setOpen, open, toastType } = useToast();
 
   const handleCardPayment = async () => {
     if (stripe && elements) {
@@ -158,8 +118,8 @@ const CheckoutForm: FC<CheckoutFormType> = ({
   return (
     <>
       <Toast
-        open={toastOpen}
-        setOpen={setToastOpen}
+        open={open}
+        setOpen={setOpen}
         duration={10000}
         content={toastContent}
         position="bottom"

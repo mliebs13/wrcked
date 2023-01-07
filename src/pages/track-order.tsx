@@ -13,8 +13,8 @@ import CheckoutHeader from "@components/checkout/CheckoutHeader";
 import Button from "@src/components/ui/Button";
 import Spinner from "@src/components/shared/Spinner";
 import Toast from "@components/ui/Toast";
-import { ToastType } from "@src/types";
 import axios from "@src/config/axios";
+import useToast from "@src/hooks/useToast";
 
 const schema = yup.object().shape({
   orderId: yup
@@ -38,9 +38,7 @@ const TrackOrder: NextPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState<string>("");
   const [orderId, setOrderId] = useState<string>("");
-  const [toastOpen, setToastOpen] = useState(false);
-  const [toastContent, setToastContent] = useState("");
-  const [toastType, setToastType] = useState<ToastType>("neutral");
+  const { openToast, toastContent, setOpen, open, toastType } = useToast();
 
   useEffect(() => {
     const { email, orderId } = router.query;
@@ -49,15 +47,6 @@ const TrackOrder: NextPage = () => {
 
     email && orderId && fetchOrderInfo(email.toString(), orderId.toString());
   }, [router.query]);
-
-  const openToast = (text: string, type: ToastType) => {
-    setToastOpen(false);
-    setTimeout(() => {
-      setToastType(type);
-      setToastContent(text);
-      setToastOpen(true);
-    }, 150);
-  };
 
   const fetchOrderInfo = async (queryEmail?: string, queryOrderId?: string) => {
     console.log("errors: ", errors);
@@ -149,8 +138,8 @@ const TrackOrder: NextPage = () => {
       </Head>
 
       <Toast
-        open={toastOpen}
-        setOpen={setToastOpen}
+        open={open}
+        setOpen={setOpen}
         duration={10000}
         content={toastContent}
         position="bottom"

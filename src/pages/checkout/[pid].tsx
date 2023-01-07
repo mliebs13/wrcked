@@ -192,7 +192,10 @@ const Checkout = ({
           </div>
 
           <div
-            className={classNames("hidden md:block mt-4", spaceMono.className)}
+            className={classNames(
+              "md:sticky bottom-6 left-0 hidden md:block mt-4",
+              spaceMono.className
+            )}
           >
             <Link
               href="/terms.html"

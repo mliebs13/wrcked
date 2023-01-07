@@ -489,7 +489,7 @@ const orderNotification = (
 
                                                           <h1 class="v-text-align v-font-size"
                                                               style="margin: 0px; color: #000000; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: courier new,courier; font-size: 18px;">
-                                                              <strong>Total Price: ${total}</strong>
+                                                              <strong>Total: ${total}</strong>
                                                           </h1>
 
                                                       </td>
