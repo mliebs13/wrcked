@@ -144,7 +144,7 @@ const orderSummary2 = (
                       <td valign="top" align="center" style="padding:0;Margin:0;width:560px">
                        <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;border-bottom:1px solid #000000;background-color:#ffffff" role="presentation">
                          <tr>
-                          <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:30px;padding-bottom:30px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace;line-height:32px;color:#000000;font-size:16px">ORDER SUCCESSFUL<br>THANK YOU FOR ORDERING ON <span style="color:#000000;">WRCKED.COM</span></p></td>
+                          <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:30px;padding-bottom:30px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace;line-height:32px;color:#000000;font-size:16px">ORDER SUCCESSFUL<br>THANK YOU FOR ORDERING ON ${"WRCKED.COM"}</p></td>
                          </tr>
                        </table></td>
                      </tr>
@@ -187,8 +187,8 @@ const orderSummary2 = (
                   <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px"><!--[if mso]><table style="width:560px" cellpadding="0" cellspacing="0"><tr><td style="width:270px" valign="top"><![endif]-->
                    <table width="50%" cellpadding="0" cellspacing="0" class="es-left" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left">
                      <tr>
-                      <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:100%">
-                       <table align="center" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="max-width:125px;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                      <td class="es-m-p20b" align="center" style="padding:0;Margin:0;width:100%">
+                       <table align="center" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="margin-left:auto;margin-right:auto;max-width:125px;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                          <tr>
                           <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" width="125" src="${image}" alt="${productName}" style="max-width:100%;display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td>
                          </tr>
@@ -200,7 +200,7 @@ const orderSummary2 = (
                       <td align="left" style="padding:0;Margin:0;width:100%">
                        <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                          <tr>
-                          <td align="left" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#000000;font-size:14px"><span style="font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace"><strong>${productName}</strong></span><br><span style="font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace">QUANTITY: 5</span></p></td>
+                          <td align="left" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#000000;font-size:14px"><span style="font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace"><strong>${productName}</strong></span><br><span style="font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace">QUANTITY: ${quantity}</span></p></td>
                          </tr>
                          <tr>
                           <td align="left" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px">
@@ -222,7 +222,7 @@ const orderSummary2 = (
                       <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
                        <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                          <tr>
-                          <td align="center" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace;line-height:21px;color:#000000;font-size:14px">VISIT: <span style="color:#000000;">WRCKED.COM</span></p></td>
+                          <td align="center" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'courier new', courier, 'lucida sans typewriter', 'lucida typewriter', monospace;line-height:21px;color:#000000;font-size:14px">VISIT: ${"WRCKED.COM"}</p></td>
                          </tr>
                        </table></td>
                      </tr>
