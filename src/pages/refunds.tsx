@@ -38,15 +38,15 @@ const Refunds: NextPage = () => {
         <meta property="og:url" content="https://www.wrcked.com/" />
         <meta property="og:title" content="Refunds - Wrcked" />
         <meta property="og:description" content="Refunds - Wrcked" />
-        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        {/* <meta property="og:image" content="https://wrcked/wrcked-banner.png/" /> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.wrcked.com/" />
         <meta property="twitter:title" content="Refunds - Wrcked" />
         <meta property="twitter:description" content="Refunds - Wrcked" />
-        <meta
+        {/* <meta
           property="twitter:image"
           content="https://wrcked.com/wrcked-banner.png/"
-        />
+        /> */}
       </Head>
       <div className="w-full flex flex-col items-center justify-center mb-12">
         <h1 className="w-fit font-bold text-[72px] sm:text-[96px] lg:text-[120px] text-primary text-left leading-snug tracking-wide mb-4">

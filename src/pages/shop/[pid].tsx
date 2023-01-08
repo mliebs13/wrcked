@@ -16,6 +16,7 @@ import RuleVertical from "@src/components/shared/svgs/RuleVertical";
 import RuleHorizontal from "@src/components/shared/svgs/RuleHorizontal";
 import ProductDetails from "@src/components/product/Product";
 import { spaceMono } from "@src/config/fonts";
+import NotFound from "@src/components/404/NotFound";
 
 const Product = ({
   products,
@@ -23,18 +24,22 @@ const Product = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [index, setIndex] = useState(
-    product ? products?.findIndex((p) => p._id === product._id) : 0
+    product ? products?.findIndex((p) => p._id === product._id) ?? 0 : 0
   );
   const [detailsOpen, setDetailsOpen] = useState(false);
 
-  const currentProduct = products[index];
-  const isAvailable = currentProduct.quantity >= 1;
+  const currentProduct = products?.[index];
+  const isAvailable = (currentProduct?.quantity ?? 0) >= 1;
+
+  console.log("product: ", product, "products: ", products);
 
   useEffect(() => {
     !detailsOpen && product && setDetailsOpen(true);
   }, [product]);
 
-  return (
+  return !products || !currentProduct ? (
+    <NotFound />
+  ) : (
     <main
       className="relative w-full bg-secondary bg-dots-primary text-primary overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
@@ -63,15 +68,15 @@ const Product = ({
         <meta property="og:url" content="https://www.wrcked.com/" />
         <meta property="og:title" content="Shop - Wrcked" />
         <meta property="og:description" content="Shop - Wrcked" />
-        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        {/* <meta property="og:image" content="https://wrcked/wrcked-banner.png/" /> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.wrcked.com/" />
         <meta property="twitter:title" content="Shop - Wrcked" />
         <meta property="twitter:description" content="Shop - Wrcked" />
-        <meta
+        {/* <meta
           property="twitter:image"
           content="https://wrcked.com/wrcked-banner.png/"
-        />
+        /> */}
       </Head>
 
       <Script src="../../scripts/script.js" strategy="beforeInteractive" />
@@ -234,13 +239,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
       { params: { pid: "all" } },
       ...paths.map((pid: string) => ({ params: { pid } })),
     ],
-    fallback: false,
+    fallback: true,
   };
 };
 
 export const getStaticProps: GetStaticProps<{
-  products: ProductType[];
-  product: ProductType;
+  products: ProductType[] | null;
+  product: ProductType | null;
 }> = async (context) => {
   try {
     const { pid = "" } = context.params as any;
@@ -265,8 +270,13 @@ export const getStaticProps: GetStaticProps<{
         )
       : null;
 
-    if (!product || !products) {
-      throw new Error("Failed to fetch");
+    if (!product) {
+      return {
+        props: {
+          product,
+          products: null,
+        },
+      };
     }
 
     return {
@@ -278,7 +288,7 @@ export const getStaticProps: GetStaticProps<{
   } catch (err: any) {
     console.log("error occurred: ", err.message);
 
-    throw new Error("Failed to fetch posts");
+    throw new Error("Failed to fetch");
   }
 };
 

@@ -44,15 +44,15 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <meta property="og:url" content="https://www.wrcked.com/" />
         <meta property="og:title" content="Shop - Wrcked" />
         <meta property="og:description" content="Shop - Wrcked" />
-        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        {/* <meta property="og:image" content="https://wrcked/wrcked-banner.png/" /> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.wrcked.com/" />
         <meta property="twitter:title" content="Shop - Wrcked" />
         <meta property="twitter:description" content="Shop - Wrcked" />
-        <meta
+        {/* <meta
           property="twitter:image"
           content="https://wrcked.com/wrcked-banner.png/"
-        />
+        /> */}
       </Head>
 
       <Product

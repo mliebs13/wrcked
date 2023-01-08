@@ -18,6 +18,7 @@ import { Product } from "@src/types";
 import sanityClient from "@src/config/sanity";
 import { spaceMono } from "@src/config/fonts";
 import { breakpoints } from "@src/utils";
+import NotFound from "@src/components/404/NotFound";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ""
@@ -46,33 +47,37 @@ const Checkout = ({
 
   useEffect(() => {
     const createPayment = async () => {
-      try {
-        setLoading(true);
+      if (product) {
+        try {
+          setLoading(true);
 
-        const { data } = await axios.post("/api/createPayment", {
-          id: product._id,
-          quantity: 1,
-          shipping: shippingInfo,
-        });
+          const { data } = await axios.post("/api/createPayment", {
+            id: product._id,
+            quantity: 1,
+            shipping: shippingInfo,
+          });
 
-        if (data.clientSecret) {
-          setClientSecret(data.clientSecret);
-        } else {
-          console.log("error occurred");
+          if (data.clientSecret) {
+            setClientSecret(data.clientSecret);
+          } else {
+            console.log("error occurred");
+            setError("Error");
+          }
+        } catch (err: any) {
+          console.log("error occurred: ", err.message);
           setError("Error");
+        } finally {
+          setLoading(false);
         }
-      } catch (err: any) {
-        console.log("error occurred: ", err.message);
-        setError("Error");
-      } finally {
-        setLoading(false);
       }
     };
 
     createPayment();
   }, []);
 
-  return (
+  return !product ? (
+    <NotFound />
+  ) : (
     <main
       style={{
         backgroundSize: "42px",
@@ -103,15 +108,15 @@ const Checkout = ({
         <meta property="og:url" content="https://www.wrcked.com/" />
         <meta property="og:title" content="Checkout - Wrcked" />
         <meta property="og:description" content="Checkout - Wrcked" />
-        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        {/* <meta property="og:image" content="https://wrcked/wrcked-banner.png/" /> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.wrcked.com/" />
         <meta property="twitter:title" content="Checkout - Wrcked" />
         <meta property="twitter:description" content="Checkout - Wrcked" />
-        <meta
+        {/* <meta
           property="twitter:image"
           content="https://wrcked.com/wrcked-banner.png/"
-        />
+        /> */}
       </Head>
 
       <CheckoutHeader text="WRCKED CHECKOUT" />
@@ -301,12 +306,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: paths.map((pid: string) => ({ params: { pid } })),
-    fallback: false,
+    fallback: true,
   };
 };
 
 export const getStaticProps: GetStaticProps<{
-  product: Product;
+  product: Product | null;
 }> = async (context) => {
   try {
     const { pid = "" } = context.params as any;
@@ -318,24 +323,15 @@ export const getStaticProps: GetStaticProps<{
         )
       : null;
 
-    const products: any[] = await sanityClient.fetch(
-      groq`*[_type == "product"] | order(_createdAt asc)`
-    );
-
-    if (!product || !products) {
-      throw new Error("Failed to fetch products");
-    }
-
     return {
       props: {
-        products,
         product,
       },
     };
   } catch (err: any) {
     console.log("error occurred: ", err.message);
 
-    throw new Error("Failed to fetch posts");
+    throw new Error("Failed to fetch");
   }
 };
 

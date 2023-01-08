@@ -37,15 +37,15 @@ const FAQ: NextPage = () => {
         <meta property="og:url" content="https://www.wrcked.com/" />
         <meta property="og:title" content="FAQ - Wrcked" />
         <meta property="og:description" content="FAQ - Wrcked" />
-        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        {/* <meta property="og:image" content="https://wrcked/wrcked-banner.png/" /> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.wrcked.com/" />
         <meta property="twitter:title" content="FAQ - Wrcked" />
         <meta property="twitter:description" content="FAQ - Wrcked" />
-        <meta
+        {/* <meta
           property="twitter:image"
           content="https://wrcked.com/wrcked-banner.png/"
-        />
+        /> */}
       </Head>
 
       <div className="w-full max-w-3xl flex flex-col mx-auto mb-12">

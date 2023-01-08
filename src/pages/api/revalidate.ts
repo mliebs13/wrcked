@@ -29,19 +29,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       body: { _id },
     } = req;
 
+    console.log("_id: ", _id);
+
     let products: { _id: string }[] = await sanityClient.fetch(
       groq`*[_type == "product"] | order(_createdAt asc){_id}`
     );
 
-    products = products.filter((p) => p._id !== _id);
-
     console.log("products revalidate: ", products);
-
-    try {
-      await res.revalidate(`/shop/${_id}`);
-    } catch (err: any) {
-      console.log("error occurred: ", err.message);
-    }
 
     try {
       await res.revalidate(`/checkout/${_id}`);
@@ -56,7 +50,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     for (let i = 0; i < products.length; i++) {
-      await res.revalidate(`/shop/${products[i]._id}`);
+      try {
+        await res.revalidate(`/shop/${products[i]._id}`);
+      } catch (err: any) {
+        console.log("error occurred: ", err.message);
+      }
     }
 
     await res.revalidate("/shop/all");

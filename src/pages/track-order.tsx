@@ -126,15 +126,15 @@ const TrackOrder: NextPage = () => {
         <meta property="og:url" content="https://www.wrcked.com/" />
         <meta property="og:title" content="Track Order - Wrcked" />
         <meta property="og:description" content="Track Order - Wrcked" />
-        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        {/* <meta property="og:image" content="https://wrcked/wrcked-banner.png/" /> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.wrcked.com/" />
         <meta property="twitter:title" content="Track Order - Wrcked" />
         <meta property="twitter:description" content="Track Order - Wrcked" />
-        <meta
+        {/* <meta
           property="twitter:image"
           content="https://wrcked.com/wrcked-banner.png/"
-        />
+        /> */}
       </Head>
 
       <Toast

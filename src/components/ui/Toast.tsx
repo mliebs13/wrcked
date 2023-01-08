@@ -72,8 +72,8 @@ const Toast: FC<ToastProps> = ({
         className={classNames(
           "ToastViewport fixed flex flex-col outline-none gap-4 min-w-[240px]",
           {
-            "top-2 right-6": position === "top",
-            "bottom-2 right-6": position === "bottom",
+            "top-2 sm:top-3 right-1.5 sm:right-6": position === "top",
+            "bottom-2 sm:bottom-3 right-1.5 sm:right-6": position === "bottom",
             "top-2 left-1/2 -translate-x-1/4": position === "center",
           }
         )}

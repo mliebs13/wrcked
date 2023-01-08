@@ -11,6 +11,7 @@ import sanityClient from "@src/config/sanity";
 import { Product } from "@src/types";
 import { getSanityImageUrl } from "@src/utils";
 import { spaceMono } from "@src/config/fonts";
+import NotFound from "@src/components/404/NotFound";
 
 const Checkout = ({
   product,
@@ -24,7 +25,9 @@ const Checkout = ({
     setQuantity(router.query?.q?.toString() ?? "-");
   }, [router.query]);
 
-  return (
+  return !product ? (
+    <NotFound />
+  ) : (
     <main
       style={{
         backgroundSize: "42px",
@@ -55,7 +58,7 @@ const Checkout = ({
         <meta property="og:url" content="https://www.wrcked.com/" />
         <meta property="og:title" content="Checkout Success - Wrcked" />
         <meta property="og:description" content="Checkout Success - Wrcked" />
-        <meta property="og:image" content="https://wrcked/wrcked-banner.png/" />
+        {/* <meta property="og:image" content="https://wrcked/wrcked-banner.png/" /> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.wrcked.com/" />
         <meta property="twitter:title" content="Checkout Success - Wrcked" />
@@ -63,10 +66,10 @@ const Checkout = ({
           property="twitter:description"
           content="Checkout Success - Wrcked"
         />
-        <meta
+        {/* <meta
           property="twitter:image"
           content="https://wrcked.com/wrcked-banner.png/"
-        />
+        /> */}
       </Head>
 
       <CheckoutHeader text="WRCKED CHECKOUT" />
@@ -171,12 +174,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: paths.map((pid: string) => ({ params: { pid } })),
-    fallback: false,
+    fallback: true,
   };
 };
 
 export const getStaticProps: GetStaticProps<{
-  product: Product;
+  product: Product | null;
 }> = async (context) => {
   try {
     const { pid = "" } = context.params as any;
@@ -188,24 +191,15 @@ export const getStaticProps: GetStaticProps<{
         )
       : null;
 
-    const products: any[] = await sanityClient.fetch(
-      groq`*[_type == "product"] | order(_createdAt asc)`
-    );
-
-    if (!product || !products) {
-      throw new Error("Failed to fetch products");
-    }
-
     return {
       props: {
-        products,
         product,
       },
     };
   } catch (err: any) {
     console.log("error occurred: ", err.message);
 
-    throw new Error("Failed to fetch posts");
+    throw new Error("Failed to fetch");
   }
 };
 
