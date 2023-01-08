@@ -1,4 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import groq from "groq";
+import sanityClient from "@src/config/sanity";
 
 const secret = process.env.SECRET_TOKEN ?? "SECRET_TOKEN";
 
@@ -27,11 +29,23 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       body: { _id },
     } = req;
 
-    await res.revalidate(`/shop/all`);
+    const products: { _id: string }[] = await sanityClient.fetch(
+      groq`*[_type == "product"] | order(_createdAt asc){_id}`
+    );
+
+    console.log("products revalidate: ", products);
 
     await res.revalidate(`/shop/${_id}`);
 
+    for (let i = 0; i < products.length; i++) {
+      await res.revalidate(`/shop/${products[i]._id}`);
+    }
+
+    await res.revalidate("/shop/all");
+
     await res.revalidate(`/checkout/${_id}`);
+
+    await res.revalidate(`/checkout-success/${_id}`);
 
     return res.json({ message: `Revalidated product with id "${_id}"` });
   } catch (err) {
