@@ -48,7 +48,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await res.revalidate(`/checkout-success/${_id}`);
 
     return res.json({ message: `Revalidated product with id "${_id}"` });
-  } catch (err) {
+  } catch (err: any) {
+    console.log("error occurred: ", err.message);
     return res.status(500).send("Error revalidating");
   }
 };
