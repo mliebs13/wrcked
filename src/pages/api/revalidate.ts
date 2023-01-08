@@ -35,17 +35,29 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     console.log("products revalidate: ", products);
 
-    await res.revalidate(`/shop/${_id}`);
+    try {
+      await res.revalidate(`/shop/${_id}`);
+    } catch (err: any) {
+      console.log("error occurred: ", err.message);
+    }
+
+    try {
+      await res.revalidate(`/checkout/${_id}`);
+    } catch (err: any) {
+      console.log("error occurred: ", err.message);
+    }
+
+    try {
+      await res.revalidate(`/checkout-success/${_id}`);
+    } catch (err: any) {
+      console.log("error occurred: ", err.message);
+    }
 
     for (let i = 0; i < products.length; i++) {
       await res.revalidate(`/shop/${products[i]._id}`);
     }
 
     await res.revalidate("/shop/all");
-
-    await res.revalidate(`/checkout/${_id}`);
-
-    await res.revalidate(`/checkout-success/${_id}`);
 
     return res.json({ message: `Revalidated product with id "${_id}"` });
   } catch (err: any) {
