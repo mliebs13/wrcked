@@ -38,6 +38,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     console.log("products revalidate: ", products);
 
     try {
+      await res.revalidate(`/shop/${_id}`);
+    } catch (err: any) {
+      console.log("error occurred: ", err.message);
+    }
+
+    try {
       await res.revalidate(`/checkout/${_id}`);
     } catch (err: any) {
       console.log("error occurred: ", err.message);
