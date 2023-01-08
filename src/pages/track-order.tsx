@@ -72,7 +72,11 @@ const TrackOrder: NextPage = () => {
         if (data.order) {
           setOrderDetails(data.order);
         } else {
-          openToast(data?.message ?? "Failed to fetch order details", "error");
+          const message = data?.message ?? "Failed to fetch order details";
+
+          openToast(message, "error");
+
+          setError(message);
         }
       } catch (err: any) {
         const message =
@@ -81,6 +85,8 @@ const TrackOrder: NextPage = () => {
         console.log("error occurred: ", message);
 
         openToast(message, "error");
+
+        setError(message);
       } finally {
         setLoading(false);
       }
@@ -209,7 +215,9 @@ const TrackOrder: NextPage = () => {
               {loading ? (
                 <Spinner size="md" />
               ) : (
-                <p className="text-sm font-bold text-danger">{error}</p>
+                <p className="text-sm font-bold text-danger text-center">
+                  {error}
+                </p>
               )}
             </div>
           ))}

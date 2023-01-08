@@ -86,7 +86,7 @@ const Checkout = ({
             </p>
           </div>
 
-          <div className="relative min-h-[200px] h-fit w-full max-w-xl flex items-center justify-center mx-auto px-5 py-8 mb-8">
+          <div className="relative h-[300px] lg:h-[370px] w-full max-w-xl flex items-center justify-center mx-auto px-5 py-8 mb-8">
             <div className="absolute left-0 top-0 w-5 h-5 border-l border-l-primary border-t border-t-primary" />
             <div className="absolute right-0 top-0 w-5 h-5 border-r border-r-primary border-t border-t-primary" />
             <div className="absolute left-0 bottom-0 w-5 h-5 border-l border-l-primary border-b border-b-primary" />
@@ -97,7 +97,7 @@ const Checkout = ({
               alt="product image"
               width={519}
               height={550}
-              className="max-h-[250px] lg:max-h-[300px] w-auto h-full"
+              className="h-full w-auto"
             />
           </div>
 

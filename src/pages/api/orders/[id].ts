@@ -4,16 +4,6 @@ import { prisma } from "../../../lib/prisma";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const email = req.query?.email?.toString();
-
-    const authResult = await verifyAccess(req);
-
-    if (!authResult.admin && !email) {
-      return res.status(401).json({
-        message: "Incorrect details",
-      });
-    }
-
     const id = req.query?.id?.toString();
 
     console.log("id: ", id);
@@ -21,6 +11,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (!id) {
       return res.status(400).json({
         message: "Invalid payload",
+      });
+    }
+
+    const email = req.query?.email?.toString();
+
+    const authResult = await verifyAccess(req);
+
+    if (!authResult.admin && !email) {
+      return res.status(401).json({
+        message: "Incorrect details",
       });
     }
 

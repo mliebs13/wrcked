@@ -31,8 +31,6 @@ const Product = ({
   const currentProduct = products?.[index];
   const isAvailable = (currentProduct?.quantity ?? 0) >= 1;
 
-  console.log("product: ", product, "products: ", products);
-
   useEffect(() => {
     !detailsOpen && product && setDetailsOpen(true);
   }, [product]);

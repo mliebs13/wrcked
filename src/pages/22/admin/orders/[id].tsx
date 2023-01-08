@@ -122,7 +122,7 @@ const Order: NextPageWithLayout = () => {
               <span>{total ? `${formatPrice(total)}` : "-"}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">
-              <span>Address: </span>
+              <span>Shipping Address: </span>
               <span>{`${country}, ${state}, ${city}, ${postalCode}, ${line1}`}</span>
             </p>
             <p className="text-base font-bold text-primary text-left mb-4">

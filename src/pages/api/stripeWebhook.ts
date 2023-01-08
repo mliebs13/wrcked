@@ -13,7 +13,6 @@ import orderSummary2 from "@src/templates/orderSummary2";
 const fulfillOrder = async (data: Stripe.Event.Data) => {
   try {
     const payData = data.object as any;
-    console.log("data.object: ", data.object);
     const {
       id,
       amount,
@@ -25,7 +24,7 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
       receipt_email,
     } = payData;
 
-    console.log("processing order->", {
+    console.log("processing order: ", {
       id,
       amount,
       billing_details,
@@ -121,7 +120,8 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
         formatPrice(+amount / 100)
       ),
     };
-    await sendMail(notifPayload);
+    const sendNotifResult = await sendMail(notifPayload);
+    console.log("send notif result: ", sendNotifResult);
 
     // order summary
     const summaryPayload = {
@@ -163,7 +163,8 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
         metadata.image
       ),
     };
-    await sendMail(summaryPayload);
+    const sendSummaryResult = await sendMail(summaryPayload);
+    console.log("send summary result: ", sendSummaryResult);
   } catch (err: any) {
     console.log("error occurred fulfulling order: ", err.message);
   }

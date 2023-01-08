@@ -23,7 +23,7 @@ const handleResolveNotif = async (
       });
     }
 
-    const notif = await prisma.notification.update({
+    const updatedNotif = await prisma.notification.update({
       where: {
         id,
       },
@@ -32,9 +32,9 @@ const handleResolveNotif = async (
       },
     });
 
-    console.log("updated notif: ", notif);
+    console.log("updated notif: ", updatedNotif);
 
-    if (notif) {
+    if (updatedNotif) {
       return res.status(200).json({ success: true });
     } else {
       return res.status(500).json({ message: "Failed to retrieve order" });

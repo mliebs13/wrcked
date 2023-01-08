@@ -186,7 +186,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
                     >
                       <BellIcon width={20} height={20} />
                       {!!count && count >= 1 && (
-                        <span className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-4 bg-orange-500 font-bold text-secondary text-xs rounded-full">
+                        <span className="absolute min-w-[20px] min-h-[20px] w-fit flex items-center justify-center -top-2 -right-4 bg-orange-500 font-bold text-secondary text-xs rounded-full">
                           {count}
                         </span>
                       )}
