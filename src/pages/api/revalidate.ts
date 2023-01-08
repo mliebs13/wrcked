@@ -29,9 +29,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       body: { _id },
     } = req;
 
-    const products: { _id: string }[] = await sanityClient.fetch(
+    let products: { _id: string }[] = await sanityClient.fetch(
       groq`*[_type == "product"] | order(_createdAt asc){_id}`
     );
+
+    products = products.filter((p) => p._id !== _id);
 
     console.log("products revalidate: ", products);
 

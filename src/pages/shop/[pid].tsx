@@ -266,7 +266,7 @@ export const getStaticProps: GetStaticProps<{
       : null;
 
     if (!product || !products) {
-      throw new Error("Failed to fetch products");
+      throw new Error("Failed to fetch");
     }
 
     return {
