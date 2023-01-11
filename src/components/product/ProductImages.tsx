@@ -26,7 +26,7 @@ const ProductImages: FC<ProductImagesProps> = ({
 
   return (
     <div className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[1640px] h-full flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 mx-auto">
-      <div className="flex flex-[0.8] sm:flex-[0.6] lg:flex-[0.825] max-w-[256px] lg:max-w-full items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-4 lg:mr-10">
+      <div className="flex flex-[0.8] sm:flex-[0.6] lg:flex-[0.825] h-full lg:max-h-[640px] max-w-[256px] lg:max-w-full items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-4 lg:mr-10">
         <motion.div
           key={gif}
           initial={{ opacity: 0 }}
@@ -45,8 +45,7 @@ const ProductImages: FC<ProductImagesProps> = ({
               alt="product gif"
               width={350}
               height={350}
-              // priority={true}
-              className="hidden lg:block w-auto h-[48vh] max-h-[375px] lg:min-h-[200px]"
+              className="hidden lg:block w-auto h-[48vh] max-h-[375px] lg:min-h-[250px]"
             />
           )}
         </motion.div>
@@ -60,14 +59,14 @@ const ProductImages: FC<ProductImagesProps> = ({
               ? router.push(handleClick)
               : handleClick(true)
           }
+          className="h-full"
         >
           <Image
             src={image}
-            // priority={true}
             alt="product image"
             width={519}
             height={550}
-            className="w-auto h-auto lg:h-[68vh] max-h-[260px] lg:max-h-[575px] min-h-[135px] lg:min-h-[300px] lg:pb-20"
+            className="w-auto h-auto lg:h-[68vh] max-h-[260px] lg:max-h-[96%] min-h-[135px] lg:min-h-[400px] lg:pb-16"
           />
         </motion.div>
       </div>
