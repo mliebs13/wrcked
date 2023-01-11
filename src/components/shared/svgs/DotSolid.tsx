@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, SVGProps } from "react";
 
-const DotSolid: FC = () => {
+const DotSolid: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       viewBox="0 0 4 4"

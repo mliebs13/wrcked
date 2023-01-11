@@ -16,18 +16,18 @@ const createPaymentHandler = async (
         return res.status(400).json({ message: "Invalid payload" });
       }
 
-      const productFromServer = await sanityClient.fetch(
+      const product = await sanityClient.fetch(
         groq`*[_type == "product" && _id == $id][0]`,
         {
           id,
         }
       );
 
-      if (!productFromServer) {
+      if (!product) {
         return res.status(404).json({ message: "Product not found" });
       }
 
-      const total = productFromServer.price * quantity * 100;
+      const total = product.price * quantity * 100;
 
       const paymentIntent = await stripe.paymentIntents.create({
         amount: total,
@@ -35,10 +35,10 @@ const createPaymentHandler = async (
         payment_method_types: ["card"],
         metadata: {
           id,
-          name: productFromServer.name,
-          price: productFromServer.price,
+          name: product.name,
+          price: product.price,
           quantity,
-          image: getSanityImageUrl(productFromServer.image as any),
+          image: getSanityImageUrl(product.image as any),
         },
       });
 

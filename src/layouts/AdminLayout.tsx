@@ -151,7 +151,7 @@ const AdminLayout: FC<AdminLayoutProps> = ({
               </ul>
 
               <Button
-                className="w-[90%] min-h-[56px] text-base font-bold px-2 py-3"
+                className="w-[90%] min-h-[56px] max-w-[300px] text-base font-bold px-2 py-3"
                 onClick={() => {
                   Cookies.remove("wrcked-a-t");
                   router.push("/22/admin/login");

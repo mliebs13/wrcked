@@ -19,9 +19,9 @@ import { formatPrice } from "@src/utils";
 import Spinner from "@src/components/shared/Spinner";
 import Tooltip from "@src/components/ui/Tooltip";
 import Toast from "@src/components/ui/Toast";
+import useToast from "@src/hooks/useToast";
 
 import "react-datepicker/dist/react-datepicker.css";
-import useToast from "@src/hooks/useToast";
 
 const Orders: NextPageWithLayout = () => {
   const [loading, setLoading] = useState(false);
@@ -206,14 +206,27 @@ const Orders: NextPageWithLayout = () => {
                             {username}
                           </td>
                           <td className="p-4 text-sm text-primary text-center">
-                            <Link
-                              className="text-primary underline"
-                              href={`/22/admin/orders/${id}`}
-                              target="_blank"
-                              title="More details"
-                            >
-                              {id}
-                            </Link>
+                            <Tooltip
+                              content={
+                                <span
+                                  className={classNames(
+                                    "flex flex-col items-center text-primary text-sm",
+                                    spaceMono.className
+                                  )}
+                                >
+                                  More details
+                                </span>
+                              }
+                              trigger={
+                                <Link
+                                  className="text-primary underline"
+                                  href={`/22/admin/orders/${id}`}
+                                  target="_blank"
+                                >
+                                  {id}
+                                </Link>
+                              }
+                            />
                           </td>
                           <td className="p-4 text-sm text-primary text-center">{`${country}, ${state}, ${city}, ${postalCode}, ${line1}`}</td>
                           <td className="p-4 text-sm text-primary text-center">
@@ -249,12 +262,7 @@ const Orders: NextPageWithLayout = () => {
                                   </div>
                                 }
                                 content={
-                                  <div
-                                    className={classNames(
-                                      "flex flex-col items-center text-primary text-sm p-3",
-                                      spaceMono.className
-                                    )}
-                                  >
+                                  <div>
                                     <div className="flex items-center mb-2.5">
                                       <button
                                         className="mr-3 disabled:cursor-not-allowed"

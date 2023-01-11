@@ -2,10 +2,8 @@ import { NextApiRequest } from "next";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
-import { google } from "googleapis";
 import { prisma } from "../../lib/prisma";
 import { Admin } from "@prisma/client";
-import orderNotification from "@src/templates/orderNotification";
 
 export type LoginResult = {
   admin?: Partial<Admin>;
