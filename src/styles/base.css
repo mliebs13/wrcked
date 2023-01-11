@@ -20,6 +20,7 @@
   --box-width: 320px;
   --box-height: 64px;
   --base-padding: 2.5rem;
+  --side-width: 218px;
   --mobile-rule: none;
   --desktop-rule: none;
 }
@@ -321,6 +322,12 @@ input:focus,
 
   html {
     color-scheme: dark;
+  }
+}
+
+@media screen and (min-width: 2160px) {
+  :root {
+    --side-width: 258px;
   }
 }
 
