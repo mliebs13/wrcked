@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import groq from "groq";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
-import Logo from "@components/shared/Logo";
 import { Product as ProductType } from "@src/types";
 import { getSanityImageUrl } from "@src/utils";
 import sanityClient from "@src/config/sanity";
@@ -141,8 +140,8 @@ const Product = ({
                     </AltButton>
 
                     {/* product details */}
-                    <div className="w-full min-h-[250px] flex flex-col bg-lightGray border-2 border-primary shadow-block p-6 mb-2">
-                      <div className="mb-7 ml-4    lg:ml-6">
+                    <div className="w-full min-h-[360px] lg:min-h-[420px] flex flex-col bg-lightGray border-2 border-primary shadow-block p-6 mb-2">
+                      <div className="mb-7 ml-4 lg:ml-6">
                         {/* <Logo size="lg" color="gray" /> */}
                         <p className="text-4xl font-bold uppercase tracking-wide">
                           {product.name}
