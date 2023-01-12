@@ -104,7 +104,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         <div className="w-[var(--box-width)] bg-secondary p-0.5 -mt-[1px] z-1" />
 
         {/* 'buy now' button & navigation - 25% 60% 25% */}
-        <div className="flex items-center w-[var(--box-width)] h-[var(--box-height)]">
+        <div className="relative flex items-center w-[var(--box-width)] h-[var(--box-height)]">
+          {/* <div className="absolute left-[-50vw] bottom-1/2 translate-y-1/4 w-[calc(500vw)] h-0.5 bg-primary" /> */}
           <IconButton
             className="h-full w-[var(--box-height)] p-3 disabled:cursor-not-allowed"
             disabled={index === 0}
@@ -122,12 +123,10 @@ const ProductDetails: FC<ProductDetailsProps> = ({
           <AltButton
             className="relative flex-1 h-full w-auto text-lg font-bold mx-[0.275rem] disabled:cursor-not-allowed"
             onClick={() =>
-              // isAvailable &&
               typeof handleBuy === "string"
                 ? router.push(handleBuy)
                 : handleBuy(true)
             }
-            // disabled={!isAvailable}
           >
             {/* line through */}
             {!isAvailable && (
