@@ -24,21 +24,21 @@ const ProductImages: FC<ProductImagesProps> = ({
   const { width } = useWindowSize();
 
   return (
-    <div className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[1640px] h-full flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 ml-auto lg:ml-0 mr-auto">
-      <div className="flex flex-[0.8] sm:flex-[0.6] lg:flex-[0.825] h-full lg:max-h-[650px] max-w-[256px] lg:max-w-full items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-4 -lg:mr-4">
-        <motion.div
-          key={gif}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() =>
-            typeof handleClick === "string"
-              ? router.push(handleClick)
-              : handleClick(true)
-          }
-          className="lg:mr-16"
-        >
-          {width >= breakpoints.lg && (
+    <div className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[1640px] h-full flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 ml-auto mx-auto">
+      <div className="flex flex-[0.8] sm:flex-[0.6] lg:flex-[0.825] h-full lg:max-h-[650px] max-w-[256px] lg:max-w-full items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-0 lg:mr-0">
+        {width >= breakpoints.lg && (
+          <motion.div
+            key={gif}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() =>
+              typeof handleClick === "string"
+                ? router.push(handleClick)
+                : handleClick(true)
+            }
+            className="lg:mr-16"
+          >
             <Image
               src={gif}
               alt="product gif"
@@ -46,8 +46,8 @@ const ProductImages: FC<ProductImagesProps> = ({
               height={350}
               className="hidden lg:block w-auto h-[46vh] max-h-[395px] lg:min-h-[250px]"
             />
-          )}
-        </motion.div>
+          </motion.div>
+        )}
         <motion.div
           key={image}
           initial={{ opacity: 0 }}
@@ -70,7 +70,7 @@ const ProductImages: FC<ProductImagesProps> = ({
         </motion.div>
       </div>
 
-      <div className="flex flex-[0.2] lg:flex-[0.175] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+28px)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-10">
+      <div className="bar flex flex-[0.2] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+28px)] lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))] z-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

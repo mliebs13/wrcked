@@ -20,7 +20,6 @@
   --box-width: 320px;
   --box-height: 64px;
   --base-padding: 2.5rem;
-  --side-width: 218px;
   --mobile-rule: none;
   --desktop-rule: none;
 }
@@ -325,9 +324,15 @@ input:focus,
   }
 }
 
-@media screen and (min-width: 2160px) {
-  :root {
-    --side-width: 258px;
+@media screen and (min-width: 960px) {
+  .bar {
+    flex: 0.15 !important;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .bar {
+    flex: 0.17 !important;
   }
 }
 

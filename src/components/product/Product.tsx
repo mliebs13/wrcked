@@ -280,7 +280,7 @@ const Product: FC<ProductProps> = ({
           </p>
         )}
 
-        <Nav className="w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[1640px] mt-6 lg:ml-[218px] 2xl:ml-[258px]" />
+        <Nav className="lg:pl-32 mt-6" />
       </div>
     </div>
   );
