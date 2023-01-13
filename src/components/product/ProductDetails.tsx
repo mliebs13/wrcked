@@ -39,8 +39,55 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         "absolute top-0 w-full items-center justify-center text-primary px-10"
       )}
     >
-      <div className="lg:w-fit absolute top-[calc(-1*(30px+var(--box-height)/2))] left-1/2 lg:left-[calc(var(--base-padding)+(var(--logo-width)-var(--box-width))/2)] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
+      <div className="lg:w-fit absolute top-[calc(-1*(30px+var(--box-height)/2))] lg:top-0 left-1/2 lg:left-[calc(var(--side-width)-(var(--box-width)/2))] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
         {/* angle brackets pattern */}
+        <span className="w-fit absolute -top-[33px] left-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary -translate-x-1/4 rotate-90 pointer-events-none">
+          <svg
+            viewBox="0 0 30 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 sm:w-5 h-4 sm:h-5"
+          >
+            <line
+              x1="30"
+              y1="1"
+              y2="1"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+            <line
+              x1="29"
+              y1="31"
+              x2="29"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+          </svg>
+        </span>
+        <span className="absolute -top-[33px] right-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary translate-x-1/4 rotate-180 pointer-events-none">
+          <svg
+            viewBox="0 0 30 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 sm:w-5 h-4 sm:h-5"
+          >
+            <line
+              x1="30"
+              y1="1"
+              y2="1"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+            <line
+              x1="29"
+              y1="31"
+              x2="29"
+              className="stroke-primary"
+              strokeWidth="2"
+            />
+          </svg>
+        </span>
+
         <span className="w-fit absolute -bottom-[33px] left-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary -translate-x-1/4 pointer-events-none">
           <svg
             viewBox="0 0 30 31"
@@ -105,7 +152,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
 
         {/* 'buy now' button & navigation - 25% 60% 25% */}
         <div className="relative flex items-center w-[var(--box-width)] h-[var(--box-height)]">
-          {/* <div className="absolute left-[-50vw] bottom-1/2 translate-y-1/4 w-[calc(500vw)] h-0.5 bg-primary" /> */}
+          <div className="absolute left-[-50vw] bottom-1/2 translate-y-1/4 w-[calc(500vw)] h-[1.5px] bg-primary" />
           <IconButton
             className="h-full w-[var(--box-height)] p-3 disabled:cursor-not-allowed"
             disabled={index === 0}

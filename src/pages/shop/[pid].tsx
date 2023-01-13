@@ -38,11 +38,8 @@ const Product = ({
     <NotFound />
   ) : (
     <main
-      className="relative w-full bg-secondary bg-dots-primary text-primary overflow-x-hidden"
+      className="relative w-full bg-secondary bg-dots-primary bg-base lg:bg-none text-primary overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
-      style={{
-        backgroundSize: "42px",
-      }}
     >
       <Head>
         <title>Shop - Wrcked</title>

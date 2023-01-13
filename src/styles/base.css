@@ -15,13 +15,14 @@
   --lightGray: #f5f5f5;
   --darkGray: #5c5c5e;
 
-  --logo-width: 350px;
-  --header-height: 136px;
+  --logo-width: 180px;
+  --header-height: auto;
   --box-width: 320px;
   --box-height: 64px;
   --base-padding: 2.5rem;
   --mobile-rule: none;
   --desktop-rule: none;
+  --side-width: 270px;
 }
 
 * {
@@ -339,6 +340,7 @@ input:focus,
 @media screen and (min-width: 1536px) {
   :root {
     --base-padding: 5rem;
+    --side-width: 350px;
   }
 }
 

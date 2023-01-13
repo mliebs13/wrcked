@@ -6,6 +6,9 @@ module.exports = {
         lg: "960px",
         "3xl": "2160px",
       },
+      backgroundSize: {
+        base: "42px",
+      },
       fontSize: {
         xs: "10px",
         sm: "12px",
