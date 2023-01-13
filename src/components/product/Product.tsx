@@ -66,8 +66,8 @@ const Product: FC<ProductProps> = ({
             {/* more details */}
             <div className="w-full h-full max-h-[760px] flex justify-center items-center self-start lg:w-[var(--side-width)] lg:min-w-[var(--side-width)] px-4 lg:mt-0 pt-4 pb-5">
               {width >= breakpoints.lg && (
-                <div className="hidden lg:flex self-start max-h-[760px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height)-24px)] bg-secondary lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height)-24px)] px-[3.5px] mr-4 z-10">
-                  <Rule className="h-full w-auto bg-secondary" />
+                <div className="hidden lg:flex self-start max-h-[760px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height)-24px)] bg-secondary lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height)-24px)] mr-4 z-10">
+                  <Rule className="h-full w-auto bg-secondary  px-0.5" />
                 </div>
               )}
 

@@ -85,7 +85,7 @@ const ProductImages: FC<ProductImagesProps> = ({
           exit={{ opacity: 0 }}
           className="h-full min-w-fit"
         >
-          <Rule className="rule-desktop w-auto h-full bg-secondary px-[3.5px] rotate-180" />
+          <Rule className="rule-desktop w-auto h-full bg-secondary px-0.5 rotate-180" />
           <RuleMobile className="rule-mobile w-auto h-full bg-secondary" />
         </motion.div>
       </div>
