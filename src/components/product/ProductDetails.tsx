@@ -148,7 +148,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         </div>
 
         {/* spacing */}
-        <div className="w-[var(--box-width)] bg-secondary p-0.5 -mt-[1px] z-1" />
+        <div className="w-[var(--box-width)] bg-secondary p-0.5 -mt-[1.5px] z-1" />
 
         {/* 'buy now' button & navigation - 25% 60% 25% */}
         <div className="relative flex items-center w-[var(--box-width)] h-[var(--box-height)]">

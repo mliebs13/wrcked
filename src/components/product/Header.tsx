@@ -19,7 +19,7 @@ const Header: FC<HeaderProps> = ({ productName }) => {
         <Logo size="lg" />
 
         {productName && (
-          <p className="absolute bottom-8 left-1/2 text-sm text-primary -translate-y-1/4">
+          <p className="absolute bottom-8 left-1/2 text-sm text-primary capitalize -translate-y-1/4">
             {productName}
           </p>
         )}

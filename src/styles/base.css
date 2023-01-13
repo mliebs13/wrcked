@@ -23,6 +23,7 @@
   --mobile-rule: none;
   --desktop-rule: none;
   --side-width: 270px;
+  --name-box-height: 28px;
 }
 
 * {
@@ -341,6 +342,7 @@ input:focus,
   :root {
     --base-padding: 5rem;
     --side-width: 350px;
+    --box-width: 350px;
   }
 }
 

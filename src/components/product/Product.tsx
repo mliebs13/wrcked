@@ -7,9 +7,9 @@ import { SanityImage } from "@src/types";
 import { breakpoints, getSanityImageUrl } from "@src/utils";
 import Nav from "@src/components/shared/Nav";
 import { spaceMono } from "@src/config/fonts";
-import Rule from "@src/components/shared/svgs/Rule";
 import Logo from "@src/components/shared/Logo";
 import useWindowDimensions from "@src/hooks/useWindowDimensions";
+import Rule from "../shared/svgs/Rule";
 
 type ProductProps = {
   name: string;
@@ -52,7 +52,7 @@ const Product: FC<ProductProps> = ({
 
       <div className="relative flex flex-col justify-start bg-none lg:bg-dots-primary bg-base">
         {total >= 1 ? (
-          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[500px] lg:max-h-[840px] lg:h-[82vh] pt-[calc(var(--box-height)/2)] lg:pt-[calc(var(--box-height)+28px)]">
+          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[500px] lg:max-h-[840px] lg:h-[82vh] pt-[calc(var(--box-height)/2)] lg:pt-[calc(var(--box-height)+var(--name-box-height))]">
             <ProductDetails
               price={price}
               name={name}
@@ -66,8 +66,8 @@ const Product: FC<ProductProps> = ({
             {/* more details */}
             <div className="w-full h-full max-h-[760px] flex justify-center items-center self-start lg:w-[var(--side-width)] lg:min-w-[var(--side-width)] px-4 lg:mt-0 pt-4 pb-5">
               {width >= breakpoints.lg && (
-                <div className="hidden lg:flex self-start max-h-[760px] lg:h-[calc(100%+2.5rem+var(--box-height)+28px-1.25rem)] bg-secondary lg:-mt-[calc(2.5rem+var(--box-height)+28px-1.25rem)] px-[3.5px] mr-4 z-10">
-                  <Rule className="h-full w-auto bg-secondary rotate-180" />
+                <div className="hidden lg:flex self-start max-h-[760px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height)-24px)] bg-secondary lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height)-24px)] px-[3.5px] mr-4 z-10">
+                  <Rule className="h-full w-auto bg-secondary" />
                 </div>
               )}
 

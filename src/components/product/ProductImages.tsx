@@ -70,12 +70,12 @@ const ProductImages: FC<ProductImagesProps> = ({
         </motion.div>
       </div>
 
-      <div className="bar flex flex-[0.2] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+28px)] lg:h-[calc(100%+2.5rem+var(--box-height)+28px)]- lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+28px))]- lg:-mt-[calc(2.5rem+var(--box-height)+28px)] z-10">
+      <div className="bar flex flex-[0.2] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))]- lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+var(--name-box-height)))]- lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height))] z-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="min-w-fit lg:min-w-[85px] lg:max-w-[85px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(28px+var(--box-height)/2+1rem)] mr-3.5"
+          className="min-w-fit lg:min-w-[85px] lg:max-w-[85px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(var(--name-box-height)+var(--box-height)/2+1rem)] mr-3.5"
         >
           <p className="w-max">{verticalDimension}</p>
         </motion.div>
@@ -85,7 +85,7 @@ const ProductImages: FC<ProductImagesProps> = ({
           exit={{ opacity: 0 }}
           className="h-full min-w-fit"
         >
-          <Rule className="rule-desktop w-auto h-full bg-secondary px-[3.5px]" />
+          <Rule className="rule-desktop w-auto h-full bg-secondary px-[3.5px] rotate-180" />
           <RuleMobile className="rule-mobile w-auto h-full bg-secondary" />
         </motion.div>
       </div>
