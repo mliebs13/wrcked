@@ -39,9 +39,9 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         "absolute top-0 w-full items-center justify-center text-primary px-10"
       )}
     >
-      <div className="lg:w-fit absolute top-[calc(-1*(30px+var(--box-height)/2))] lg:top-0 left-1/2 lg:left-[calc(var(--side-width)-(var(--box-width)/2))] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
+      <div className="lg:w-fit absolute -top-[calc(30px+var(--box-height)/2)] lg:-top-[(calc(var(--box-height)/2)+var(--name-box-height))] left-1/2 lg:left-[calc(var(--side-width)-(var(--box-width)/2))] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
         {/* angle brackets pattern */}
-        <span className="w-fit absolute -top-[33px] left-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary -translate-x-1/4 rotate-90 pointer-events-none">
+        {/* <span className="w-fit absolute -top-[33px] left-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary -translate-x-1/4 rotate-90 pointer-events-none">
           <svg
             viewBox="0 0 30 31"
             fill="none"
@@ -86,7 +86,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
               strokeWidth="2"
             />
           </svg>
-        </span>
+        </span> */}
 
         <span className="w-fit absolute -bottom-[33px] left-[calc(var(--box-width)/2-25px)] hidden lg:block bg-secondary -translate-x-1/4 pointer-events-none">
           <svg
@@ -152,7 +152,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({
 
         {/* 'buy now' button & navigation - 25% 60% 25% */}
         <div className="relative flex items-center w-[var(--box-width)] h-[var(--box-height)]">
-          <div className="absolute left-[-50vw] bottom-1/2 translate-y-1/4 w-[calc(500vw)] h-[1.5px] bg-primary" />
+          <div className="absolute left-[-50vw] bottom-1/2 w-[calc(500vw)] h-0.5 bg-primary border-none outline-none translate-y-1/4" />
+
           <IconButton
             className="h-full w-[var(--box-height)] p-3 disabled:cursor-not-allowed"
             disabled={index === 0}

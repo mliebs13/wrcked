@@ -7,7 +7,6 @@ import { SanityImage } from "@src/types";
 import { breakpoints, getSanityImageUrl } from "@src/utils";
 import Nav from "@src/components/shared/Nav";
 import { spaceMono } from "@src/config/fonts";
-import Logo from "@src/components/shared/Logo";
 import useWindowDimensions from "@src/hooks/useWindowDimensions";
 import Rule from "../shared/svgs/Rule";
 
@@ -46,13 +45,13 @@ const Product: FC<ProductProps> = ({
       )}
     >
       {/* vertical line */}
-      <div className="fixed top-0 left-[var(--side-width)] w-[1.5px] min-h-screen hidden lg:block bg-primary" />
+      <div className="fixed top-0 left-[var(--side-width)] w-0.5 min-h-screen hidden lg:block bg-primary" />
 
-      <Header productName={name} />
+      <Header />
 
       <div className="relative flex flex-col justify-start bg-none lg:bg-dots-primary bg-base">
         {total >= 1 ? (
-          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[500px] lg:max-h-[840px] lg:h-[82vh] pt-[calc(var(--box-height)/2)] lg:pt-[calc(var(--box-height)+var(--name-box-height))]">
+          <div className="w-full flex flex-col-reverse lg:flex-row min-h-fit lg:min-h-[500px] lg:max-h-[840px] lg:h-[75vh] pt-[calc(var(--box-height)/2)] lg:pt-[calc(var(--box-height)/2)]">
             <ProductDetails
               price={price}
               name={name}
@@ -66,7 +65,7 @@ const Product: FC<ProductProps> = ({
             {/* more details */}
             <div className="w-full h-full max-h-[760px] flex justify-center items-center self-start lg:w-[var(--side-width)] lg:min-w-[var(--side-width)] px-4 lg:mt-0 pt-4 pb-5">
               {width >= breakpoints.lg && (
-                <div className="hidden lg:flex self-start max-h-[760px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height)-24px)] bg-secondary lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height)-24px)] mr-4 z-10">
+                <div className="hidden lg:flex self-start max-h-[760px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height)-24px)] bg-secondary lg:-mt-[calc((2.5rem+var(--box-height)+var(--name-box-height))-24px)] mr-4 z-10">
                   <Rule className="h-full w-auto bg-secondary  px-0.5" />
                 </div>
               )}
@@ -297,9 +296,9 @@ const Product: FC<ProductProps> = ({
       <div className="relative w-full">
         <Nav className="mt-6" />
 
-        <div className="hidden lg:block absolute top-1/2 -translate-y-1/4 right-[var(--base-padding)]">
+        {/* <div className="hidden lg:block absolute top-1/2 -translate-y-1/4 right-[var(--base-padding)]">
           <Logo size="lg" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

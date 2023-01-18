@@ -44,7 +44,7 @@ const ProductImages: FC<ProductImagesProps> = ({
               alt="product gif"
               width={350}
               height={350}
-              className="hidden lg:block w-auto h-[46vh] max-h-[395px] lg:min-h-[250px] -mb-11"
+              className="hidden lg:block w-auto h-[46vh] max-h-[395px] lg:min-h-[250px] -mb-9"
             />
           </motion.div>
         )}
@@ -65,12 +65,12 @@ const ProductImages: FC<ProductImagesProps> = ({
             alt="product image"
             width={519}
             height={550}
-            className="w-auto h-auto lg:h-[70vh] max-h-[260px] lg:max-h-[96%] min-h-[135px] lg:min-h-[400px] lg:pb-16"
+            className="w-auto h-auto lg:h-[70vh] max-h-[260px] lg:max-h-[96%] min-h-[135px] lg:min-h-[400px] lg:pb-4"
           />
         </motion.div>
       </div>
 
-      <div className="bar flex flex-[0.2] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))]- lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc((2.5rem+var(--box-height)+var(--name-box-height)))]- lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height))] z-10">
+      <div className="bar flex flex-[0.2] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))]- lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height))] z-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

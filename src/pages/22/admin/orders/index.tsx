@@ -262,7 +262,12 @@ const Orders: NextPageWithLayout = () => {
                                   </div>
                                 }
                                 content={
-                                  <div>
+                                  <div
+                                    className={classNames(
+                                      spaceMono.className,
+                                      "flex flex-col items-center text-sm text-primary"
+                                    )}
+                                  >
                                     <div className="flex items-center mb-2.5">
                                       <button
                                         className="mr-3 disabled:cursor-not-allowed"
