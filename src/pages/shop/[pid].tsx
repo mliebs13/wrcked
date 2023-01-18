@@ -16,6 +16,7 @@ import RuleHorizontal from "@src/components/shared/svgs/RuleHorizontal";
 import ProductDetails from "@src/components/product/Product";
 import { spaceMono } from "@src/config/fonts";
 import NotFound from "@src/components/404/NotFound";
+import Logo from "@src/components/shared/Logo";
 
 const Product = ({
   products,
@@ -138,15 +139,15 @@ const Product = ({
 
                     {/* product details */}
                     <div className="w-full min-h-[360px] lg:min-h-[420px] flex flex-col bg-lightGray border-2 border-primary shadow-block p-6 mb-2">
-                      <div className="mb-7 ml-4 lg:ml-6">
-                        {/* <Logo size="lg" color="gray" /> */}
-                        <p className="text-4xl font-bold uppercase tracking-wide">
+                      <div className="mb-7">
+                        <Logo size="lg" color="gray" />
+                        <p className="text-4xl font-bold uppercase tracking-wide -mt-6 lg:-mt-7 ml-6">
                           {product.name}
                         </p>
-                        <p className="text-sm font-bold uppercase ml-2">
+                        <p className="text-sm font-bold uppercase ml-8">
                           LITHOGRAPH
                         </p>
-                        <p className="text-xs text-darkGray font-bold uppercase ml-2 -mb-1">
+                        <p className="text-xs text-darkGray font-bold uppercase ml-8 -mb-1">
                           CAPSULE A. COLLECTION A.
                         </p>
                       </div>
