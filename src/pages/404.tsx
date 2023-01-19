@@ -5,5 +5,3 @@ const NotFoundPage = () => {
 };
 
 export default NotFoundPage;
-
-// 404

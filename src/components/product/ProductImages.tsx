@@ -44,7 +44,7 @@ const ProductImages: FC<ProductImagesProps> = ({
               alt="product gif"
               width={350}
               height={350}
-              className="hidden lg:block w-auto h-[46vh] max-h-[395px] lg:min-h-[250px] -mb-9"
+              className="hidden lg:block w-auto h-[46vh] max-h-[395px] lg:min-h-[250px] -mb-10"
             />
           </motion.div>
         )}
