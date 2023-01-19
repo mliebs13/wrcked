@@ -88,6 +88,10 @@ input:focus,
 }
 
 .pay-input.error {
+  box-shadow: 0 0 0 2px var(--danger);
+}
+
+.pay-input.error {
   color: var(--danger);
 }
 

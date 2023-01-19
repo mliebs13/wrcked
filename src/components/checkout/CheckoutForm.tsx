@@ -34,12 +34,24 @@ const CheckoutForm: FC<CheckoutFormType> = ({
   const [addressLoadError, setAddressLoadError] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const { openToast, toastContent, setOpen, open, toastType } = useToast();
 
   const handleCardPayment = async () => {
     if (stripe && elements) {
+      if (!agreedToTerms) {
+        openToast(
+          "You must agree to our terms before proceeding with payment",
+          "error"
+        );
+
+        return document.querySelector(".summary")?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+
       if (email.trim() === "") {
         setEmailError("Your email is incomplete.");
         return openToast("Your email is incomplete.", "error");
@@ -56,17 +68,6 @@ const CheckoutForm: FC<CheckoutFormType> = ({
 
       if (emailError) {
         return openToast(emailError, "error");
-      }
-
-      if (!agreedToTerms) {
-        openToast(
-          "You must agree to our terms before proceeding with payment",
-          "error"
-        );
-
-        return document.querySelector(".summary")?.scrollIntoView({
-          behavior: "smooth",
-        });
       }
 
       try {
@@ -199,6 +200,8 @@ const CheckoutForm: FC<CheckoutFormType> = ({
                 setEmail(e.target.value);
               }}
               onBlur={() => {
+                setIsFocused(false);
+
                 emailError && setEmailError(null);
 
                 if (email.trim() === "") {
@@ -215,6 +218,15 @@ const CheckoutForm: FC<CheckoutFormType> = ({
               onInput={() => {
                 emailError && setEmailError(null);
               }}
+              onFocus={() => setIsFocused(true)}
+              style={
+                isFocused
+                  ? {
+                      boxShadow:
+                        "rgba(0, 0, 0, 0.25) 0px 0px 0px 3px, rgba(0, 0, 0, 0.5) 0px 0px 0px 1px",
+                    }
+                  : {}
+              }
             />
             {emailError && (
               <span

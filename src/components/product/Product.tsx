@@ -40,7 +40,7 @@ const Product: FC<ProductProps> = ({
   return (
     <div
       className={classNames(
-        "Product relative w-full min-h-screen flex flex-col justify-start pb-10",
+        "Product relative w-full min-h-screen flex flex-col justify-start pb-8",
         spaceMono.className
       )}
     >
