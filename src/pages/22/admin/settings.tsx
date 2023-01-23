@@ -71,7 +71,7 @@ const Settings: NextPageWithLayout = () => {
   };
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
+    <main className="w-full min-h-[calc(100vh-var(--admin-nav-height))] bg-lightGray text-primary flex items-start">
       <Toast
         content={toastContent}
         open={open}
@@ -163,7 +163,7 @@ const Settings: NextPageWithLayout = () => {
               className="w-1/2 min-w-[240px] max-w-[320px] h-14 font-bold text-base tracking-wide mx-auto py-4 px-3"
               onClick={handleSubmit}
             >
-              {loading ? <Spinner size="sm" /> : "EDIT"}
+              {loading ? <Spinner size="md" /> : "EDIT"}
             </Button>
           </form>
         </div>

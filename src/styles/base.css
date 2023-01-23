@@ -24,6 +24,9 @@
   --desktop-rule: none;
   --side-width: 270px;
   --name-box-height: 28px;
+  --admin-nav-height: 90px;
+
+  color-scheme: only light;
 }
 
 * {

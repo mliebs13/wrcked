@@ -18,7 +18,7 @@ const handleResolveNotif = async (
     const id = req.query?.id?.toString();
 
     if (!id) {
-      return res.status(500).json({
+      return res.status(400).json({
         message: "Invalid payload",
       });
     }
@@ -35,14 +35,17 @@ const handleResolveNotif = async (
     console.log("updated notif: ", updatedNotif);
 
     if (updatedNotif) {
-      return res.status(200).json({ success: true });
+      return res.status(200).json(updatedNotif);
     } else {
-      return res.status(500).json({ message: "Failed to retrieve order" });
+      return res
+        .status(500)
+        .json({ message: "Failed to update noification", success: false });
     }
   } catch (err: any) {
     console.log("error occurred: ", err.message);
     res.status(500).json({
       message: "Server error",
+      success: false,
     });
   }
 };

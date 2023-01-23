@@ -36,7 +36,7 @@ const Admin: NextPageWithLayout = () => {
   }, []);
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
+    <main className="w-full min-h-[calc(100vh-var(--admin-nav-height))] bg-lightGray text-primary flex items-start">
       <div className="w-full h-full max-w-8xl flex flex-col items-center mx-auto py-8 sm:py-12 px-3 sm:px-10 2xl:px-20 overflow-auto">
         {products ? (
           products.length >= 1 ? (

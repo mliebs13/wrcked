@@ -72,7 +72,7 @@ const Orders: NextPageWithLayout = () => {
   }, [selected, page]);
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
+    <main className="w-full min-h-[calc(100vh-var(--admin-nav-height))] bg-lightGray text-primary flex items-start">
       <Toast
         content={toastContent}
         open={open}

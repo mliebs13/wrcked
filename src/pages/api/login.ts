@@ -4,7 +4,7 @@ import { handleLogin } from "@src/lib/utils";
 
 const login = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const secretKey = process.env.KEY || "secret";
+    const secretKey = process.env.KEY ?? "secret";
     const { username, password } = req.body;
 
     const result = await handleLogin({ username, password });

@@ -55,9 +55,6 @@ const Toast: FC<ToastProps> = ({
         >
           {content}
         </RadixToast.Title>
-
-        {/* <RadixToast.Description asChild>description</RadixToast.Description> */}
-
         <RadixToast.Action
           className="ToastAction"
           asChild

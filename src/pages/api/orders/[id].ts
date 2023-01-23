@@ -2,7 +2,7 @@ import { verifyAccess } from "@src/lib/utils";
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../lib/prisma";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const id = req.query?.id?.toString();
 
@@ -68,8 +68,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     console.log("error occurred: ", err.message);
     res.status(500).json({
       message: "Server error",
+      success: false,
     });
   }
 };
-
-export default handler;

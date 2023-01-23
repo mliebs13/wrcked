@@ -90,7 +90,7 @@ const Notifications: NextPageWithLayout = () => {
   }
 
   return (
-    <main className="w-full min-h-[calc(100vh-95px)] bg-lightGray text-primary flex items-start">
+    <main className="w-full min-h-[calc(100vh-var(--admin-nav-height))] bg-lightGray text-primary flex items-start">
       <div className="w-full flex flex-col items-center px-3 sm:px-10 py-8 sm:py-12 2xl:px-20">
         {notifs ? (
           notifs.length < 1 ? (

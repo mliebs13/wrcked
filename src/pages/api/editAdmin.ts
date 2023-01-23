@@ -10,13 +10,16 @@ const editAdmin = async (req: NextApiRequest, res: NextApiResponse) => {
     if (!authResult.admin) {
       return res.status(401).json({
         message: "Unauthorized request",
+        success: false,
       });
     }
 
     const { username, password, newPassword } = req.body;
 
     if (!username || !password || !newPassword) {
-      return res.status(400).json("Invalid payload");
+      return res
+        .status(400)
+        .json({ message: "Invalid payload", success: false });
     }
 
     const passwordIsCorrect = await bcrypt.compare(
@@ -26,6 +29,7 @@ const editAdmin = async (req: NextApiRequest, res: NextApiResponse) => {
     if (!passwordIsCorrect) {
       return res.status(401).json({
         message: "Incorrect login details",
+        success: false,
       });
     }
 
@@ -48,7 +52,7 @@ const editAdmin = async (req: NextApiRequest, res: NextApiResponse) => {
     if (admin) {
       return res.status(200).json({
         success: true,
-        data: { admin },
+        data: admin,
       });
     } else {
       return res.status(500).json({

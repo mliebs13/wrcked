@@ -27,10 +27,6 @@ export const getSanityImageUrl = (image: SanityImage): string => {
   return `https://cdn.sanity.io/images/t4jr7tcz/production/${ref}-${resolution}.${extension}`;
 };
 
-export const orderShippingDelimeter = "!#@**%";
-
-export const orderItemDelimeter = "*^#!#";
-
 export const breakpoints = {
   sm: 640,
   md: 768,
