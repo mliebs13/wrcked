@@ -65,7 +65,7 @@ const ProductImages: FC<ProductImagesProps> = ({
             alt="product image"
             width={519}
             height={550}
-            className="w-auto h-auto lg:h-[70vh] max-h-[260px] lg:max-h-[96%] min-h-[135px] lg:min-h-[400px] lg:pb-4"
+            className="w-auto h-auto lg:h-[70vh] max-h-[290px] lg:max-h-[96%] min-h-[135px] lg:min-h-[400px] lg:pb-4"
           />
         </motion.div>
       </div>

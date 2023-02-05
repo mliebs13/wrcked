@@ -2,6 +2,7 @@ import { NextApiRequest } from "next";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
+import { google } from "googleapis";
 import { prisma } from "../../lib/prisma";
 import { Admin } from "@prisma/client";
 
@@ -99,6 +100,20 @@ export const sendMail = async (payload: {
   html: string;
 }): Promise<{ success: boolean; message: string }> => {
   try {
+    const OAuth2 = google.auth.OAuth2;
+    const oauth2Client = new OAuth2(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      "https://developers.google.com/oauthplayground"
+    );
+
+    oauth2Client.setCredentials({
+      refresh_token: process.env.REFRESH_TOKEN,
+    });
+
+    const tokens = await oauth2Client.refreshAccessToken();
+    const accessToken = tokens?.credentials?.access_token ?? "";
+
     let transporter = nodemailer.createTransport(
       payload?.from && payload?.pass
         ? {
@@ -121,7 +136,7 @@ export const sendMail = async (payload: {
               clientId: process.env.CLIENT_ID,
               clientSecret: process.env.CLIENT_SECRET,
               refreshToken: process.env.REFRESH_TOKEN,
-              accessToken: process.env.ACCESS_TOKEN,
+              accessToken,
             },
           }
     );
