@@ -22,7 +22,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return getLayout(
     <LocomotiveScrollProvider
       options={{
-        // smooth: true,
+        smooth: true,
         smoothMobile: true,
         mobile: {
           smooth: true,
