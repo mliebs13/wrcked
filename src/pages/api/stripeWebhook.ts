@@ -8,7 +8,8 @@ import { prisma } from "@src/lib/prisma";
 import { sendMail } from "@src/lib/utils";
 import orderNotification from "@src/templates/orderNotification";
 import { formatPrice } from "@src/utils";
-import orderSummary2 from "@src/templates/orderSummary2";
+// import orderSummary2 from "@src/templates/orderSummary2";
+import orderSummary3 from "@src/templates/orderSummary3";
 
 const fulfillOrder = async (data: Stripe.Event.Data) => {
   try {
@@ -148,7 +149,7 @@ const fulfillOrder = async (data: Stripe.Event.Data) => {
             locale: "en-US",
           }
         )}`,
-      */ orderSummary2(
+      */ orderSummary3(
         receipt_email,
         orderId,
         formatPrice(+amount / 100),

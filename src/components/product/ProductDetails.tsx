@@ -38,6 +38,10 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         spaceMono.className,
         "absolute top-0 w-full items-center justify-center text-primary px-10"
       )}
+      data-scroll
+      data-scroll-speed="5"
+      data-scroll-sticky
+      data-scroll-target="#stick"
     >
       <div className="lg:w-fit absolute -top-[calc(30px+var(--box-height)/2)] lg:-top-[(calc(var(--box-height)/2)+var(--name-box-height))] left-1/2 lg:left-[calc(var(--side-width)-(var(--box-width)/2))] -translate-x-1/2 lg:translate-x-0 flex flex-col items-start z-10">
         {/* angle brackets pattern */}

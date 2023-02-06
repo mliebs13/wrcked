@@ -33,6 +33,7 @@ module.exports = {
         gray: "var(--gray)",
         lightGray: "var(--lightGray)",
         darkGray: "var(--darkGray)",
+        opaqueWhite: "var(--opaqueWhite)",
       },
       boxShadow: {
         block: `4px 4px 0 var(--primary),3px 3px 0 var(--primary),2px 2px 0 var(--primary),1px 1px 0 var(--primary)`,

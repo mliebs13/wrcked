@@ -39,16 +39,26 @@ const Product: FC<ProductProps> = ({
 
   return (
     <div
+      id="stick"
       className={classNames(
-        "Product relative w-full min-h-screen flex flex-col justify-start pb-8",
+        "Product relative w-full min-h-screen flex flex-col justify-start",
         spaceMono.className
       )}
+      data-scroll-section
     >
       <div className="w-full h-full bg-none lg:bg-dots-primary bg-base">
         {/* vertical line */}
         <div className="fixed top-0 left-[var(--side-width)] w-0.5 min-h-screen hidden lg:block bg-primary" />
 
-        <Header />
+        <div
+          className="w-full"
+          data-scroll
+          data-scroll-speed="5"
+          data-scroll-sticky
+          data-scroll-target="#stick"
+        >
+          <Header />
+        </div>
 
         <div className="relative flex flex-col justify-start">
           {total >= 1 ? (
@@ -64,7 +74,7 @@ const Product: FC<ProductProps> = ({
               />
 
               {/* more details */}
-              <div className="w-full h-full max-h-[760px] flex justify-center items-center self-start lg:w-[var(--side-width)] lg:min-w-[var(--side-width)] px-4 lg:mt-0 pt-4 pb-5">
+              <div className="w-full h-full max-h-[760px] flex justify-center items-center self-start lg:w-[var(--side-width)] lg:min-w-[var(--side-width)] bg-opaqueWhite lg:bg-transparent px-4 lg:mt-0 pt-4 pb-0 lg:pb-5 z-20">
                 {width >= breakpoints.lg && (
                   <div className="hidden lg:flex self-start max-h-[760px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height)-24px)] bg-secondary lg:-mt-[calc((2.5rem+var(--box-height)+var(--name-box-height))-24px)] mr-4 z-10">
                     <Rule className="h-full w-auto bg-secondary  px-0.5" />
@@ -73,31 +83,31 @@ const Product: FC<ProductProps> = ({
 
                 <div>
                   <div className="hidden lg:block mb-12">
-                    <div className="w-fit bg-secondary flex items-center text-sm font-bold mb-2">
+                    <div className="w-fit lg:bg-secondary flex items-center text-sm font-bold mb-2">
                       <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                         IT
                       </div>
                       <span className="text-sm"> VU A</span>
                     </div>
-                    <div className="w-fit bg-secondary flex items-center text-sm font-bold mb-2">
+                    <div className="w-fit lg:bg-secondary flex items-center text-sm font-bold mb-2">
                       <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                         ENG
                       </div>
                       <span className="text-sm"> VU A</span>
                     </div>
-                    <div className="w-fit bg-secondary flex items-center text-sm font-bold mb-2">
+                    <div className="w-fit lg:bg-secondary flex items-center text-sm font-bold mb-2">
                       <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                         EST
                       </div>
                       <span className="text-sm"> VU A</span>
                     </div>
-                    <div className="w-fit bg-secondary flex items-center text-sm font-bold mb-2">
+                    <div className="w-fit lg:bg-secondary flex items-center text-sm font-bold mb-2">
                       <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                         DE
                       </div>
                       <span className="text-sm"> VU A</span>
                     </div>
-                    <div className="w-fit bg-secondary flex items-center text-sm font-bold">
+                    <div className="w-fit lg:bg-secondary flex items-center text-sm font-bold">
                       <div className="h-6 w-8 flex items-center justify-center rounded-[50%] border-primary border-2 mr-2">
                         KR
                       </div>
@@ -105,9 +115,9 @@ const Product: FC<ProductProps> = ({
                     </div>
                   </div>
 
-                  <div className="w-fit bg-secondary flex justify-start items-center lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-2 lg:mb-6">
+                  <div className="w-fit flex justify-start items-center lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-2 lg:mb-6">
                     {/* 1 */}
-                    <div className="mr-2">
+                    <div className="lg:bg-secondary mr-2">
                       <svg
                         viewBox="0 0 36 37"
                         fill="none"
@@ -140,7 +150,7 @@ const Product: FC<ProductProps> = ({
                     </div>
 
                     {/* 2 */}
-                    <div className="mr-2">
+                    <div className="lg:bg-secondary mr-2">
                       <svg
                         viewBox="0 0 37 36"
                         fill="none"
@@ -180,7 +190,7 @@ const Product: FC<ProductProps> = ({
                     </div>
 
                     {/* 3 */}
-                    <div className="mr-2">
+                    <div className="lg:bg-secondary mr-2">
                       <svg
                         viewBox="0 0 37 37"
                         fill="none"
@@ -203,7 +213,7 @@ const Product: FC<ProductProps> = ({
                     </div>
 
                     {/* 4 */}
-                    <div>
+                    <div className="lg:bg-secondary">
                       <svg
                         viewBox="0 0 36 37"
                         fill="none"
@@ -254,24 +264,24 @@ const Product: FC<ProductProps> = ({
                     </div>
                   </div>
 
-                  <div className="w-fit bg-secondary flex justify-start lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-4 lg:mb-6">
+                  <div className="w-fit lg:bg-secondary flex justify-start lg:justify-center text-left lg:text-center mr-auto lg:mr-0 mb-4 lg:mb-6">
                     <p
                       className={classNames(
                         "font-bold text-sm text-left text-primary"
                       )}
                     >
-                      <span className="bg-secondary">CONTENTS:</span>
+                      <span>CONTENTS:</span>
                       <br />
-                      <span className="bg-secondary">1(one) ORIGINAL</span>
+                      <span>1(one) ORIGINAL</span>
                       <br />
-                      <span className="bg-secondary">LITHOGRAPH</span>
+                      <span>LITHOGRAPH</span>
                     </p>
                   </div>
 
                   <div>
                     <p
                       className={classNames(
-                        "bg-secondary font-bold text-sm text-danger px-[1px]"
+                        "lg:bg-secondary font-bold text-sm text-danger px-[1px]"
                       )}
                     >
                       No Copies, No Duplicates.
@@ -295,12 +305,8 @@ const Product: FC<ProductProps> = ({
         </div>
       </div>
 
-      <div className="relative w-full">
-        <Nav className="mt-6" />
-
-        {/* <div className="hidden lg:block absolute top-1/2 -translate-y-1/4 right-[var(--base-padding)]">
-          <Logo size="lg" />
-        </div> */}
+      <div className="w-full bg-opaqueWhite lg:bg-transparent pt-11 lg:pt-6 pb-8 z-20">
+        <Nav />
       </div>
     </div>
   );

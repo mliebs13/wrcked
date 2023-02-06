@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import Script from "next/script";
@@ -9,7 +9,7 @@ import groq from "groq";
 import classNames from "classnames";
 import AltButton from "@components/ui/AltButton";
 import { Product as ProductType } from "@src/types";
-import { getSanityImageUrl } from "@src/utils";
+import { breakpoints, getSanityImageUrl } from "@src/utils";
 import sanityClient from "@src/config/sanity";
 import RuleVertical from "@src/components/shared/svgs/RuleVertical";
 import RuleHorizontal from "@src/components/shared/svgs/RuleHorizontal";
@@ -17,6 +17,9 @@ import ProductDetails from "@src/components/product/Product";
 import { spaceMono } from "@src/config/fonts";
 import NotFound from "@src/components/404/NotFound";
 import Logo from "@src/components/shared/Logo";
+import useWindowDimensions from "@src/hooks/useWindowDimensions";
+
+import "locomotive-scroll/dist/locomotive-scroll.css";
 
 const Product = ({
   products,
@@ -27,6 +30,8 @@ const Product = ({
     product ? products?.findIndex((p) => p._id === product._id) ?? 0 : 0
   );
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const ref = useRef(null);
+  const { width } = useWindowDimensions();
 
   const currentProduct = products?.[index];
   const isAvailable = (currentProduct?.quantity ?? 0) >= 1;
@@ -39,8 +44,10 @@ const Product = ({
     <NotFound />
   ) : (
     <main
+      ref={ref}
       className="relative w-full bg-secondary bg-dots-primary bg-base lg:bg-none text-primary overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
+      data-scroll-container={width < breakpoints.lg}
     >
       <Head>
         <title>Shop - Wrcked</title>

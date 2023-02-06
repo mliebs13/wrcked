@@ -7,7 +7,7 @@ const Header: FC = () => {
   return (
     <header
       className={classNames(
-        "relative w-full items-center justify-center h-[var(--header-height)] py-6 lg:py-8 px-[var(--base-padding)] sm:pl-[calc(var(--side-width)-(var(--logo-width)/2))] z-[8]"
+        "relative w-full items-center justify-center h-[var(--header-height)] py-6 lg:py-8 px-[var(--base-padding)] lg:pl-[calc(var(--side-width)-(var(--logo-width)/2))] z-[8]"
         // "after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:content-[''] after:bg-primary after:block"
       )}
     >
