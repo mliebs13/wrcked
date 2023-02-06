@@ -1,6 +1,7 @@
 import { ReactElement, ReactNode, useRef } from "react";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/react";
 import * as RadixToast from "@radix-ui/react-toast";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 
@@ -22,7 +23,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return getLayout(
     <LocomotiveScrollProvider
       options={{
-        smooth: true,
+        smooth: false,
         mobile: {
           smooth: true,
           breakpoint: 0,
@@ -38,6 +39,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     >
       <RadixToast.Provider swipeDirection="right">
         <Component {...pageProps} />
+        <Analytics />
       </RadixToast.Provider>
     </LocomotiveScrollProvider>
   );
