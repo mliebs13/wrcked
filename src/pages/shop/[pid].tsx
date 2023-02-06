@@ -45,7 +45,7 @@ const Product = ({
   ) : (
     <main
       ref={ref}
-      className="relative w-full bg-secondary bg-dots-primary bg-base lg:bg-none text-primary overflow-x-hidden"
+      className="custom-scroll relative w-full bg-secondary bg-dots-primary bg-base lg:bg-none text-primary overflow-x-hidden"
       onClick={() => detailsOpen && setDetailsOpen(false)}
       data-scroll-container={width < breakpoints.lg}
     >
