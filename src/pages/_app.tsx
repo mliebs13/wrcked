@@ -23,13 +23,15 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     <LocomotiveScrollProvider
       options={{
         smooth: true,
-        smoothMobile: true,
         mobile: {
           smooth: true,
+          breakpoint: 0,
+          getDirection: true,
         },
         tablet: {
           smooth: true,
-          breakpoint: 960,
+          breakpoint: 0,
+          getDirection: true,
         },
       }}
       containerRef={ref}
