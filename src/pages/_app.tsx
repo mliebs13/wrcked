@@ -3,7 +3,6 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 import * as RadixToast from "@radix-ui/react-toast";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 
 import "../styles/base.css";
 
@@ -21,27 +20,10 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const ref = useRef(null);
 
   return getLayout(
-    <LocomotiveScrollProvider
-      options={{
-        smooth: false,
-        mobile: {
-          smooth: true,
-          breakpoint: 0,
-          getDirection: true,
-        },
-        tablet: {
-          smooth: true,
-          breakpoint: 0,
-          getDirection: true,
-        },
-      }}
-      containerRef={ref}
-    >
-      <RadixToast.Provider swipeDirection="right">
-        <Component {...pageProps} />
-        <Analytics />
-      </RadixToast.Provider>
-    </LocomotiveScrollProvider>
+    <RadixToast.Provider swipeDirection="right">
+      <Component {...pageProps} />
+      <Analytics />
+    </RadixToast.Provider>
   );
 };
 
