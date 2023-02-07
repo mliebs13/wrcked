@@ -24,7 +24,13 @@ const ProductImages: FC<ProductImagesProps> = ({
   const { width } = useWindowSize();
 
   return (
-    <div className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[1640px] h-full flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 ml-auto mx-auto">
+    <div
+      className="ProductImages relative w-[92vw] sm:w-[80vw] lg:w-[76vw] lg:max-w-[1640px] h-full flex justify-center lg:justify-between pb-5 pt-5 lg:pt-10 px-10 lg:px-12 ml-auto mx-auto"
+      data-scroll
+      data-scroll-speed="5"
+      data-scroll-sticky
+      data-scroll-target="#stick"
+    >
       <div className="flex flex-[0.8] sm:flex-[0.6] lg:flex-[0.825] h-full lg:max-h-[650px] max-w-[256px] lg:max-w-full items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-0 lg:mr-0">
         {width >= breakpoints.lg && (
           <motion.div
