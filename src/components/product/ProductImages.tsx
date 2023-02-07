@@ -31,7 +31,7 @@ const ProductImages: FC<ProductImagesProps> = ({
       data-scroll-sticky
       data-scroll-target="#stick"
     >
-      <div className="flex flex-[0.8] sm:flex-[0.65] lg:flex-[0.825] h-full lg:max-h-[650px] max-w-[256px] lg:max-w-full items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-0 lg:mr-0">
+      <div className="flex flex-[0.8] sm:flex-[0.6] lg:flex-[0.825] h-full lg:max-h-[650px] max-w-[256px] lg:max-w-full items-end self-center lg:self-start justify-center pt-6 lg:pt-0 -mr-16 lg:ml-0 lg:mr-0">
         {width >= breakpoints.lg && (
           <motion.div
             key={gif}
@@ -76,12 +76,12 @@ const ProductImages: FC<ProductImagesProps> = ({
         </motion.div>
       </div>
 
-      <div className="bar flex flex-[0.3] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))]- lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height))] lg:ml-0 z-10">
+      <div className="bar flex flex-[0.2] h-[390px] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))] lg:h-[calc(100%+2.5rem+var(--box-height)+var(--name-box-height))]- lg:max-h-[760px] min-h-[150px] lg:min-h-auto justify-self-end lg:-mt-[calc(2.5rem+var(--box-height)+var(--name-box-height))] lg:ml-0 z-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="min-w-[75px] lg:min-w-[85px] lg:max-w-[85px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(var(--name-box-height)+var(--box-height)/2+1rem)] mr-3.5"
+          className="min-w-[90px] lg:min-w-[95px] lg:max-w-[95px] w-max h-fit bg-secondary text-sm text-right font-bold mt-2 lg:mt-[calc(var(--name-box-height)+var(--box-height)/2+1rem)] mr-3.5"
         >
           <p className="w-max">{verticalDimension}</p>
         </motion.div>
